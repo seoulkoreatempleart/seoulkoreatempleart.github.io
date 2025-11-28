@@ -9,42 +9,81 @@
         body {
             margin: 0;
             font-family: "Helvetica Neue", Arial, sans-serif;
-            background-color: #F4EFE9; /* soft cream */
-            color: #5A5352; /* soft taupe-gray text */
+            background-color: #F4EFE9;
+            color: #5A5352;
         }
 
         header {
-            background-color: #E6D7CE; /* sandy pink */
-            padding: 30px;
+            background-color: #E6D7CE;
+            padding: 40px 20px 30px;
             text-align: center;
             border-bottom: 2px solid #D8CFC7;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.2em;
+            font-size: 2.1em;
             color: #5A5352;
             letter-spacing: 1px;
+            white-space: nowrap;
         }
 
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 15px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #5A5352;
+        /* MENU BUTTON (text + icon) */
+        .menu-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 12px 22px;
             background-color: #F4EFE9;
-            padding: 10px 16px;
-            border-radius: 6px;
             border: 1px solid #D8CFC7;
-            transition: background-color 0.2s;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1em;
+            color: #5A5352;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        nav a:hover {
+        .menu-button:hover {
+            background-color: #E6D7CE;
+            transform: translateY(-2px);
+        }
+
+        /* Hamburger icon style */
+        .hamburger {
+            font-size: 1.3em;
+            line-height: 1;
+        }
+
+        /* ANIMATED DROPDOWN */
+        .dropdown {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.45s ease, opacity 0.45s ease;
+            margin-top: 10px;
+        }
+
+        .dropdown.show {
+            max-height: 300px;
+            opacity: 1;
+        }
+
+        .dropdown a {
+            display: block;
+            text-decoration: none;
+            padding: 10px;
+            margin: 6px auto;
+            width: 200px;
+            background-color: #F4EFE9;
+            border: 1px solid #D8CFC7;
+            border-radius: 6px;
+            color: #5A5352;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown a:hover {
             background-color: #E6D7CE;
         }
 
@@ -65,26 +104,48 @@
             font-size: 1.1em;
             color: #5A5352;
         }
+
+        @media (max-width: 400px) {
+            header h1 {
+                font-size: 1.7em;
+            }
+        }
     </style>
+
+    <script>
+        function toggleMenu() {
+            const dropdown = document.getElementById("dropdown");
+            dropdown.classList.toggle("show");
+        }
+    </script>
 </head>
 
 <body>
+
     <header>
-        <h1>Seoul Korea Temple Art</h1>
-        <nav>
+        <h1>SEOUL KOREA TEMPLE ART</h1>
+
+        <!-- MENU button with text + hamburger icon -->
+        <div class="menu-button" onclick="toggleMenu()">
+            <span class="hamburger">☰</span>
+            <span>MENU</span>
+        </div>
+
+        <div id="dropdown" class="dropdown">
             <a href="illustrations.html">Illustrations</a>
             <a href="paintings.html">Paintings</a>
             <a href="musings.html">Musings</a>
             <a href="about.html">About + Contact</a>
-        </nav>
+        </div>
     </header>
 
     <section class="intro">
         <h2>Welcome</h2>
         <p>
             Explore my drawings, paintings, and thoughts inspired by the Seoul Korea Temple.
-            Click the sections above to begin.
+            Tap the menu above to begin.
         </p>
     </section>
+
 </body>
 </html>
