@@ -89,6 +89,62 @@
       margin-top: 40px;
       font-size: 0.9rem;
     }
+/* Hide mobile menu button by default (desktop only) */
+.mobile-menu-button {
+    display: none;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    background-color: #f6eee6; /* same sandy palette */
+    border-radius: 8px;
+    width: fit-content;
+    margin: 10px auto;
+    font-weight: 500;
+}
+
+.mobile-menu-button .hamburger {
+    margin-right: 6px;
+}
+
+/* Mobile dropdown hidden at first */
+.mobile-dropdown {
+    display: none;
+    flex-direction: column;
+    background-color: #fbf7f4; /* soft warm cream */
+    border: 1px solid #d6c9c0; /* light taupe border */
+    border-radius: 10px;
+    margin: 10px auto;
+    width: 90%;
+    overflow: hidden;
+}
+
+.mobile-dropdown a {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e4dcd5;
+    text-decoration: none;
+    color: #444;
+    font-size: 1rem;
+}
+
+.mobile-dropdown a:last-child {
+    border-bottom: none;
+}
+
+/* SHOW MOBILE MENU ON SMALL SCREENS */
+@media (max-width: 768px) {
+
+    /* Hide the desktop horizontal menu */
+    nav ul {
+        display: none;
+    }
+
+    /* Show mobile button */
+    .mobile-menu-button {
+        display: block;
+    }
+}
+
+      
   </style>
 </head>
 
