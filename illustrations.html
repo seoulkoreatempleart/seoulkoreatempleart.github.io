@@ -263,6 +263,22 @@ document.getElementById("lightbox").addEventListener("click", function(e) {
       <!-- Add your illustration
     
   <footer>© Seoul Korea Temple Art</footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const button = document.querySelector(".mobile-menu-button");
+    const dropdown = document.querySelector(".mobile-dropdown");
+
+    if (button) {
+        button.addEventListener("click", () => {
+            if (dropdown.style.display === "flex") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "flex";
+            }
+        });
+    }
+});
+</script>
 
 </body>
 </html>
