@@ -141,15 +141,17 @@
 
         /* HERO SECTION (placeholder) */
       .hero img {
-  width: 100%;
-  max-width: 800px;
+  width: 50%;            /* reduces size by 50% */
+  max-width: 400px;      /* keeps it from getting too big on large screens */
+  display: block;
+  margin: 0 auto;        /* center the image */
   border-radius: 12px;
 
   /* Soft gold–pink border */
   border: 6px solid;
   border-image: linear-gradient(135deg, #eac8b8, #f7dcdc, #d6b495) 1;
 
-  /* Optional subtle glow */
+  /* Subtle glow */
   box-shadow: 0 0 15px rgba(235, 200, 180, 0.35);
 }
 
