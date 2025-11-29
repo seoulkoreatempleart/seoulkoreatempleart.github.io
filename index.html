@@ -140,14 +140,21 @@
         }
 
         /* HERO SECTION (placeholder) */
-        .hero {
+       .hero {
     width: 100%;
-    height: 100%;
-    background-image: url("images/hero2.jpg");
-    background-size: cover;
-    background-position: center;
+    height: 150px;                        /* banner height */
+    background-image: url("images/hero2.jpg");  /* your image */
+    background-size: auto 100%;           /* scale height to fit, width proportional */
     background-repeat: no-repeat;
+    background-position: center;
+
+    /* soft shadow & glow */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15),   /* subtle shadow */
+                0 0 20px rgba(255, 255, 240, 0.2); /* soft warm glow */
+    border-radius: 12px;                   /* slightly rounded corners */
+    margin: 20px auto;                     /* space above & below */
 }
+
 
         .intro {
             text-align: center;
