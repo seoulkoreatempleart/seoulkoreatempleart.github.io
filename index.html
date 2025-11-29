@@ -142,18 +142,24 @@
         /* HERO SECTION (placeholder) */
        .hero {
     width: 100%;
-    height: 150px;                        /* banner height */
-    background-image: url("images/hero2.jpg");  /* your image */
-    background-size: auto 100%;           /* scale height to fit, width proportional */
+    height: 225px;                        /* enlarged by 50% */
+    background-image: url("images/hero2.jpg");
+    background-size: auto 100%;           /* full height, centered */
     background-repeat: no-repeat;
     background-position: center;
 
-    /* soft shadow & glow */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15),   /* subtle shadow */
-                0 0 20px rgba(255, 255, 240, 0.2); /* soft warm glow */
-    border-radius: 12px;                   /* slightly rounded corners */
-    margin: 20px auto;                     /* space above & below */
+    /* soft shadow + glow */
+    box-shadow: 
+        0 6px 16px rgba(0, 0, 0, 0.18),      /* deeper soft shadow */
+        0 0 28px rgba(255, 230, 220, 0.28);  /* warm ambient glow */
+
+    /* gold-pink border */
+    border: 4px solid rgba(230, 180, 160, 0.7);  /* soft golden-rose tone */
+    border-radius: 14px;
+
+    margin: 25px auto;                     /* spacing top & bottom */
 }
+
 
 
         .intro {
