@@ -6,6 +6,9 @@
   <title>About / Contact – Seoul Korea Temple Art</title>
 
   <style>
+    /* -------------------------
+       GLOBAL
+    ------------------------- */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -20,20 +23,10 @@
       font-size: 2rem;
       font-weight: bold;
     }
-    
-<!-- MOBILE MENU BUTTON (shown only on small screens) -->
-<div class="mobile-menu-button">
-    <span class="hamburger">☰</span> Menu
-</div>
 
-<!-- MOBILE DROPDOWN MENU -->
-<div class="mobile-dropdown">
-    <a href="index.html">Home</a>
-    <a href="illustrations.html">Illustrations</a>
-    <a href="paintings.html">Paintings</a>
-    <a href="about.html">About / Contact</a>
-</div>
-    
+    /* -------------------------
+       DESKTOP NAV
+    ------------------------- */
     nav {
       display: flex;
       justify-content: center;
@@ -53,6 +46,62 @@
       color: #C5B4A3;
     }
 
+    /* -------------------------
+       MOBILE MENU
+    ------------------------- */
+    .mobile-menu-button {
+      display: none;
+      font-size: 1.2rem;
+      padding: 10px 15px;
+      cursor: pointer;
+      background-color: #f6eee6;
+      border-radius: 8px;
+      width: fit-content;
+      margin: 10px auto;
+      font-weight: 500;
+    }
+
+    .mobile-menu-button .hamburger {
+      margin-right: 6px;
+    }
+
+    .mobile-dropdown {
+      display: none;
+      flex-direction: column;
+      background-color: #fbf7f4;
+      border: 1px solid #d6c9c0;
+      border-radius: 10px;
+      margin: 10px auto;
+      width: 90%;
+      overflow: hidden;
+    }
+
+    .mobile-dropdown a {
+      padding: 12px 15px;
+      border-bottom: 1px solid #e4dcd5;
+      text-decoration: none;
+      color: #444;
+      font-size: 1rem;
+    }
+
+    .mobile-dropdown a:last-child {
+      border-bottom: none;
+    }
+
+    /* Small screen rules */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .mobile-menu-button {
+        display: block;
+      }
+    }
+
+    /* -------------------------
+       CONTENT
+    ------------------------- */
     .wrapper {
       max-width: 900px;
       margin: 40px auto;
@@ -75,6 +124,15 @@
       margin-top: 20px;
     }
 
+    /* Fix long URL overflow */
+    .section p {
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+
+    /* -------------------------
+       FOOTER
+    ------------------------- */
     footer {
       background: #F5E8E0;
       color: #8F7A68;
@@ -83,62 +141,6 @@
       margin-top: 40px;
       font-size: 0.9rem;
     }
-    
-    /* Hide mobile menu button by default (desktop only) */
-.mobile-menu-button {
-    display: none;
-    font-size: 1.2rem;
-    padding: 10px 15px;
-    cursor: pointer;
-    background-color: #f6eee6; /* same sandy palette */
-    border-radius: 8px;
-    width: fit-content;
-    margin: 10px auto;
-    font-weight: 500;
-}
-
-.mobile-menu-button .hamburger {
-    margin-right: 6px;
-}
-
-/* Mobile dropdown hidden at first */
-.mobile-dropdown {
-    display: none;
-    flex-direction: column;
-    background-color: #fbf7f4; /* soft warm cream */
-    border: 1px solid #d6c9c0; /* light taupe border */
-    border-radius: 10px;
-    margin: 10px auto;
-    width: 90%;
-    overflow: hidden;
-}
-
-.mobile-dropdown a {
-    padding: 12px 15px;
-    border-bottom: 1px solid #e4dcd5;
-    text-decoration: none;
-    color: #444;
-    font-size: 1rem;
-}
-
-.mobile-dropdown a:last-child {
-    border-bottom: none;
-}
-
-/* SHOW MOBILE MENU ON SMALL SCREENS */
-@media (max-width: 768px) {
-
-    /* Hide the desktop horizontal menu */
-    nav ul {
-        display: none;
-    }
-
-    /* Show mobile button */
-    .mobile-menu-button {
-        display: block;
-    }
-}
-
   </style>
 </head>
 
@@ -146,6 +148,21 @@
 
   <header>About / Contact</header>
 
+  <!-- MOBILE MENU BUTTON -->
+  <div class="mobile-menu-button">
+    <span class="hamburger">☰</span> Menu
+  </div>
+
+  <!-- MOBILE DROPDOWN -->
+  <div class="mobile-dropdown">
+    <a href="index.html">Home</a>
+    <a href="illustrations.html">Illustrations</a>
+    <a href="paintings.html">Paintings</a>
+    <a href="musings.html">Musings</a>
+    <a href="about.html">About / Contact</a>
+  </div>
+
+  <!-- DESKTOP NAV -->
   <nav>
     <a href="index.html">Home</a>
     <a href="illustrations.html">Illustrations</a>
@@ -155,23 +172,35 @@
   </nav>
 
   <div class="wrapper">
-    
+
     <h2>About the Artist</h2>
 
     <div class="section">
       <p>
-        Hi! My name is Irene Yoon. In 2017, I served a mission for the Church of Jesus Christ of Latter-day Saints at the Seoul Korea temple as a single senior missionary, where I welcomed and assisted temple patrons in their temple worship and service. I had the privilege of living on the temple grounds during my mission, and I immediately fell in love with the Seoul Korea temple and its gardens. In my spare time, I would often take photos or draw the temple and its flowers. I also tried my hand at painting the temple, with varying degrees of success.</p> 
-        
-        <p>After my mission, I returned to Canada, where I was born and raised, and then for the next several months, I traveled to Utah, China, and Japan and took drawing and painting classes. Eventually I returned to Korea and again spent a lot of time at the temple, drawing and taking photos. I also took Korean folk art painting classes and tried painting the flowers from the temple gardens.</p>
+        Hi! My name is Irene Yoon. In 2017, I served a mission for the Church of Jesus Christ of Latter-day Saints at the Seoul Korea temple...
+      </p>
 
-         <p>For the first few years, my art focused mainly on the Seoul Korea temple and its flowers. But lately, I’ve been focusing on how much the temple means to our ancestors.</p>
+      <p>
+        After my mission, I returned to Canada... I also took Korean folk art painting classes and tried painting the flowers from the temple gardens.
+      </p>
 
-         <p>My previous art and some temple photos may be seen at: https://seethetemple.wordpress.com/</p>
+      <p>
+        For the first few years, my art focused mainly on the Seoul Korea temple and its flowers.
+      </p>
 
-         <p>Most of my photos of the Seoul Korea temple are at: https://www.instagram.com/seoulkoreatemple/</p>
+      <p>
+        My previous art and some temple photos may be seen at:  
+        https://seethetemple.wordpress.com/
+      </p>
 
-         <p>Videos of the Seoul temple that I took: www.youtube.com/@seethetemple</p>
+      <p>
+        Most of my photos of the Seoul Korea temple are at:  
+        https://www.instagram.com/seoulkoreatemple/
+      </p>
 
+      <p>
+        Videos of the Seoul temple that I took:  
+        www.youtube.com/@seethetemple
       </p>
     </div>
 
@@ -179,29 +208,25 @@
 
     <div class="section">
       <p>Thanks for visiting my site! I hope your time here has helped you to feel our Savior's love.</p>
-     
+
       <p><strong>Email:</strong> seoulkoreatempleart@gmail.com</p>
-          </div>
+    </div>
 
   </div>
 
   <footer>© Seoul Korea Temple Art</footer>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const button = document.querySelector(".mobile-menu-button");
-    const dropdown = document.querySelector(".mobile-dropdown");
 
-    if (button) {
-        button.addEventListener("click", () => {
-            if (dropdown.style.display === "flex") {
-                dropdown.style.display = "none";
-            } else {
-                dropdown.style.display = "flex";
-            }
-        });
-    }
-});
-</script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const button = document.querySelector(".mobile-menu-button");
+      const dropdown = document.querySelector(".mobile-dropdown");
+
+      button.addEventListener("click", () => {
+        dropdown.style.display =
+          dropdown.style.display === "flex" ? "none" : "flex";
+      });
+    });
+  </script>
 
 </body>
 </html>
