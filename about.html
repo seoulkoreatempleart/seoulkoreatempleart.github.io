@@ -6,9 +6,6 @@
   <title>About / Contact – Seoul Korea Temple Art</title>
 
   <style>
-    /* -------------------------
-       GLOBAL
-    ------------------------- */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -24,90 +21,69 @@
       font-weight: bold;
     }
 
-    /* -------------------------
-       DESKTOP NAV
-    ------------------------- */
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      background: #F5EDE7;
-      padding: 15px;
-      font-size: 1.1rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #8F7A68;
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      color: #C5B4A3;
-    }
-
-    /* -------------------------
-       MOBILE MENU
-    ------------------------- */
+    /* MOBILE MENU BUTTON */
     .mobile-menu-button {
-      display: none;
-      font-size: 1.2rem;
-      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      padding: 12px 18px;
       cursor: pointer;
       background-color: #f6eee6;
-      border-radius: 8px;
+      border-radius: 10px;
       width: fit-content;
-      margin: 10px auto;
-      font-weight: 500;
+      margin: 15px auto;
+      font-weight: 600;
+      transition: transform 0.3s ease;
     }
 
     .mobile-menu-button .hamburger {
-      margin-right: 6px;
+      margin-right: 10px;
+      transition: transform 0.4s ease;
+      display: inline-block;
     }
 
+    /* MOBILE DROPDOWN */
     .mobile-dropdown {
       display: none;
       flex-direction: column;
       background-color: #fbf7f4;
       border: 1px solid #d6c9c0;
-      border-radius: 10px;
-      margin: 10px auto;
+      border-radius: 12px;
+      margin: 10px auto 20px auto;
       width: 90%;
       overflow: hidden;
+      transform-origin: top;
+      animation: slideDown 0.4s ease forwards;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: scaleY(0); }
+      to { opacity: 1; transform: scaleY(1); }
     }
 
     .mobile-dropdown a {
-      padding: 12px 15px;
+      padding: 14px 18px;
       border-bottom: 1px solid #e4dcd5;
       text-decoration: none;
-      color: #444;
-      font-size: 1rem;
+      color: #6d5a4a;
+      font-size: 1.05rem;
+      font-weight: 500;
     }
 
     .mobile-dropdown a:last-child {
       border-bottom: none;
     }
 
-    /* Small screen rules */
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-      }
+    /* REMOVE DESKTOP NAV */
+    nav { display: none !important; }
 
-      .mobile-menu-button {
-        display: block;
-      }
-    }
-
-    /* -------------------------
-       CONTENT
-    ------------------------- */
     .wrapper {
       max-width: 900px;
       margin: 40px auto;
       padding: 30px;
       background: #F5EDE7;
-      border-radius: 12px;
+      border-radius: 14px;
       border: 1px solid #DDD0C3;
     }
 
@@ -119,25 +95,18 @@
     .section {
       background: white;
       border: 1px solid #DDD0C3;
-      border-radius: 10px;
+      border-radius: 12px;
       padding: 20px;
       margin-top: 20px;
-    }
-
-    /* Fix long URL overflow */
-    .section p {
       overflow-wrap: break-word;
       word-break: break-word;
     }
 
-    /* -------------------------
-       FOOTER
-    ------------------------- */
     footer {
       background: #F5E8E0;
       color: #8F7A68;
       text-align: center;
-      padding: 15px;
+      padding: 18px;
       margin-top: 40px;
       font-size: 0.9rem;
     }
@@ -145,16 +114,15 @@
 </head>
 
 <body>
-
   <header>About / Contact</header>
 
-  <!-- MOBILE MENU BUTTON -->
-  <div class="mobile-menu-button">
-    <span class="hamburger">☰</span> Menu
+  <!-- MOBILE BUTTON -->
+  <div class="mobile-menu-button" id="menuButton">
+    <span class="hamburger" id="hamburger">☰</span> Menu
   </div>
 
   <!-- MOBILE DROPDOWN -->
-  <div class="mobile-dropdown">
+  <div class="mobile-dropdown" id="dropdownMenu">
     <a href="index.html">Home</a>
     <a href="illustrations.html">Illustrations</a>
     <a href="paintings.html">Paintings</a>
@@ -162,69 +130,55 @@
     <a href="about.html">About / Contact</a>
   </div>
 
-  <!-- DESKTOP NAV -->
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="illustrations.html">Illustrations</a>
-    <a href="paintings.html">Paintings</a>
-    <a href="musings.html">Musings</a>
-    <a href="about.html">About / Contact</a>
-  </nav>
-
   <div class="wrapper">
-
     <h2>About the Artist</h2>
 
     <div class="section">
-      <p>
-        Hi! My name is Irene Yoon. In 2017, I served a mission for the Church of Jesus Christ of Latter-day Saints at the Seoul Korea temple...
-      </p>
+      <p>Hi! My name is Irene Yoon. In 2017, I served a mission for the Church of Jesus Christ of Latter-day Saints at the Seoul Korea Temple.</p>
 
-      <p>
-        After my mission, I returned to Canada... I also took Korean folk art painting classes and tried painting the flowers from the temple gardens.
-      </p>
+      <p>After my mission, I returned to Canada and continued painting. I also studied Korean folk art and enjoyed painting temple garden flowers.</p>
 
-      <p>
-        For the first few years, my art focused mainly on the Seoul Korea temple and its flowers.
-      </p>
+      <p>For the first few years, my art focused mainly on the Seoul Korea Temple and its beautiful flowers.</p>
 
-      <p>
-        My previous art and some temple photos may be seen at:  
-        https://seethetemple.wordpress.com/
-      </p>
+      <p>My earlier art and temple photos can be seen at:<br>
+      https://seethetemple.wordpress.com/</p>
 
-      <p>
-        Most of my photos of the Seoul Korea temple are at:  
-        https://www.instagram.com/seoulkoreatemple/
-      </p>
+      <p>More temple photography:<br>
+      https://www.instagram.com/seoulkoreatemple/</p>
 
-      <p>
-        Videos of the Seoul temple that I took:  
-        www.youtube.com/@seethetemple
-      </p>
+      <p>Temple videos:<br>
+      www.youtube.com/@seethetemple</p>
     </div>
 
     <h2 style="margin-top:40px;">Contact</h2>
 
     <div class="section">
-      <p>Thanks for visiting my site! I hope your time here has helped you to feel our Savior's love.</p>
-
+      <p>Thanks for visiting my site! I hope your time here helps you feel our Savior's love.</p>
       <p><strong>Email:</strong> seoulkoreatempleart@gmail.com</p>
     </div>
-
   </div>
 
   <footer>© Seoul Korea Temple Art</footer>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const button = document.querySelector(".mobile-menu-button");
-      const dropdown = document.querySelector(".mobile-dropdown");
+    const button = document.getElementById("menuButton");
+    const dropdown = document.getElementById("dropdownMenu");
+    const ham = document.getElementById("hamburger");
 
-      button.addEventListener("click", () => {
-        dropdown.style.display =
-          dropdown.style.display === "flex" ? "none" : "flex";
-      });
+    let open = false;
+
+    button.addEventListener("click", () => {
+      open = !open;
+
+      if (open) {
+        dropdown.style.display = "flex";
+        ham.style.transform = "rotate(90deg)";
+        ham.textContent = "✕";
+      } else {
+        dropdown.style.display = "none";
+        ham.style.transform = "rotate(0deg)";
+        ham.textContent = "☰";
+      }
     });
   </script>
 
