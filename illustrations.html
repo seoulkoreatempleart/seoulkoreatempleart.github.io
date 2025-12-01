@@ -1,255 +1,97 @@
+<!-- Updated Illustrations Page Template with Footer, Smaller Thumbnails, and Clickable Links -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Illustrations – Seoul Korea Temple Art</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Illustrations – Seoul Korea Temple Art</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: "Helvetica Neue", Arial, sans-serif;
-            background-color: #F4EFE9;
-            color: #5A5352;
-        }
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #F5E8E0;
+      color: #4A2E2A;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        header {
-            background-color: #E6D7CE;
-            padding: 40px 20px 20px;
-            text-align: center;
-            border-bottom: 2px solid #D8CFC7;
-            position: relative;
-        }
+    /* Container */
+    .content-container {
+      max-width: 800px;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      animation: fadeIn 0.8s ease-out;
+    }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.1em;
-            letter-spacing: 1px;
-            color: #5A5352;
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        /* MENU BUTTON */
-        .menu-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 20px;
-            padding: 12px 22px;
-            background-color: #F4EFE9;
-            border: 1px solid #D8CFC7;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 1.1em;
-            color: #5A5352;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            user-select: none;
-        }
+    h1 {
+      font-size: 2.2rem;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
 
-        .menu-button:hover {
-            background-color: #E6D7CE;
-            transform: translateY(-2px);
-        }
+    /* Illustration grid */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      justify-items: center;
+      margin-top: 20px;
+    }
 
-        /* HAMBURGER ICON */
-        .hamburger {
-            width: 22px;
-            height: 16px;
-            position: relative;
-        }
-        .hamburger span {
-            position: absolute;
-            height: 3px;
-            width: 100%;
-            background-color: #5A5352;
-            left: 0;
-            transition: 0.35s ease;
-            border-radius: 3px;
-        }
-        .hamburger span:nth-child(1) { top: 0; }
-        .hamburger span:nth-child(2) { top: 6px; }
-        .hamburger span:nth-child(3) { top: 12px; }
+    .thumb {
+      width: 80%; /* 20% smaller than previous */
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
 
-        /* ACTIVE STATE */
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg);
-            top: 6px;
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg);
-            top: 6px;
-        }
+    .thumb:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.22);
+    }
 
-        /* DROPDOWN */
-        .dropdown {
-            max-height: 0;
-            overflow: hidden;
-            opacity: 0;
-            transition: max-height 0.5s ease, opacity 0.5s ease;
-            margin-top: 10px;
+    /* Footer */
+    footer {
+      margin-top: 40px;
+      background: #E4D5CC;
+      color: #4A2E2A;
+      padding: 15px;
+      text-align: center;
+      width: 100%;
+    }
 
-            background-image: url("https://www.transparenttextures.com/patterns/paper.png");
-            background-color: #F4EFE9;
-            border-radius: 14px;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-            width: 240px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 0 10px 0;
-        }
-
-        .dropdown.show {
-            max-height: 400px;
-            opacity: 1;
-        }
-
-        .dropdown a {
-            display: block;
-            text-decoration: none;
-            padding: 12px;
-            margin: 10px auto;
-            width: 180px;
-            background-color: #FFFFFFEE;
-            border: 1px solid #D8CFC7;
-            border-radius: 8px;
-            color: #5A5352;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(10px);
-            animation: fadeUp 0.5s forwards;
-        }
-
-        .dropdown a:nth-child(1) { animation-delay: 0.15s; }
-        .dropdown a:nth-child(2) { animation-delay: 0.30s; }
-        .dropdown a:nth-child(3) { animation-delay: 0.45s; }
-        .dropdown a:nth-child(4) { animation-delay: 0.60s; }
-
-        @keyframes fadeUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .wrapper {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-            background: #F5EDE7;
-            border-radius: 12px;
-            border: 1px solid #DDD0C3;
-        }
-
-        h2 { text-align: center; color: #5A5352; }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .gallery div {
-            background: white;
-            border: 1px solid #D8CFC7;
-            border-radius: 10px;
-            padding: 12px;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.08);
-        }
-
-        /* Lightbox */
-        .lightbox {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.85);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.6);
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; }
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 35px;
-            right: 40px;
-            font-size: 40px;
-            color: white;
-            cursor: pointer;
-        }
-
-        footer {
-            background: #F4EFE9;
-            color: #5A5352;
-            text-align: center;
-            padding: 15px;
-            margin-top: 40px;
-            font-size: 0.9rem;
-        }
-    </style>
-
-    <script>
-        function toggleMenu() {
-            const dropdown = document.getElementById("dropdown");
-            const burger = document.getElementById("burger");
-            dropdown.classList.toggle("show");
-            burger.classList.toggle("active");
-        }
-
-        function openLightbox(src) {
-            document.getElementById("lightbox-img").src = src;
-            document.getElementById("lightbox").style.display = "flex";
-        }
-
-        function closeLightbox() {
-            document.getElementById("lightbox").style.display = "none";
-        }
-    </script>
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
+  <div class="content-container">
     <h1>Illustrations</h1>
 
-    <div class="menu-button" onclick="toggleMenu()">
-        <div id="burger" class="hamburger"><span></span><span></span><span></span></div>
-        <span>MENU</span>
+    <div class="grid">
+      <!-- EXAMPLE THUMBNAILS – replace image filenames -->
+      <a href="illustration1.html"><img src="illustration1.jpg" class="thumb" alt="Illustration 1"></a>
+      <a href="illustration2.html"><img src="illustration2.jpg" class="thumb" alt="Illustration 2"></a>
+      <a href="illustration3.html"><img src="illustration3.jpg" class="thumb" alt="Illustration 3"></a>
+      <a href="illustration4.html"><img src="illustration4.jpg" class="thumb" alt="Illustration 4"></a>
     </div>
+  </div>
 
-    <div id="dropdown" class="dropdown">
-        <a href="index.html">Home</a>
-        <a href="illustrations.html">Illustrations</a>
-        <a href="paintings.html">Paintings</a>
-        <a href="musings.html">Musings</a>
-        <a href="about.html">About + Contact</a>
-    </div>
-</header>
+  <footer>
+    © Seoul Korea Temple Art
+  </footer>
 
-<div class="wrapper">
-    <h2>My Illustration Work</h2>
-    <p style="text-align:center;">A collection of my drawings and illustration studies.</p>
-
-    <div class="gallery">
-        <div><img src="images/sealing_joseon_couple.jpg" style="width:100%; border-radius:8px; cursor:zoom-in;" onclick="openLightbox(this.src)"></div>
-        <div><img src="images/waiting_joseon_family.png" style="width:100%; border-radius:8px; cursor:zoom-in;" onclick="openLightbox(this.src)"></div>
-        <div><img src="images/temple_magnolia_tree_bloom.png" style="width:100%; border-radius:8px; cursor:zoom-in;" onclick="openLightbox(this.src)"></div>
-        <div><img src="images/10_views_think_celestial.jpg" style="width:100%; border-radius:8px; cursor:zoom-in;" onclick="openLightbox(this.src)"></div>
-    </div>
-</div>
-
-<div id="lightbox" class="lightbox" onclick="if(event.target===this)closeLightbox()">
+</body>
+</html>
