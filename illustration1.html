@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sealing – Joseon Couple</title>
+  <title>Joseon Couple Sealing – Seoul Korea Temple Art</title>
 
   <style>
     body {
@@ -14,16 +14,15 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      overflow-x: hidden;
     }
 
-    /* Centered Content */
     .content-container {
       max-width: 800px;
       width: 100%;
       padding: 20px;
       text-align: center;
       animation: fadeIn 0.8s ease-out;
+      margin-top: 40px;
     }
 
     @keyframes fadeIn {
@@ -33,106 +32,58 @@
 
     h1 {
       font-size: 2rem;
-      margin-top: 20px;
+      margin-bottom: 20px;
     }
 
-    /* Large Illustration */
-    .full-img {
-      width: 100%;
-      max-width: 650px;
-      border-radius: 12px;
-      margin-top: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      animation: fadeIn 1s ease-out;
+    .illustration-img {
+      width: 90%;
+      max-width: 700px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+      margin-bottom: 25px;
     }
 
-    p {
-      font-size: 1.1rem;
-      margin: 20px auto;
-      max-width: 650px;
-      line-height: 1.5;
+    .blurb {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
-    /* Animated Menu */
-    .menu-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      z-index: 1000;
-      user-select: none;
-    }
-
-    .menu-panel {
-      position: fixed;
-      top: 0;
-      left: -250px;
-      width: 250px;
-      height: 100%;
+    .back-link {
+      margin-top: 30px;
+      display: inline-block;
+      padding: 12px 20px;
       background: #E4D5CC;
-      padding-top: 60px;
-      box-shadow: 2px 0 8px rgba(0,0,0,0.2);
-      transition: left 0.3s ease;
-      z-index: 999;
-    }
-
-    .menu-panel a {
-      display: block;
-      padding: 15px 20px;
-      font-size: 1.1rem;
-      color: #4A2E2A;
+      border-radius: 8px;
       text-decoration: none;
-    }
-
-    .menu-panel a:hover {
-      background: #D8C7BE;
-    }
-
-    .menu-open {
-      left: 0;
-    }
-
-    /* Footer */
-    footer {
-      margin-top: 40px;
-      background: #E4D5CC;
       color: #4A2E2A;
-      padding: 15px;
-      text-align: center;
-      width: 100%;
+      transition: background 0.3s;
+    }
+
+    .back-link:hover {
+      background: #D8C3B9;
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Animated Menu Button -->
-  <div class="menu-button" onclick="toggleMenu()">☰</div>
-
-  <!-- Slide-out Menu -->
-  <div class="menu-panel" id="menuPanel">
-    <a href="index.html">Home</a>
-    <a href="illustrations.html">Illustrations</a>
-    <a href="musings.html">Musings</a>
-    <a href="about.html">About</a>
-  </div>
-
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('menuPanel');
-      menu.classList.toggle('menu-open');
-    }
-  </script>
-
   <div class="content-container">
-    <h1>Sealing – Joseon Era Couple</h1>
-    <img src="sealing_joseon_couple.jpg" alt="Joseon Couple Sealing" class="full-img" />
-    <p>"A Joseon era couple about to enter the temple to witness their sealing performed on their behalf."</p>
-  </div>
 
-  <footer>
-    © Seoul Korea Temple Art
-  </footer>
+    <h1>Joseon Couple Sealing</h1>
+
+    <img src="images/sealing_joseon_couple.jpg"
+         alt="Joseon Couple Sealing Illustration"
+         class="illustration-img">
+
+    <p class="blurb">
+      A Joseon era couple is about to enter the temple to witness their sealing performed on their behalf.
+    </p>
+
+    <a class="back-link" href="illustrations.html">← Back to Illustrations</a>
+
+  </div>
 
 </body>
 </html>
