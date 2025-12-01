@@ -67,4 +67,131 @@
       color: #8F7A68;
       text-align: center;
       padding: 15px;
-      margin-top: 40
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+
+
+    /* ----------------------------- */
+    /* MOBILE MENU                   */
+    /* ----------------------------- */
+
+    .mobile-menu-button {
+      display: none;
+      font-size: 1.2rem;
+      padding: 10px 15px;
+      cursor: pointer;
+      background-color: #f6eee6;
+      border-radius: 8px;
+      width: fit-content;
+      margin: 15px auto 0;
+      font-weight: 500;
+    }
+
+    .mobile-menu-button .hamburger {
+      margin-right: 6px;
+    }
+
+    .mobile-dropdown {
+      display: none;
+      flex-direction: column;
+      background-color: #fbf7f4;
+      border: 1px solid #d6c9c0;
+      border-radius: 10px;
+      margin: 10px auto;
+      width: 70%;       /* <<< NARROW WIDTH */
+      max-width: 300px; /* <<< PREVENT TOO WIDE ON TABLETS */
+      text-align: center;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* pretty shadow */
+    }
+
+    .mobile-dropdown a {
+      padding: 12px 15px;
+      border-bottom: 1px solid #e4dcd5;
+      text-decoration: none;
+      color: #444;
+      font-size: 1rem;
+    }
+
+    .mobile-dropdown a:last-child {
+      border-bottom: none;
+    }
+
+    @media (max-width: 768px) {
+
+      /* Hide desktop nav on mobile */
+      nav {
+        display: none;
+      }
+
+      /* Show hamburger button */
+      .mobile-menu-button {
+        display: block;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header>Musings</header>
+
+  <!-- MOBILE HAMBURGER BUTTON -->
+  <div class="mobile-menu-button">
+    <span class="hamburger">☰</span> Menu
+  </div>
+
+  <!-- MOBILE DROPDOWN -->
+  <div class="mobile-dropdown">
+    <a href="index.html">Home</a>
+    <a href="illustrations.html">Illustrations</a>
+    <a href="paintings.html">Paintings</a>
+    <a href="musings.html">Musings</a>
+    <a href="about.html">About / Contact</a>
+  </div>
+
+  <!-- DESKTOP NAVIGATION -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="illustrations.html">Illustrations</a>
+    <a href="paintings.html">Paintings</a>
+    <a href="musings.html">Musings</a>
+    <a href="about.html">About / Contact</a>
+  </nav>
+
+  <div class="wrapper">
+    <h2>Thoughts, Reflections & Inspiration</h2>
+    <p style="text-align:center;">Occasional notes and insights connected to my art and spiritual impressions.</p>
+
+    <div class="entry">
+      <h3>A Thought...</h3>
+      <p>When I have one, it'll be here! :D</p>
+    </div>
+
+    <div class="entry">
+      <h3>Another thought...</h3>
+      <p>...it'll eventually come! :D</p>
+    </div>
+
+  </div>
+
+  <footer>© Seoul Korea Temple Art</footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const button = document.querySelector(".mobile-menu-button");
+      const dropdown = document.querySelector(".mobile-dropdown");
+
+      if (button) {
+        button.addEventListener("click", () => {
+          dropdown.style.display =
+            dropdown.style.display === "flex" ? "none" : "flex";
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
