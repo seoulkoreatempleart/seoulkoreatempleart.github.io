@@ -1,187 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Illustrations – Seoul Korea Temple Art</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Illustrations – Seoul Korea Temple Art</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #F5E8E0;
-      color: #4A2E2A;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+    <style>
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background-color: #F4EFE9;
+            color: #5A5352;
+        }
 
-    /* NAV MENU (matches homepage) */
-    .menu-icon {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      width: 35px;
-      cursor: pointer;
-      z-index: 1000;
-    }
+        /* HEADER (COPIED EXACTLY FROM HOMEPAGE) */
+        header {
+            background-color: #E6D7CE;
+            padding: 40px 20px 20px;
+            text-align: center;
+            border-bottom: 2px solid #D8CFC7;
+            position: relative;
+        }
 
-    .bar {
-      width: 100%;
-      height: 4px;
-      background-color: #4A2E2A;
-      margin: 6px 0;
-      transition: 0.4s;
-    }
+        header h1 {
+            margin: 0;
+            font-size: 2.1em;
+            color: #5A5352;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
 
-    .menu {
-      position: fixed;
-      top: 0;
-      right: -250px;
-      width: 250px;
-      height: 100%;
-      background: #E4D5CC;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.2);
-      padding-top: 80px;
-      transition: right 0.4s ease;
-      z-index: 999;
-    }
+        /* MENU BUTTON */
+        .menu-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 12px 22px;
+            background-color: #F4EFE9;
+            border: 1px solid #D8CFC7;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1em;
+            color: #5A5352;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            user-select: none;
+        }
+        .menu-button:hover {
+            background-color: #E6D7CE;
+            transform: translateY(-2px);
+        }
 
-    .menu a {
-      display: block;
-      padding: 15px 25px;
-      text-decoration: none;
-      color: #4A2E2A;
-      font-size: 1.2rem;
-      transition: background 0.3s;
-    }
+        /* HAMBURGER ANIMATION */
+        .hamburger {
+            width: 22px;
+            height: 16px;
+            position: relative;
+        }
+        .hamburger span {
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background-color: #5A5352;
+            left: 0;
+            transition: 0.35s ease;
+            border-radius: 3px;
+        }
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 6px; }
+        .hamburger span:nth-child(3) { top: 12px; }
 
-    .menu a:hover {
-      background: #D8C3B9;
-    }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+            top: 6px;
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+            top: 6px;
+        }
 
-    .menu-open .menu {
-      right: 0;
-    }
+        /* DROPDOWN MENU (COPIED EXACTLY) */
+        .dropdown {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+            margin-top: 10px;
 
-    .menu-open .bar:nth-child(1) {
-      transform: rotate(-45deg) translate(-7px, 7px);
-    }
+            background-image: url("https://www.transparenttextures.com/patterns/paper.png");
+            background-color: #F4EFE9;
 
-    .menu-open .bar:nth-child(2) {
-      opacity: 0;
-    }
+            border-radius: 14px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+            width: 240px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 0 10px 0;
+        }
+        .dropdown.show {
+            max-height: 400px;
+            opacity: 1;
+        }
 
-    .menu-open .bar:nth-child(3) {
-      transform: rotate(45deg) translate(-7px, -7px);
-    }
+        .dropdown a {
+            display: block;
+            text-decoration: none;
+            padding: 12px;
+            margin: 10px auto;
+            width: 180px;
+            background-color: #FFFFFFEE;
+            border: 1px solid #D8CFC7;
+            border-radius: 8px;
+            color: #5A5352;
+            text-align: center;
 
-    /* CONTENT */
-    .content-container {
-      max-width: 800px;
-      width: 100%;
-      padding: 20px;
-      text-align: center;
-      animation: fadeIn 0.8s ease-out;
-      margin-top: 80px;
-    }
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeUp 0.5s forwards;
+        }
+        .dropdown a:nth-child(1) { animation-delay: 0.15s; }
+        .dropdown a:nth-child(2) { animation-delay: 0.30s; }
+        .dropdown a:nth-child(3) { animation-delay: 0.45s; }
+        .dropdown a:nth-child(4) { animation-delay: 0.60s; }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 20px;
-    }
+        /* CONTENT AREA */
+        .content-container {
+            max-width: 800px;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            margin: 40px auto;
+            animation: fadeIn 0.8s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    /* Illustration grid */
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      justify-items: center;
-      margin-top: 20px;
-    }
+        h1 { font-size: 2.2rem; margin-bottom: 20px; }
 
-    .thumb {
-      width: 80%;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      cursor: pointer;
-    }
+        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            justify-items: center;
+            margin-top: 20px;
+        }
+        .thumb {
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+        .thumb:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.22);
+        }
 
-    .thumb:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.22);
-    }
+        /* FOOTER */
+        footer {
+            margin-top: 40px;
+            background: #E4D5CC;
+            color: #4A2E2A;
+            padding: 15px;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
 
-    /* Footer */
-    footer {
-      margin-top: 40px;
-      background: #E4D5CC;
-      color: #4A2E2A;
-      padding: 15px;
-      text-align: center;
-      width: 100%;
-    }
+    <script>
+        function toggleMenu() {
+            const dropdown = document.getElementById("dropdown");
+            const burger = document.getElementById("burger");
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-  </style>
+            dropdown.classList.toggle("show");
+            burger.classList.toggle("active");
+        }
+    </script>
 
-  <script>
-    function toggleMenu() {
-      document.body.classList.toggle("menu-open");
-    }
-  </script>
 </head>
 
 <body>
 
-  <!-- Hamburger Menu Icon -->
-  <div class="menu-icon" onclick="toggleMenu()">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-  </div>
+<header>
+    <h1>SEOUL KOREA TEMPLE ART</h1>
 
-  <!-- Slide-Out Menu -->
-  <div class="menu">
-    <a href="index.html">Home</a>
-    <a href="illustrations.html">Illustrations</a>
-    <a href="musings.html">Musings</a>
-    <a href="about.html">About</a>
-  </div>
+    <div class="menu-button" onclick="toggleMenu()">
+        <div id="burger" class="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+        <span>MENU</span>
+    </div>
 
-  <div class="content-container">
+    <div id="dropdown" class="dropdown">
+        <a href="illustrations.html">Illustrations</a>
+        <a href="paintings.html">Paintings</a>
+        <a href="musings.html">Musings</a>
+        <a href="about.html">About + Contact</a>
+    </div>
+</header>
+
+<div class="content-container">
     <h1>Illustrations</h1>
 
     <div class="grid">
 
-      <!-- Correct image links + correct filenames -->
-      <a href="illustration1.html">
-        <img src="sealing_joseon_couple.jpg" class="thumb" alt="Sealing Couple">
-      </a>
+        <a href="illustration1.html">
+            <img src="sealing_joseon_couple.jpg" class="thumb" alt="Sealing Couple">
+        </a>
 
-      <a href="illustration2.html">
-        <img src="waiting_joseon_family.png" class="thumb" alt="Waiting Family">
-      </a>
+        <a href="illustration2.html">
+            <img src="waiting_joseon_family.png" class="thumb" alt="Waiting Family">
+        </a>
 
-      <a href="illustration3.html">
-        <img src="temple_magnolia_tree_bloom.png" class="thumb" alt="Magnolia Tree Bloom">
-      </a>
+        <a href="illustration3.html">
+            <img src="temple_magnolia_tree_bloom.png" class="thumb" alt="Magnolia Tree Bloom">
+        </a>
 
     </div>
-  </div>
+</div>
 
-  <footer>
+<footer>
     © Seoul Korea Temple Art
-  </footer>
+</footer>
 
 </body>
 </html>
