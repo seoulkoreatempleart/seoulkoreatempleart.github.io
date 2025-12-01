@@ -21,23 +21,63 @@
       font-weight: bold;
     }
 
-    nav {
+    /* MOBILE MENU BUTTON */
+    .mobile-menu-button {
       display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 30px;
-      background: #F5EDE7;
-      padding: 15px;
-      font-size: 1.1rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #8F7A68;
+      font-size: 1.4rem;
+      padding: 12px 18px;
+      cursor: pointer;
+      background-color: #f6eee6;
+      border-radius: 10px;
+      width: fit-content;
+      margin: 15px auto;
       font-weight: 600;
+      transition: transform 0.3s ease;
     }
 
-    nav a:hover {
-      color: #C5B4A3;
+    .mobile-menu-button .hamburger {
+      margin-right: 10px;
+      transition: transform 0.4s ease;
+      display: inline-block;
+    }
+
+    /* MOBILE DROPDOWN */
+    .mobile-dropdown {
+      display: none;
+      flex-direction: column;
+      background-color: #fbf7f4;
+      border: 1px solid #d6c9c0;
+      border-radius: 12px;
+      margin: 10px auto 20px auto;
+      width: 90%;
+      overflow: hidden;
+      transform-origin: top;
+      animation: slideDown 0.4s ease forwards;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: scaleY(0); }
+      to { opacity: 1; transform: scaleY(1); }
+    }
+
+    .mobile-dropdown a {
+      padding: 14px 18px;
+      border-bottom: 1px solid #e4dcd5;
+      text-decoration: none;
+      color: #6d5a4a;
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+
+    .mobile-dropdown a:last-child {
+      border-bottom: none;
+    }
+
+    /* Remove desktop nav entirely */
+    nav {
+      display: none !important;
     }
 
     .wrapper {
@@ -45,13 +85,14 @@
       margin: 40px auto;
       padding: 20px;
       background: #F5EDE7;
-      border-radius: 12px;
+      border-radius: 14px;
       border: 1px solid #DDD0C3;
     }
 
     h2 {
       text-align: center;
       color: #8F7A68;
+      margin-top: 0;
     }
 
     .grid {
@@ -64,7 +105,7 @@
     .grid div {
       background: white;
       border: 1px solid #DDD0C3;
-      border-radius: 8px;
+      border-radius: 10px;
       padding: 10px;
       height: 200px;
     }
@@ -73,95 +114,29 @@
       background: #F5E8E0;
       color: #8F7A68;
       text-align: center;
-      padding: 15px;
+      padding: 18px;
       margin-top: 40px;
       font-size: 0.9rem;
     }
-
-    /* MOBILE MENU BUTTON (hidden on desktop) */
-    .mobile-menu-button {
-      display: none;
-      font-size: 1.2rem;
-      padding: 10px 15px;
-      cursor: pointer;
-      background-color: #f6eee6;
-      border-radius: 8px;
-      width: fit-content;
-      margin: 10px auto;
-      font-weight: 500;
-    }
-
-    .mobile-menu-button .hamburger {
-      margin-right: 6px;
-    }
-
-    /* MOBILE DROPDOWN (hidden initially) */
-    .mobile-dropdown {
-      display: none;
-      flex-direction: column;
-      background-color: #fbf7f4;
-      border: 1px solid #d6c9c0;
-      border-radius: 10px;
-      margin: 10px auto;
-      width: 90%;
-      overflow: hidden;
-    }
-
-    .mobile-dropdown a {
-      padding: 12px 15px;
-      border-bottom: 1px solid #e4dcd5;
-      text-decoration: none;
-      color: #444;
-      font-size: 1rem;
-    }
-
-    .mobile-dropdown a:last-child {
-      border-bottom: none;
-    }
-
-    /* SHOW MOBILE MENU ON SMALL SCREENS */
-    @media (max-width: 768px) {
-
-      /* Hide the horizontal desktop menu */
-      nav {
-        display: none;
-      }
-
-      /* Show mobile button */
-      .mobile-menu-button {
-        display: block;
-      }
-    }
-
   </style>
 </head>
 
 <body>
-
   <header>Paintings</header>
 
-  <!-- MOBILE MENU BUTTON -->
-  <div class="mobile-menu-button">
-    <span class="hamburger">☰</span> Menu
+  <!-- MOBILE MENU BUTTON (with animated hamburger → X) -->
+  <div class="mobile-menu-button" id="menuButton">
+    <span class="hamburger" id="hamburger">☰</span> Menu
   </div>
 
-  <!-- MOBILE DROPDOWN -->
-  <div class="mobile-dropdown">
+  <!-- MOBILE DROPDOWN MENU -->
+  <div class="mobile-dropdown" id="dropdownMenu">
     <a href="index.html">Home</a>
     <a href="illustrations.html">Illustrations</a>
     <a href="paintings.html">Paintings</a>
     <a href="musings.html">Musings</a>
     <a href="about.html">About / Contact</a>
   </div>
-
-  <!-- DESKTOP NAV -->
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="illustrations.html">Illustrations</a>
-    <a href="paintings.html">Paintings</a>
-    <a href="musings.html">Musings</a>
-    <a href="about.html">About / Contact</a>
-  </nav>
 
   <div class="wrapper">
     <h2>My Painting Collection</h2>
@@ -177,17 +152,25 @@
   <footer>© Seoul Korea Temple Art</footer>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const button = document.querySelector(".mobile-menu-button");
-      const dropdown = document.querySelector(".mobile-dropdown");
+    const button = document.getElementById("menuButton");
+    const dropdown = document.getElementById("dropdownMenu");
+    const ham = document.getElementById("hamburger");
 
-      if (button) {
-        button.addEventListener("click", () => {
-          dropdown.style.display = (dropdown.style.display === "flex") ? "none" : "flex";
-        });
+    let open = false;
+
+    button.addEventListener("click", () => {
+      open = !open;
+
+      if (open) {
+        dropdown.style.display = "flex";
+        ham.style.transform = "rotate(90deg)";
+        ham.textContent = "✕";
+      } else {
+        dropdown.style.display = "none";
+        ham.style.transform = "rotate(0deg)";
+        ham.textContent = "☰";
       }
     });
   </script>
-
 </body>
 </html>
