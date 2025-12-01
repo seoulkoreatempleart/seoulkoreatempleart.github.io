@@ -13,7 +13,7 @@
             color: #5A5352;
         }
 
-        /* HEADER (COPIED EXACTLY FROM HOMEPAGE) */
+        /* HEADER (MATCHES MUSINGS) */
         header {
             background-color: #E6D7CE;
             padding: 40px 20px 20px;
@@ -82,7 +82,7 @@
             top: 6px;
         }
 
-        /* DROPDOWN MENU (COPIED EXACTLY) */
+        /* DROPDOWN MENU */
         .dropdown {
             max-height: 0;
             overflow: hidden;
@@ -125,6 +125,7 @@
         .dropdown a:nth-child(2) { animation-delay: 0.30s; }
         .dropdown a:nth-child(3) { animation-delay: 0.45s; }
         .dropdown a:nth-child(4) { animation-delay: 0.60s; }
+        .dropdown a:nth-child(5) { animation-delay: 0.75s; } /* New Home link animation */
 
         @keyframes fadeUp {
             to { opacity: 1; transform: translateY(0); }
@@ -192,7 +193,7 @@
 <body>
 
 <header>
-    <h1>SEOUL KOREA TEMPLE ART</h1>
+    <h1>ILLUSTRATIONS</h1>
 
     <div class="menu-button" onclick="toggleMenu()">
         <div id="burger" class="hamburger">
@@ -202,6 +203,7 @@
     </div>
 
     <div id="dropdown" class="dropdown">
+        <a href="index.html">Home</a> <!-- NEW HOME LINK -->
         <a href="illustrations.html">Illustrations</a>
         <a href="paintings.html">Paintings</a>
         <a href="musings.html">Musings</a>
@@ -210,37 +212,35 @@
 </header>
 
 <div class="content-container">
-    <h1>Illustrations</h1>
-
     <div class="grid">
 
-  <!-- Illustration 1 -->
-  <a href="illustration1.html">
-    <img src="images/sealing_joseon_couple.jpg" class="thumb" alt="Sealing Couple">
-  </a>
+        <!-- Illustration 1 -->
+        <a href="illustration1.html">
+            <img src="images/sealing_joseon_couple.jpg" class="thumb" alt="Sealing Couple">
+        </a>
 
-  <!-- Illustration 2 -->
-  <a href="illustration2.html">
-    <img src="images/waiting_joseon_family.png" class="thumb" alt="Waiting Family">
-  </a>
+        <!-- Illustration 2 -->
+        <a href="illustration2.html">
+            <img src="images/waiting_joseon_family.png" class="thumb" alt="Waiting Family">
+        </a>
 
-  <!-- Illustration 3 -->
-  <a href="illustration3.html">
-    <img src="images/temple_magnolia_tree_bloom.png" class="thumb" alt="Magnolia Tree Bloom">
-  </a>
+        <!-- Illustration 3 -->
+        <a href="illustration3.html">
+            <img src="images/temple_magnolia_tree_bloom.png" class="thumb" alt="Magnolia Tree Bloom">
+        </a>
 
-  <!-- Illustration 4 -->
-  <a href="illustration4.html">
-    <img src="images/10_views_think_celestial.jpg" class="thumb" alt="10 Views Think Celestial">
-  </a>
+        <!-- Illustration 4 -->
+        <a href="illustration4.html">
+            <img src="images/10_views_think_celestial.jpg" class="thumb" alt="10 Views Think Celestial">
+        </a>
 
-  <!-- Illustration 5 -->
-  <a href="illustration5.html">
-    <img src="images/hero2.jpg" class="thumb" alt="Hero 2">
-  </a>
+        <!-- Illustration 5 -->
+        <a href="illustration5.html">
+            <img src="images/hero2.jpg" class="thumb" alt="Hero 2">
+        </a>
 
+    </div>
 </div>
-
 
 <footer>
     © Seoul Korea Temple Art
