@@ -1,178 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Words – Seoul Korea Temple Art</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Words – Seoul Korea Temple Art</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #F5E8E0;
-      color: #8F7A68;
-    }
+    <style>
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background-color: #F4EFE9;
+            color: #5A5352;
+        }
 
-    header {
-      background: #F5E8E0;
-      padding: 20px;
-      text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
-    }
+        header {
+            background-color: #E6D7CE;
+            padding: 40px 20px 20px;
+            text-align: center;
+            border-bottom: 2px solid #D8CFC7;
+            position: relative;
+        }
 
-    /* MOBILE MENU BUTTON */
-    .mobile-menu-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      padding: 12px 18px;
-      cursor: pointer;
-      background-color: #f6eee6;
-      border-radius: 10px;
-      width: fit-content;
-      margin: 15px auto;
-      font-weight: 600;
-      transition: transform 0.3s ease;
-    }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+            letter-spacing: 1px;
+            color: #5A5352;
+        }
 
-    .mobile-menu-button .hamburger {
-      margin-right: 10px;
-      transition: transform 0.4s ease;
-      display: inline-block;
-    }
+        /* MENU BUTTON */
+        .menu-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 12px 22px;
+            background-color: #F4EFE9;
+            border: 1px solid #D8CFC7;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1em;
+            color: #5A5352;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            user-select: none;
+        }
 
-    /* MOBILE DROPDOWN */
-    .mobile-dropdown {
-      display: none;
-      flex-direction: column;
-      background-color: #fbf7f4;
-      border: 1px solid #d6c9c0;
-      border-radius: 12px;
-      margin: 10px auto 20px auto;
-      width: 90%;
-      max-width: 320px;
-      overflow: hidden;
-      transform-origin: top;
-    }
+        .menu-button:hover {
+            background-color: #E6D7CE;
+            transform: translateY(-2px);
+        }
 
-    .mobile-dropdown.show {
-      animation: slideDown 0.4s ease forwards;
-    }
+        /* HAMBURGER */
+        .hamburger {
+            width: 22px;
+            height: 16px;
+            position: relative;
+        }
 
-    @keyframes slideDown {
-      from { opacity: 0; transform: scaleY(0); }
-      to { opacity: 1; transform: scaleY(1); }
-    }
+        .hamburger span {
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background-color: #5A5352;
+            left: 0;
+            transition: 0.35s ease;
+            border-radius: 3px;
+        }
 
-    .mobile-dropdown a {
-      padding: 14px 18px;
-      border-bottom: 1px solid #e4dcd5;
-      text-decoration: none;
-      color: #6d5a4a;
-      font-size: 1.05rem;
-      font-weight: 500;
-      text-align: center;
-    }
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 6px; }
+        .hamburger span:nth-child(3) { top: 12px; }
 
-    .mobile-dropdown a:last-child {
-      border-bottom: none;
-    }
+        /* ACTIVE → X */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+            top: 6px;
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+            top: 6px;
+        }
 
-    /* REMOVE DESKTOP NAV */
-    nav { display: none !important; }
+        /* DROPDOWN */
+        .dropdown {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+            margin-top: 10px;
 
-    .wrapper {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #F5EDE7;
-      border-radius: 12px;
-      border: 1px solid #DDD0C3;
-    }
+            /* Paper texture */
+            background-image: url("https://www.transparenttextures.com/patterns/paper.png");
+            background-color: #F4EFE9;
 
-    h2 {
-      text-align: center;
-      color: #8F7A68;
-    }
+            border-radius: 14px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+            width: 240px;
+            padding: 0 0 10px 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    .entry {
-      background: white;
-      border: 1px solid #DDD0C3;
-      border-radius: 12px;
-      padding: 20px;
-      margin: 20px 0;
-    }
+        .dropdown.show {
+            max-height: 400px;
+            opacity: 1;
+        }
 
-    footer {
-      background: #F5E8E0;
-      color: #8F7A68;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-      font-size: 0.9rem;
-    }
-  </style>
+        /* LINK ANIMATION */
+        .dropdown a {
+            display: block;
+            text-decoration: none;
+            padding: 12px;
+            margin: 10px auto;
+            width: 180px;
+            background-color: #FFFFFFEE;
+            border: 1px solid #D8CFC7;
+            border-radius: 8px;
+            color: #5A5352;
+            text-align: center;
+
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeUp 0.5s forwards;
+        }
+
+        .dropdown a:nth-child(1) { animation-delay: 0.15s; }
+        .dropdown a:nth-child(2) { animation-delay: 0.30s; }
+        .dropdown a:nth-child(3) { animation-delay: 0.45s; }
+        .dropdown a:nth-child(4) { animation-delay: 0.60s; }
+        .dropdown a:nth-child(5) { animation-delay: 0.75s; }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* PAGE CONTENT */
+        .wrapper {
+            max-width: 650px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            font-weight: normal;
+        }
+
+        .entry {
+            background-color: #FFFFFFEE;
+            border: 1px solid #D8CFC7;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        footer {
+            background: #E6D7CE;
+            color: #5A5352;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            border-top: 2px solid #D8CFC7;
+        }
+    </style>
+
+    <script>
+        function toggleMenu() {
+            const dropdown = document.getElementById("dropdown");
+            const burger = document.getElementById("burger");
+
+            dropdown.classList.toggle("show");
+            burger.classList.toggle("active");
+        }
+    </script>
 </head>
 
 <body>
-  <header>Musings</header>
 
-  <!-- MOBILE BUTTON -->
-  <div class="mobile-menu-button" id="menuButton">
-    <span class="hamburger" id="hamburger">☰</span> Menu
-  </div>
+<header>
+    <h1>WORDS</h1>
 
-  <!-- MOBILE DROPDOWN -->
-  <div class="mobile-dropdown" id="dropdownMenu">
-    <a href="index.html">Home</a>
-    <a href="illustrations.html">Illustrations</a>
-    <a href="paintings.html">Paintings</a>
-    <a href="musings.html">Words</a>
-    <a href="about.html">About / Contact</a>
-  </div>
+    <div class="menu-button" onclick="toggleMenu()">
+        <div id="burger" class="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+        <span>MENU</span>
+    </div>
 
-  <div class="wrapper">
+    <div id="dropdown" class="dropdown">
+        <a href="index.html">Home</a>
+        <a href="illustrations.html">Illustrations</a>
+        <a href="paintings.html">Paintings</a>
+        <a href="musings.html">Words</a>
+        <a href="about.html">About + Contact</a>
+    </div>
+</header>
+
+<div class="wrapper">
     <h2>Quotes, Teachings & Scriptures</h2>
-    <p style="text-align:center;">Words to help increase understanding and appreciation of temple and family history doctrine.</p>
+    <p style="text-align:center;">
+        Words to help increase understanding and appreciation of temple and family history doctrine.
+    </p>
 
     <div class="entry">
-      <h3>A Thought...</h3>
-      <p>When I have one, it'll be here! :D</p>
+        <h3>A Thought...</h3>
+        <p>When I have one, it'll be here! :D</p>
     </div>
 
     <div class="entry">
-      <h3>Another Thought...</h3>
-      <p>...it'll eventually come! :D</p>
+        <h3>Another Thought...</h3>
+        <p>...it'll eventually come! :D</p>
     </div>
-  </div>
+</div>
 
-  <footer>© Seoul Korea Temple Art</footer>
-
-  <script>
-    const button = document.getElementById("menuButton");
-    const dropdown = document.getElementById("dropdownMenu");
-    const ham = document.getElementById("hamburger");
-
-    let open = false;
-
-    button.addEventListener("click", () => {
-      open = !open;
-
-      if (open) {
-        dropdown.style.display = "flex";
-        dropdown.classList.add("show");
-        ham.style.transform = "rotate(90deg)";
-        ham.textContent = "✕";
-      } else {
-        dropdown.style.display = "none";
-        dropdown.classList.remove("show");
-        ham.style.transform = "rotate(0deg)";
-        ham.textContent = "☰";
-      }
-    });
-  </script>
+<footer>© Seoul Korea Temple Art</footer>
 
 </body>
 </html>
