@@ -6,115 +6,146 @@
   <title>Musings – Seoul Korea Temple Art</title>
 
   <style>
-    /* MATCHED TO HOME PAGE TEMPLATE */
-    :root {
-      --bg: #F4EFE9;
-      --header-bg: #E6D7CE;
-      --text: #5A5352;
-      --panel: #FCF9F6;
-      --border: #D8CAC0;
-      --menu-bg: #F8F2EE;
-    }
-
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background-color: #F4EFE9;
+      color: #5A5352;
     }
 
     header {
-      background: var(--header-bg);
-      padding: 25px 0;
+      background-color: #E6D7CE;
+      padding: 40px 20px 20px;
       text-align: center;
-      font-size: 2.1rem;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 2px solid #D8CFC7;
+      position: relative;
     }
 
-    /* MOBILE MENU BUTTON */
-    .mobile-menu-button {
-      display: flex;
+    header h1 {
+      margin: 0;
+      font-size: 2.1em;
+      color: #5A5352;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    /* MENU BUTTON */
+    .menu-button {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      padding: 12px 20px;
+      gap: 10px;
+      margin-top: 20px;
+      padding: 12px 22px;
+      background-color: #F4EFE9;
+      border: 1px solid #D8CFC7;
+      border-radius: 10px;
       cursor: pointer;
-      background-color: var(--menu-bg);
-      border-radius: 12px;
-      width: fit-content;
-      margin: 18px auto;
-      font-weight: 600;
-      transition: transform 0.3s ease;
-      border: 1px solid var(--border);
+      font-size: 1.1em;
+      color: #5A5352;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      user-select: none;
     }
 
+    .menu-button:hover {
+      background-color: #E6D7CE;
+      transform: translateY(-2px);
+    }
+
+    /* HAMBURGER → X ANIMATION */
     .hamburger {
-      margin-right: 10px;
-      transition: transform 0.4s ease;
-      display: inline-block;
+      width: 22px;
+      height: 16px;
+      position: relative;
+    }
+    .hamburger span {
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background-color: #5A5352;
+      left: 0;
+      transition: 0.35s ease;
+      border-radius: 3px;
+    }
+    .hamburger span:nth-child(1) { top: 0; }
+    .hamburger span:nth-child(2) { top: 6px; }
+    .hamburger span:nth-child(3) { top: 12px; }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 6px;
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg);
+      top: 6px;
     }
 
     /* DROPDOWN MENU */
-    .mobile-dropdown {
-      display: none;
-      flex-direction: column;
-      background-color: white;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      margin: 15px auto 25px auto;
-      width: 92%;
-      max-width: 320px;
+    .dropdown {
+      max-height: 0;
       overflow: hidden;
-      transform-origin: top;
       opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+      margin-top: 10px;
+
+      background-image: url("https://www.transparenttextures.com/patterns/paper.png");
+      background-color: #F4EFE9;
+
+      border-radius: 14px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+      width: 240px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 0 10px 0;
     }
 
-    .mobile-dropdown.show {
-      animation: dropdownFade 0.35s ease forwards;
+    .dropdown.show {
+      max-height: 400px;
+      opacity: 1;
     }
 
-    @keyframes dropdownFade {
-      from { opacity: 0; transform: scaleY(0.85); }
-      to { opacity: 1; transform: scaleY(1); }
-    }
-
-    .mobile-dropdown a {
-      padding: 15px;
-      border-bottom: 1px solid var(--border);
+    /* Staggered fade-in Links */
+    .dropdown a {
+      display: block;
       text-decoration: none;
-      color: var(--text);
-      font-size: 1.05rem;
-      background: var(--panel);
+      padding: 12px;
+      margin: 10px auto;
+      width: 180px;
+      background-color: #FFFFFFEE;
+      border: 1px solid #D8CFC7;
+      border-radius: 8px;
+      color: #5A5352;
       text-align: center;
+
       opacity: 0;
-      transform: translateY(-6px);
-      animation: fadeInLink 0.45s ease forwards;
+      transform: translateY(10px);
+      animation: fadeUp 0.5s forwards;
     }
 
-    .mobile-dropdown a:nth-child(1) { animation-delay: 0.05s; }
-    .mobile-dropdown a:nth-child(2) { animation-delay: 0.12s; }
-    .mobile-dropdown a:nth-child(3) { animation-delay: 0.18s; }
-    .mobile-dropdown a:nth-child(4) { animation-delay: 0.25s; }
-    .mobile-dropdown a:nth-child(5) { animation-delay: 0.32s; }
+    .dropdown a:nth-child(1) { animation-delay: 0.15s; }
+    .dropdown a:nth-child(2) { animation-delay: 0.30s; }
+    .dropdown a:nth-child(3) { animation-delay: 0.45s; }
+    .dropdown a:nth-child(4) { animation-delay: 0.60s; }
+    .dropdown a:nth-child(5) { animation-delay: 0.75s; }
 
-    @keyframes fadeInLink {
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .mobile-dropdown a:last-child {
-      border-bottom: none;
-    }
+    /* PAGE CONTENT */
 
-    /* MAIN CONTENT WRAPPER */
     .wrapper {
       max-width: 850px;
       margin: 40px auto;
       padding: 30px;
-      background: var(--panel);
+      background: #FCF9F6;
       border-radius: 14px;
-      border: 1px solid var(--border);
+      border: 1px solid #D8CFC7;
     }
 
     h2 {
@@ -130,10 +161,9 @@
       color: #6d615c;
     }
 
-    /* DEVOTIONAL ENTRY FORMAT */
     .entry {
       background: white;
-      border: 1px solid var(--border);
+      border: 1px solid #D8CAC0;
       border-radius: 12px;
       padding: 20px;
       margin: 28px 0;
@@ -158,86 +188,78 @@
     }
 
     footer {
-      background: var(--header-bg);
-      color: var(--text);
+      background: #E6D7CE;
+      color: #5A5352;
       text-align: center;
       padding: 18px;
       margin-top: 50px;
       font-size: 0.9rem;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid #D8CFC7;
     }
   </style>
+
+  <script>
+    function toggleMenu() {
+      const dropdown = document.getElementById("dropdown");
+      const burger = document.getElementById("burger");
+
+      dropdown.classList.toggle("show");
+      burger.classList.toggle("active");
+    }
+  </script>
+
 </head>
 
 <body>
-  <header>Musings</header>
 
-  <!-- MENU BUTTON -->
-  <div class="mobile-menu-button" id="menuButton">
-    <span class="hamburger" id="hamburger">☰</span> Menu
+<header>
+  <h1>MUSINGS</h1>
+
+  <div class="menu-button" onclick="toggleMenu()">
+    <div id="burger" class="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+    <span>MENU</span>
   </div>
 
-  <!-- MENU -->
-  <div class="mobile-dropdown" id="dropdownMenu">
+  <div id="dropdown" class="dropdown">
     <a href="index.html">Home</a>
     <a href="illustrations.html">Illustrations</a>
     <a href="paintings.html">Paintings</a>
     <a href="musings.html">Musings</a>
-    <a href="about.html">About / Contact</a>
+    <a href="about.html">About + Contact</a>
   </div>
+</header>
 
-  <div class="wrapper">
-    <h2>Scripture Study Reflections</h2>
-    <p class="sub">Thoughts related to temple and family history work, inspired by study.</p>
+<div class="wrapper">
+  <h2>Scripture Study Reflections</h2>
+  <p class="sub">Thoughts related to temple and family history work, inspired by study.</p>
 
-    <!-- SAMPLE ENTRY 1 -->
-    <div class="entry">
-      <div class="scripture">"And he shall turn the heart of the fathers to the children, and the heart of the children to their fathers."</div>
-      <div class="reference">Malachi 4:6</div>
-      <div class="thought">
-        This scripture reminds me that temple and family history work is not a separate duty, but a healing work.  
-        When we do ordinances for our ancestors, we participate in the Savior’s effort to bind families eternally.  
-        The Spirit of Elijah softens our hearts in ways we can feel—but also in quiet ways we may not notice right away.
-      </div>
-    </div>
-
-    <!-- SAMPLE ENTRY 2 -->
-    <div class="entry">
-      <div class="scripture">"For my soul delighteth in the covenants of the Lord."</div>
-      <div class="reference">2 Nephi 11:5</div>
-      <div class="thought">
-        Nephi felt joy in covenants, long before temples as we know them existed.  
-        Temple covenants today continue that same ancient pattern: the Lord reaching out, inviting us into a relationship with Him.  
-        As I study, I feel how every book of scripture points toward that same covenant path.
-      </div>
+  <!-- ENTRY 1 -->
+  <div class="entry">
+    <div class="scripture">"And he shall turn the heart of the fathers to the children, and the heart of the children to their fathers."</div>
+    <div class="reference">Malachi 4:6</div>
+    <div class="thought">
+      This scripture reminds me that temple and family history work is not a separate duty, but a healing work.  
+      When we do ordinances for our ancestors, we participate in the Savior’s effort to bind families eternally.  
+      The Spirit of Elijah softens our hearts in ways we can feel—but also in quiet ways we may not notice right away.
     </div>
   </div>
 
-  <footer>© Seoul Korea Temple Art</footer>
+  <!-- ENTRY 2 -->
+  <div class="entry">
+    <div class="scripture">"For my soul delighteth in the covenants of the Lord."</div>
+    <div class="reference">2 Nephi 11:5</div>
+    <div class="thought">
+      Nephi felt joy in covenants long before temples as we know them existed.  
+      Temple covenants today continue that same ancient pattern: the Lord reaching out, inviting us into a relationship with Him.  
+      As I study, I feel how every book of scripture points toward that same covenant path.
+    </div>
+  </div>
 
-  <script>
-    const button = document.getElementById("menuButton");
-    const dropdown = document.getElementById("dropdownMenu");
-    const ham = document.getElementById("hamburger");
+</div>
 
-    let open = false;
-
-    button.addEventListener("click", () => {
-      open = !open;
-
-      if (open) {
-        dropdown.style.display = "flex";
-        setTimeout(() => dropdown.classList.add("show"), 10);
-        ham.style.transform = "rotate(90deg)";
-        ham.textContent = "✕";
-      } else {
-        dropdown.classList.remove("show");
-        setTimeout(() => dropdown.style.display = "none", 200);
-        ham.style.transform = "rotate(0deg)";
-        ham.textContent = "☰";
-      }
-    });
-  </script>
+<footer>© Seoul Korea Temple Art</footer>
 
 </body>
 </html>
