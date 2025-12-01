@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>10 Views – Seoul Korea Temple Art</title>
+  <title>10 Views of the Seoul Temple – Seoul Korea Temple Art</title>
 
   <style>
     body {
@@ -16,74 +16,13 @@
       align-items: center;
     }
 
-    /* NAV MENU (matches homepage) */
-    .menu-icon {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      width: 35px;
-      cursor: pointer;
-      z-index: 1000;
-    }
-
-    .bar {
-      width: 100%;
-      height: 4px;
-      background-color: #4A2E2A;
-      margin: 6px 0;
-      transition: 0.4s;
-    }
-
-    .menu {
-      position: fixed;
-      top: 0;
-      right: -250px;
-      width: 250px;
-      height: 100%;
-      background: #E4D5CC;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.2);
-      padding-top: 80px;
-      transition: right 0.4s ease;
-      z-index: 999;
-    }
-
-    .menu a {
-      display: block;
-      padding: 15px 25px;
-      text-decoration: none;
-      color: #4A2E2A;
-      font-size: 1.2rem;
-      transition: background 0.3s;
-    }
-
-    .menu a:hover {
-      background: #D8C3B9;
-    }
-
-    .menu-open .menu {
-      right: 0;
-    }
-
-    .menu-open .bar:nth-child(1) {
-      transform: rotate(-45deg) translate(-7px, 7px);
-    }
-
-    .menu-open .bar:nth-child(2) {
-      opacity: 0;
-    }
-
-    .menu-open .bar:nth-child(3) {
-      transform: rotate(45deg) translate(-7px, -7px);
-    }
-
-    /* CONTENT */
     .content-container {
       max-width: 800px;
       width: 100%;
       padding: 20px;
       text-align: center;
       animation: fadeIn 0.8s ease-out;
-      margin-top: 80px;
+      margin-top: 40px;
     }
 
     @keyframes fadeIn {
@@ -98,3 +37,56 @@
 
     .illustration-img {
       width: 90%;
+      max-width: 700px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+      margin-bottom: 25px;
+    }
+
+    .blurb {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      margin-top: 30px;
+      display: inline-block;
+      padding: 12px 20px;
+      background: #E4D5CC;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #4A2E2A;
+      transition: background 0.3s;
+    }
+
+    .back-link:hover {
+      background: #D8C3B9;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="content-container">
+
+    <h1>10 Views of the Seoul Temple</h1>
+
+    <img src="images/10_views_think_celestial.jpg"
+         alt="10 Views of the Seoul Temple"
+         class="illustration-img">
+
+    <p class="blurb">
+      10 views is my way of expressing how the temple always provides me a view of things
+      that is holier, more celestial. It doesn't always do so in the same way,
+      but it's always what I need. I also wanted to make a sort of temple mandala—
+      something that would encourage the viewer to spend time thinking and meditating on the temple.
+    </p>
+
+    <a class="back-link" href="illustrations.html">← Back to Illustrations</a>
+
+  </div>
+
+</body>
+</html>
