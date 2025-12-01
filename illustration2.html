@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Waiting Joseon Family – Illustration Detail</title>
+
+  <style>
+    :root {
+      --bg: #F4EFE9;
+      --header-bg: #E6D7CE;
+      --text: #5A5352;
+      --panel: #FCF9F6;
+      --border: #D8CAC0;
+      --menu-bg: #F8F2EE;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      background: var(--header-bg);
+      padding: 25px 0;
+      text-align: center;
+      font-size: 2.1rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* MENU BUTTON */
+    .mobile-menu-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      padding: 12px 20px;
+      cursor: pointer;
+      background-color: var(--menu-bg);
+      border-radius: 12px;
+      width: fit-content;
+      margin: 18px auto;
+      font-weight: 600;
+      transition: transform 0.3s ease;
+      border: 1px solid var(--border);
+    }
+
+    .hamburger {
+      margin-right: 10px;
+      transition: transform 0.4s ease;
+      display: inline-block;
+    }
+
+    /* DROPDOWN MENU */
+    .mobile-dropdown {
+      display: none;
+      flex-direction: column;
+      background-color: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      margin: 15px auto 25px auto;
+      width: 92%;
+      max-width: 320px;
+      overflow: hidden;
+      transform-origin: top;
+      opacity: 0;
+    }
+
+    .mobile-dropdown.show {
+      animation: dropdownFade 0.35s ease forwards;
+    }
+
+    @keyframes dropdownFade {
+      from { opacity: 0; transform: scaleY(0.85); }
+      to { opacity: 1; transform: scaleY(1); }
+    }
+
+    .mobile-dropdown a {
+      padding: 15px;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text);
+      font-size: 1.05rem;
+      background: var(--panel);
+      text-align: center;
+      opacity: 0;
+      transform: translateY(-6px);
+      animation: fadeInLink 0.45s ease forwards;
+    }
+
+    .mobile-dropdown a:nth-child(1) { animation-delay: 0.05s; }
+    .mobile-dropdown a:nth-child(2) { animation-delay: 0.12s; }
+    .mobile-dropdown a:nth-child(3) { animation-delay: 0.18s; }
+    .mobile-dropdown a:nth-child(4) { animation-delay: 0.25s; }
+    .mobile-dropdown a:nth-child(5) { animation-delay: 0.32s; }
+
+    @keyframes fadeInLink {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .mobile-dropdown a:last-child {
+      border-bottom: none;
+    }
+
+    /* CONTENT */
+    .wrapper {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background: var(--panel);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    img.illustration {
+      width: 90%;
+      max-width: 700px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .blurb {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: var(--text);
+    }
+
+    footer {
+      background: var(--header-bg);
+      color: var(--text);
+      text-align: center;
+      padding: 18px;
+      margin-top: 50px;
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+
+<body>
+  <header>Illustration</header>
+
+  <!-- MENU BUTTON -->
+  <div class="mobile-menu-button" id="menuButton">
+    <span class="hamburger" id="hamburger">☰</span> Menu
+  </div>
+
+  <!-- DROPDOWN MENU -->
+  <div class="mobile-dropdown" id="dropdownMenu">
+    <a href="index.html">Home</a>
+    <a href="illustrations.html">Illustrations</a>
+    <a href="paintings.html">Paintings</a>
+    <a href="musings.html">Musings</a>
+    <a href="about.html">About / Contact</a>
+  </div>
+
+  <div class="wrapper">
+    <img src="waiting_joseon_family.png" alt="Waiting Joseon Family" class="illustration" />
+
+    <p class="blurb">"A Joseon era family waits patiently for someone to come to the temple for them."</p>
+  </div>
+
+  <footer>© Seoul Korea Temple Art</footer>
+
+  <script>
+    const button = document.getElementById("menuButton");
+    const dropdown = document.getElementById("dropdownMenu");
+    const ham = document.getElementById("hamburger");
+
+    let open = false;
+
+    button.addEventListener("click", () => {
+      open = !open;
+
+      if (open) {
+        dropdown.style.display = "flex";
+        setTimeout(() => dropdown.classList.add("show"), 10);
+        ham.style.transform = "rotate(90deg)";
+        ham.textContent = "✕";
+      } else {
+        dropdown.classList.remove("show");
+        setTimeout(() => dropdown.style.display = "none", 200);
+        ham.style.transform = "rotate(0deg)";
+        ham.textContent = "☰";
+      }
+    });
+  </script>
+
+</body>
+</html>
