@@ -6,100 +6,130 @@
     <title>Illustrations – Seoul Korea Temple Art</title>
 
     <style>
-        /* -------------------------
-           GLOBAL STYLES
-        ------------------------- */
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #F5E8E0;
-            color: #8F7A68;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background-color: #F4EFE9;
+            color: #5A5352;
         }
 
         header {
-            background: #F5E8E0;
-            padding: 20px;
+            background-color: #E6D7CE;
+            padding: 40px 20px 20px;
             text-align: center;
-            font-size: 2rem;
-            font-weight: bold;
+            border-bottom: 2px solid #D8CFC7;
+            position: relative;
         }
 
-        /* Desktop navigation */
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            background: #F5EDE7;
-            padding: 15px;
-            font-size: 1.1rem;
+        header h1 {
+            margin: 0;
+            font-size: 2.1em;
+            letter-spacing: 1px;
+            color: #5A5352;
         }
 
-        nav a {
-            text-decoration: none;
-            color: #8F7A68;
-            font-weight: 600;
-        }
-
-        nav a:hover {
-            color: #C5B4A3;
-        }
-
-        /* -------------------------
-           MOBILE MENU
-        ------------------------- */
-        .mobile-menu-button {
-            display: none;
-            font-size: 1.2rem;
-            padding: 10px 15px;
-            cursor: pointer;
-            background-color: #f6eee6;
-            border-radius: 8px;
-            width: fit-content;
-            margin: 10px auto;
-            font-weight: 500;
-        }
-
-        .mobile-menu-button .hamburger {
-            margin-right: 6px;
-        }
-
-        .mobile-dropdown {
-            display: none;
-            flex-direction: column;
-            background-color: #fbf7f4;
-            border: 1px solid #d6c9c0;
+        /* MENU BUTTON */
+        .menu-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 12px 22px;
+            background-color: #F4EFE9;
+            border: 1px solid #D8CFC7;
             border-radius: 10px;
-            margin: 10px auto;
-            width: 90%;
+            cursor: pointer;
+            font-size: 1.1em;
+            color: #5A5352;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            user-select: none;
+        }
+
+        .menu-button:hover {
+            background-color: #E6D7CE;
+            transform: translateY(-2px);
+        }
+
+        /* HAMBURGER ICON */
+        .hamburger {
+            width: 22px;
+            height: 16px;
+            position: relative;
+        }
+        .hamburger span {
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background-color: #5A5352;
+            left: 0;
+            transition: 0.35s ease;
+            border-radius: 3px;
+        }
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 6px; }
+        .hamburger span:nth-child(3) { top: 12px; }
+
+        /* ACTIVE STATE */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+            top: 6px;
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+            top: 6px;
+        }
+
+        /* DROPDOWN */
+        .dropdown {
+            max-height: 0;
             overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+            margin-top: 10px;
+
+            background-image: url("https://www.transparenttextures.com/patterns/paper.png");
+            background-color: #F4EFE9;
+            border-radius: 14px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+            width: 240px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 0 10px 0;
         }
 
-        .mobile-dropdown a {
-            padding: 12px 15px;
-            border-bottom: 1px solid #e4dcd5;
+        .dropdown.show {
+            max-height: 400px;
+            opacity: 1;
+        }
+
+        .dropdown a {
+            display: block;
             text-decoration: none;
-            color: #444;
-            font-size: 1rem;
+            padding: 12px;
+            margin: 10px auto;
+            width: 180px;
+            background-color: #FFFFFFEE;
+            border: 1px solid #D8CFC7;
+            border-radius: 8px;
+            color: #5A5352;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeUp 0.5s forwards;
         }
 
-        .mobile-dropdown a:last-child {
-            border-bottom: none;
+        .dropdown a:nth-child(1) { animation-delay: 0.15s; }
+        .dropdown a:nth-child(2) { animation-delay: 0.30s; }
+        .dropdown a:nth-child(3) { animation-delay: 0.45s; }
+        .dropdown a:nth-child(4) { animation-delay: 0.60s; }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hide desktop menu & show mobile on small screens */
-        @media (max-width: 768px) {
-            nav {
-                display: none;
-            }
-
-            .mobile-menu-button {
-                display: block;
-            }
-        }
-
-        /* -------------------------
-           CONTENT LAYOUT
-        ------------------------- */
         .wrapper {
             max-width: 900px;
             margin: 40px auto;
@@ -109,10 +139,7 @@
             border: 1px solid #DDD0C3;
         }
 
-        h2 {
-            text-align: center;
-            color: #8F7A68;
-        }
+        h2 { text-align: center; color: #5A5352; }
 
         .gallery {
             display: grid;
@@ -129,9 +156,7 @@
             box-shadow: 0 3px 6px rgba(0,0,0,0.08);
         }
 
-        /* -------------------------
-           LIGHTBOX
-        ------------------------- */
+        /* Lightbox */
         .lightbox {
             display: none;
             position: fixed;
@@ -167,94 +192,24 @@
             cursor: pointer;
         }
 
-        /* -------------------------
-           FOOTER
-        ------------------------- */
         footer {
-            background: #F5E8E0;
-            color: #8F7A68;
+            background: #F4EFE9;
+            color: #5A5352;
             text-align: center;
             padding: 15px;
             margin-top: 40px;
             font-size: 0.9rem;
         }
     </style>
-</head>
-
-<body>
-
-    <header>Illustrations</header>
-
-    <!-- MOBILE MENU BUTTON -->
-    <div class="mobile-menu-button">
-        <span class="hamburger">☰</span> Menu
-    </div>
-
-    <!-- MOBILE DROPDOWN -->
-    <div class="mobile-dropdown">
-        <a href="index.html">Home</a>
-        <a href="illustrations.html">Illustrations</a>
-        <a href="paintings.html">Paintings</a>
-        <a href="musings.html">Musings</a>
-        <a href="about.html">About / Contact</a>
-    </div>
-
-    <!-- DESKTOP NAV -->
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="illustrations.html">Illustrations</a>
-        <a href="paintings.html">Paintings</a>
-        <a href="musings.html">Musings</a>
-        <a href="about.html">About / Contact</a>
-    </nav>
-
-    <div class="wrapper">
-        <h2>My Illustration Work</h2>
-        <p style="text-align:center;">A collection of my drawings and illustration studies.</p>
-
-        <div class="gallery">
-
-            <div>
-                <img src="images/sealing_joseon_couple.jpg"
-                     alt="Joseon couple sealing"
-                     style="width: 100%; border-radius: 8px; cursor: zoom-in;"
-                     onclick="openLightbox(this.src)">
-            </div>
-
-            <div>
-                <img src="images/waiting_joseon_family.png"
-                     alt="Joseon family waiting"
-                     style="width: 100%; border-radius: 8px; cursor: zoom-in;"
-                     onclick="openLightbox(this.src)">
-            </div>
-
-            <div>
-                <img src="images/temple_magnolia_tree_bloom.png"
-                     alt="Temple magnolia tree bloom"
-                     style="width: 100%; border-radius: 8px; cursor: zoom-in;"
-                     onclick="openLightbox(this.src)">
-            </div>
-
-            <div>
-                <img src="images/10_views_think_celestial.jpg"
-                     alt="Ten views think celestial"
-                     style="width: 100%; border-radius: 8px; cursor: zoom-in;"
-                     onclick="openLightbox(this.src)">
-            </div>
-
-        </div>
-    </div>
-
-    <!-- LIGHTBOX -->
-    <div id="lightbox" class="lightbox">
-        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-        <img id="lightbox-img" src="">
-    </div>
-
-    <footer>© Seoul Korea Temple Art</footer>
 
     <script>
-        /* Lightbox */
+        function toggleMenu() {
+            const dropdown = document.getElementById("dropdown");
+            const burger = document.getElementById("burger");
+            dropdown.classList.toggle("show");
+            burger.classList.toggle("active");
+        }
+
         function openLightbox(src) {
             document.getElementById("lightbox-img").src = src;
             document.getElementById("lightbox").style.display = "flex";
@@ -263,22 +218,38 @@
         function closeLightbox() {
             document.getElementById("lightbox").style.display = "none";
         }
-
-        document.getElementById("lightbox").addEventListener("click", function(e) {
-            if (e.target === this) closeLightbox();
-        });
-
-        /* Mobile dropdown */
-        document.addEventListener("DOMContentLoaded", function () {
-            const button = document.querySelector(".mobile-menu-button");
-            const dropdown = document.querySelector(".mobile-dropdown");
-
-            button.addEventListener("click", () => {
-                dropdown.style.display =
-                    dropdown.style.display === "flex" ? "none" : "flex";
-            });
-        });
     </script>
+</head>
 
-</body>
-</html>
+<body>
+
+<header>
+    <h1>Illustrations</h1>
+
+    <div class="menu-button" onclick="toggleMenu()">
+        <div id="burger" class="hamburger"><span></span><span></span><span></span></div>
+        <span>MENU</span>
+    </div>
+
+    <div id="dropdown" class="dropdown">
+        <a href="index.html">Home</a>
+        <a href="illustrations.html">Illustrations</a>
+        <a href="paintings.html">Paintings</a>
+        <a href="musings.html">Musings</a>
+        <a href="about.html">About + Contact</a>
+    </div>
+</header>
+
+<div class="wrapper">
+    <h2>My Illustration Work</h2>
+    <p style="text-align:center;">A collection of my drawings and illustration studies.</p>
+
+    <div class="gallery">
+        <div><img src="images/sealing_joseon_couple.jpg" style="width:100%; border-radius:8px; cursor:zoom-in;" onclick="openLightbox(this.src)"></div>
+        <div><img src="images/waiting_joseon_family.png" style="width:100%; border-radius:8px; cursor:zoom-in;" onclick="openLightbox(this.src)"></div>
+        <div><img src="images/temple_magnolia_tree_bloom.png" style="width:100%; border-radius:8px; cursor:zoom-in;" onclick="openLightbox(this.src)"></div>
+        <div><img src="images/10_views_think_celestial.jpg" style="width:100%; border-radius:8px; cursor:zoom-in;" onclick="openLightbox(this.src)"></div>
+    </div>
+</div>
+
+<div id="lightbox" class="lightbox" onclick="if(event.target===this)closeLightbox()">
