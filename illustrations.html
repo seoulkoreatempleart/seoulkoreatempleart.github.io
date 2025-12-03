@@ -156,18 +156,31 @@
 
         /* GRID */
         .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            justify-items: center;
-            margin-top: 20px;
-        }
-        .thumb {
-            width: 80%;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 12px;              /* smaller spacing = prevents overflow */
+    justify-items: center;
+    width: 100%;
+}
+
+.thumb {
+    width: 92%;             /* ensures images never hit screen edge */
+    max-width: 180px;       /* prevents oversized thumbs on large screens */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+/* Extra protection for small screens */
+@media (max-width: 400px) {
+    .thumb {
+        width: 90%;
+    }
+    .grid {
+        gap: 10px;
+    }
+
         }
         .thumb:hover {
             transform: scale(1.05);
