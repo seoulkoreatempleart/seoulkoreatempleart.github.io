@@ -12,187 +12,196 @@
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
 
-
-    <style>
-        body {
-            margin: 0;
-            font-family: "Helvetica Neue", Arial, sans-serif;
-            background-color: #F4EFE9;
-            color: #5A5352;
-        }
-
-        header {
-            background-color: #E6D7CE;
-            padding: 40px 20px 20px;
-            text-align: center;
-            border-bottom: 2px solid #D8CFC7;
-            position: relative;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.1em;
-            color: #5A5352;
-            letter-spacing: 1px;
-            white-space: nowrap;
-        }
-
-        /* MENU BUTTON */
-        .menu-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 20px;
-            padding: 12px 22px;
-            background-color: #F4EFE9;
-            border: 1px solid #D8CFC7;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 1.1em;
-            color: #5A5352;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            user-select: none;
-        }
-
-        .menu-button:hover {
-            background-color: #E6D7CE;
-            transform: translateY(-2px);
-        }
-
-        /* HAMBURGER → X animation */
-        .hamburger {
-            width: 22px;
-            height: 16px;
-            position: relative;
-        }
-        .hamburger span {
-            position: absolute;
-            height: 3px;
-            width: 100%;
-            background-color: #5A5352;
-            left: 0;
-            transition: 0.35s ease;
-            border-radius: 3px;
-        }
-        .hamburger span:nth-child(1) { top: 0; }
-        .hamburger span:nth-child(2) { top: 6px; }
-        .hamburger span:nth-child(3) { top: 12px; }
-
-        /* Active state -> turn into X */
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg);
-            top: 6px;
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg);
-            top: 6px;
-        }
-
-        /* DROPDOWN MENU */
-        .dropdown {
-            max-height: 0;
-            overflow: hidden;
-            opacity: 0;
-            transition: max-height 0.5s ease, opacity 0.5s ease;
-            margin-top: 10px;
-
-            /* Korean hanji paper texture */
-            background-image: url("https://www.transparenttextures.com/patterns/paper.png");
-            background-color: #F4EFE9;
-
-            border-radius: 14px;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-            width: 240px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 0 10px 0;
-        }
-
-        .dropdown.show {
-            max-height: 400px;
-            opacity: 1;
-        }
-
-        /* Menu links fade-in one by one */
-        .dropdown a {
-            display: block;
-            text-decoration: none;
-            padding: 12px;
-            margin: 10px auto;
-            width: 180px;
-            background-color: #FFFFFFEE;
-            border: 1px solid #D8CFC7;
-            border-radius: 8px;
-            color: #5A5352;
-            text-align: center;
-
-            opacity: 0;
-            transform: translateY(10px);
-            animation: fadeUp 0.5s forwards;
-        }
-
-        /* Stagger order */
-        .dropdown a:nth-child(1) { animation-delay: 0.15s; }
-        .dropdown a:nth-child(2) { animation-delay: 0.30s; }
-        .dropdown a:nth-child(3) { animation-delay: 0.45s; }
-        .dropdown a:nth-child(4) { animation-delay: 0.60s; }
-
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* HERO SECTION (placeholder) */
-      .hero img {
-  width: 50%;            /* reduces size by 50% */
-  max-width: 400px;      /* keeps it from getting too big on large screens */
-  display: block;
-  margin: 0 auto;        /* center the image */
-  border-radius: 12px;
-
-  /* Soft gold–pink border */
-  border: 6px solid;
-  border-image: linear-gradient(135deg, #eac8b8, #f7dcdc, #d6b495) 1;
-
-  /* Subtle glow */
-  box-shadow: 0 0 15px rgba(235, 200, 180, 0.35);
+<style>
+html, body {
+    height: 100%;
+    margin: 0;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+}
 
-        .intro {
-            text-align: center;
-            padding: 50px 20px;
-        }
-        .intro h2 {
-            font-weight: normal;
-            margin-bottom: 20px;
-        }
-        .intro p {
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 1.1em;
-        }
+footer {
+    margin-top: auto;
+}
 
-        @media (max-width: 400px) {
-            header h1 {
-                font-size: 1.7em;
-            }
-        }
-        footer {
-            background: #E6D7CE;
-            color: #5A5352;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            font-size: 0.9rem;
-            border-top: 2px solid #D8CFC7;
-        }
-        
+/* ---------------- YOUR EXISTING STYLES ---------------- */
+
+body {
+    margin: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background-color: #F4EFE9;
+    color: #5A5352;
+}
+
+header {
+    background-color: #E6D7CE;
+    padding: 40px 20px 20px;
+    text-align: center;
+    border-bottom: 2px solid #D8CFC7;
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.1em;
+    color: #5A5352;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+/* MENU BUTTON */
+.menu-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 12px 22px;
+    background-color: #F4EFE9;
+    border: 1px solid #D8CFC7;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #5A5352;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    user-select: none;
+}
+
+.menu-button:hover {
+    background-color: #E6D7CE;
+    transform: translateY(-2px);
+}
+
+/* HAMBURGER → X animation */
+.hamburger {
+    width: 22px;
+    height: 16px;
+    position: relative;
+}
+.hamburger span {
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #5A5352;
+    left: 0;
+    transition: 0.35s ease;
+    border-radius: 3px;
+}
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 6px; }
+.hamburger span:nth-child(3) { top: 12px; }
+
+/* Active state -> turn into X */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 6px;
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 6px;
+}
+
+/* DROPDOWN MENU */
+.dropdown {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    margin-top: 10px;
+
+    background-image: url("https://www.transparenttextures.com/patterns/paper.png");
+    background-color: #F4EFE9;
+
+    border-radius: 14px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    width: 240px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0 10px 0;
+}
+
+.dropdown.show {
+    max-height: 400px;
+    opacity: 1;
+}
+
+/* Menu links fade-in one by one */
+.dropdown a {
+    display: block;
+    text-decoration: none;
+    padding: 12px;
+    margin: 10px auto;
+    width: 180px;
+    background-color: #FFFFFFEE;
+    border: 1px solid #D8CFC7;
+    border-radius: 8px;
+    color: #5A5352;
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUp 0.5s forwards;
+}
+
+/* Stagger order */
+.dropdown a:nth-child(1) { animation-delay: 0.15s; }
+.dropdown a:nth-child(2) { animation-delay: 0.30s; }
+.dropdown a:nth-child(3) { animation-delay: 0.45s; }
+.dropdown a:nth-child(4) { animation-delay: 0.60s; }
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero img {
+    width: 50%;
+    max-width: 400px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+    border: 6px solid;
+    border-image: linear-gradient(135deg, #eac8b8, #f7dcdc, #d6b495) 1;
+    box-shadow: 0 0 15px rgba(235, 200, 180, 0.35);
+}
+
+.intro {
+    text-align: center;
+    padding: 50px 20px;
+}
+.intro h2 {
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+.intro p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1em;
+}
+
+@media (max-width: 400px) {
+    header h1 {
+        font-size: 1.7em;
+    }
+}
+
+/* FOOTER STYLE */
+footer {
+    background: #E6D7CE;
+    color: #5A5352;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    border-top: 2px solid #D8CFC7;
+}
+
     </style>
 
     <script>
