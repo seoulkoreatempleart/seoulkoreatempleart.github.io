@@ -1,4 +1,4 @@
-<!-- Updated illustrations.html with centered menu, centered header, full-width footer, and fixed page width -->
+<!-- Final corrected illustrations.html – phone layout untouched, tablet fixes only -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +16,6 @@
 <style>
 /* ------------------ GLOBAL ------------------ */
 html, body {
-    overflow-x: hidden; /* prevent page wider than screen */
     margin: 0;
     padding: 0;
     width: 100%;
@@ -31,15 +30,12 @@ body {
 
 /* ------------------ HEADER ------------------ */
 header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #F5E8E0;
-    padding: 0;
-    margin: 0;
+    background-color: #E6D7CE;
+    padding: 40px 20px 20px;
+    text-align: center;
+    border-bottom: 2px solid #D8CFC7;
     width: 100%;
     box-sizing: border-box;
-    overflow: hidden;
 }
 
 header h1 {
@@ -50,17 +46,10 @@ header h1 {
     text-align: center;
     white-space: normal;
     width: 100%;
-    display: block;
-    box-sizing: border-box;
 }
 
 /* ------------------ MENU BUTTON ------------------ */
 .menu-button {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-} {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -169,12 +158,13 @@ header h1 {
 
 /* ------------------ CONTENT CONTAINER ------------------ */
 .content-container {
+    max-width: 900px;
+    padding: 20px;
+    margin: 40px auto;
+    text-align: center;
+    animation: fadeIn 0.8s ease-out;
     width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
 }
 
 @keyframes fadeIn {
@@ -212,12 +202,34 @@ header h1 {
     .grid { gap: 10px; }
 }
 
-/* TABLETS → 3 columns */
+/* TABLETS → 3 columns + centering fixes + no sideways scroll */
 @media (min-width: 700px) {
+
+    /* Fix header/menu shifting */
+    header,
+    header h1,
+    .menu-button {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        text-align: center !important;
+        display: block;
+    }
+
+    /* Make sure outer elements don't exceed screen width */
+    body,
+    html,
+    .content-container,
+    .grid,
+    footer {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+
     .grid {
-        grid-template-columns: repeat(3, 1fr); /* more consistent sizing */
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 18px;
     }
+
     .thumb {
         width: 95%;
         max-width: 200px;
