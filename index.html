@@ -36,24 +36,28 @@ body {
 ------------------------------------- */
 header {
     background-color: #E6D7CE;
-    padding: 40px 20px 20px;
+    padding: 35px 20px 20px; /* slightly reduced top padding */
     border-bottom: 2px solid #D8CFC7;
     box-sizing: border-box;
     width: 100%;
     text-align: center;
 }
 
-/* Optional centered content wrapper */
 header .inner {
-    max-width: 500px;
+    max-width: 520px; /* slight increase for better balance */
     margin: 0 auto;
 }
 
+/* ✔ Updated optimized header text */
 header h1 {
     margin: 0;
     font-size: 2.1em;
     letter-spacing: 1px;
-    white-space: nowrap;
+    text-align: center;
+    white-space: normal;  
+    overflow-wrap: break-word; /* smoother, more natural wrapping */
+    line-height: 1.2;
+    padding: 0 10px; /* prevents edge collision on tiny screens */
 }
 
 /* -------------------------------------
@@ -63,7 +67,7 @@ header h1 {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 18px; /* slightly tighter for better vertical balance */
     padding: 12px 22px;
     background-color: #F4EFE9;
     border: 1px solid #D8CFC7;
@@ -80,7 +84,7 @@ header h1 {
 }
 
 /* -------------------------------------
-   HAMBURGER ANIMATION
+   HAMBURGER
 ------------------------------------- */
 .hamburger {
     width: 22px;
@@ -138,7 +142,6 @@ header h1 {
     opacity: 1;
 }
 
-/* menu links */
 .dropdown a {
     display: block;
     text-decoration: none;
@@ -199,16 +202,32 @@ header h1 {
 }
 
 /* -------------------------------------
-   RESPONSIVE
+   RESPONSIVE IMPROVEMENTS
 ------------------------------------- */
-@media (max-width: 400px) {
+
+/* Slight tune for phones around 360px */
+@media (max-width: 380px) {
+    header {
+        padding-top: 28px;
+    }
     header h1 {
-        font-size: 1.7em;
+        font-size: 1.75em;
+        padding: 0 12px;
+    }
+    .menu-button {
+        margin-top: 16px;
+    }
+}
+
+/* Tiny phones (iPhone SE, older Android) */
+@media (max-width: 330px) {
+    header h1 {
+        font-size: 1.55em;
     }
 }
 
 /* -------------------------------------
-   FOOTER (Sticky)
+   FOOTER
 ------------------------------------- */
 footer {
     margin-top: auto;
