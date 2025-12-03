@@ -1,4 +1,3 @@
-<!-- Final corrected illustrations.html – phone layout untouched, tablet fixes only -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +35,12 @@ header {
     border-bottom: 2px solid #D8CFC7;
     width: 100%;
     box-sizing: border-box;
+}
+
+/* ✔ Match homepage: constrain and center header content */
+header .inner {
+    max-width: 520px;
+    margin: 0 auto;
 }
 
 header h1 {
@@ -202,17 +207,19 @@ header h1 {
     .grid { gap: 10px; }
 }
 
-/* TABLETS → 3 columns + centering fixes + no sideways scroll */
+/* TABLETS → 3 columns + centering fixes */
 @media (min-width: 700px) {
 
-    /* Fix header/menu shifting */
+    /* Ensure all header elements are centered */
     header,
     header h1,
     .menu-button {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
         text-align: center !important;
-        display: block;
+    }
+
+    /* Keep wrapper centered */
+    header .inner {
+        margin: 0 auto !important;
     }
 
     /* Make sure outer elements don't exceed screen width */
@@ -262,21 +269,23 @@ function toggleMenu() {
 <body>
 
 <header>
-    <h1>ILLUSTRATIONS</h1>
+    <div class="inner">
+        <h1>ILLUSTRATIONS</h1>
 
-    <div class="menu-button" onclick="toggleMenu()">
-        <div id="burger" class="hamburger">
-            <span></span><span></span><span></span>
+        <div class="menu-button" onclick="toggleMenu()">
+            <div id="burger" class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+            <span>MENU</span>
         </div>
-        <span>MENU</span>
-    </div>
 
-    <div id="dropdown" class="dropdown">
-        <a href="index.html">Home</a>
-        <a href="illustrations.html">Illustrations</a>
-        <a href="paintings.html">Paintings</a>
-        <a href="musings.html">Musings</a>
-        <a href="about.html">About + Contact</a>
+        <div id="dropdown" class="dropdown">
+            <a href="index.html">Home</a>
+            <a href="illustrations.html">Illustrations</a>
+            <a href="paintings.html">Paintings</a>
+            <a href="musings.html">Musings</a>
+            <a href="about.html">About + Contact</a>
+        </div>
     </div>
 </header>
 
