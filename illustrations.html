@@ -16,13 +16,13 @@
 /* ------------------ GLOBAL ------------------ */
 body {
     margin: 0;
-    overflow-x: hidden; /* FIXES page overflow */
+    overflow-x: hidden; /* prevent sideways scroll */
     font-family: "Helvetica Neue", Arial, sans-serif;
     background-color: #F4EFE9;
     color: #5A5352;
 }
 
-/* ------------------ HEADER (MATCHES MUSINGS + HOMEPAGE) ------------------ */
+/* ------------------ HEADER ------------------ */
 header {
     background-color: #E6D7CE;
     padding: 40px 20px 20px;
@@ -158,10 +158,10 @@ header h1 {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ------------------ GRID ------------------ */
+/* ------------------ GRID (Updated: 2 columns → 3 column tablet) ------------------ */
 .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* phones */
     gap: 12px;
     justify-items: center;
     width: 100%;
@@ -181,19 +181,33 @@ header h1 {
     box-shadow: 0 6px 14px rgba(0,0,0,0.22);
 }
 
-/* Fix small screens */
+/* SMALL PHONES */
 @media (max-width: 400px) {
     .thumb { width: 90%; }
     .grid { gap: 10px; }
 }
 
+/* TABLETS — 3 COLUMNS */
+@media (min-width: 700px) {
+    .grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 18px;
+    }
+
+    .thumb {
+        width: 95%;
+        max-width: 200px;
+    }
+}
+
 /* ------------------ FOOTER ------------------ */
 footer {
     margin-top: 40px;
-    background: #E4D5CC;
-    color: #4A2E2A;
+    background: #E6D7CE;
+    color: #5A5352;
     padding: 15px;
     text-align: center;
+    border-top: 2px solid #D8CFC7;
 }
 </style>
 
@@ -230,17 +244,11 @@ function toggleMenu() {
 
 <div class="content-container">
     <div class="grid">
-
         <a href="illustration1.html"><img src="images/sealing_joseon_couple.jpg" class="thumb" alt="Sealing Couple"></a>
-
         <a href="illustration2.html"><img src="images/waiting_joseon_family.png" class="thumb" alt="Waiting Family"></a>
-
         <a href="illustration3.html"><img src="images/temple_magnolia_tree_bloom.png" class="thumb" alt="Magnolia Tree Bloom"></a>
-
         <a href="illustration4.html"><img src="images/10_views_think_celestial.jpg" class="thumb" alt="10 Views Think Celestial"></a>
-
         <a href="illustration5.html"><img src="images/hero2.jpg" class="thumb" alt="Hero 2"></a>
-
     </div>
 </div>
 
@@ -250,9 +258,7 @@ function toggleMenu() {
 
 <script>
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js')
-    .then(reg => console.log('Service worker registered.', reg))
-    .catch(err => console.log('Service worker registration failed.', err));
+  navigator.serviceWorker.register('/service-worker.js');
 }
 </script>
 
