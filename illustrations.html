@@ -1,3 +1,4 @@
+<!-- Updated illustrations.html with centered menu, centered header, full-width footer, and fixed page width -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +15,14 @@
 
 <style>
 /* ------------------ GLOBAL ------------------ */
-body {
+html, body {
     margin: 0;
+    padding: 0;
+    width: 100%;
     overflow-x: hidden; /* prevent sideways scroll */
+}
+
+body {
     font-family: "Helvetica Neue", Arial, sans-serif;
     background-color: #F4EFE9;
     color: #5A5352;
@@ -29,20 +35,24 @@ header {
     text-align: center;
     border-bottom: 2px solid #D8CFC7;
     width: 100%;
+    box-sizing: border-box;
 }
 
 header h1 {
-    margin: 0;
+    margin: 0 auto;
     font-size: 2.1em;
     color: #5A5352;
     letter-spacing: 1px;
-    white-space: nowrap;
+    text-align: center;
+    white-space: normal; /* allow wrapping if needed */
+    width: 100%;
 }
 
 /* ------------------ MENU BUTTON ------------------ */
 .menu-button {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     margin-top: 20px;
     padding: 12px 22px;
@@ -53,6 +63,8 @@ header h1 {
     font-size: 1.1em;
     color: #5A5352;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .menu-button:hover {
@@ -146,11 +158,13 @@ header h1 {
 
 /* ------------------ CONTENT CONTAINER ------------------ */
 .content-container {
-    max-width: 800px;
+    max-width: 900px;
     padding: 20px;
     margin: 40px auto;
     text-align: center;
     animation: fadeIn 0.8s ease-out;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 @keyframes fadeIn {
@@ -158,13 +172,14 @@ header h1 {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ------------------ GRID (Updated: 2 columns → 3 column tablet) ------------------ */
+/* ------------------ GRID ------------------ */
 .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* phones */
+    grid-template-columns: 1fr 1fr;
     gap: 12px;
     justify-items: center;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .thumb {
@@ -187,13 +202,12 @@ header h1 {
     .grid { gap: 10px; }
 }
 
-/* TABLETS — 3 COLUMNS */
+/* TABLETS → 3 columns */
 @media (min-width: 700px) {
     .grid {
         grid-template-columns: 1fr 1fr 1fr;
         gap: 18px;
     }
-
     .thumb {
         width: 95%;
         max-width: 200px;
@@ -208,6 +222,8 @@ footer {
     padding: 15px;
     text-align: center;
     border-top: 2px solid #D8CFC7;
+    width: 100%;
+    box-sizing: border-box;
 }
 </style>
 
