@@ -32,15 +32,14 @@ body {
 /* ------------------ HEADER ------------------ */
 header {
     display: flex;
-    justify-content: center; /* fully center menu button + title */
+    justify-content: center;
     align-items: center;
-    gap: 15px;
-    position: relative;
     background-color: #F5E8E0;
-    padding: 10px 0;
+    padding: 0;
+    margin: 0;
     width: 100%;
     box-sizing: border-box;
-    overflow-x: hidden; /* prevent tiny horizontal scroll */
+    overflow: hidden;
 }
 
 header h1 {
@@ -57,6 +56,11 @@ header h1 {
 
 /* ------------------ MENU BUTTON ------------------ */
 .menu-button {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+} {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -165,13 +169,12 @@ header h1 {
 
 /* ------------------ CONTENT CONTAINER ------------------ */
 .content-container {
-    max-width: 100% /* prevent tablet overflow */;
-    padding: 20px;
-    margin: 40px auto;
-    text-align: center;
-    animation: fadeIn 0.8s ease-out;
     width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 @keyframes fadeIn {
