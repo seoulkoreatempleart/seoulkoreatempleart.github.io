@@ -16,6 +16,7 @@
 <style>
 /* ------------------ GLOBAL ------------------ */
 html, body {
+    overflow-x: hidden; /* prevent page wider than screen */
     margin: 0;
     padding: 0;
     width: 100%;
@@ -30,12 +31,16 @@ body {
 
 /* ------------------ HEADER ------------------ */
 header {
-    background-color: #E6D7CE;
-    padding: 40px 20px 20px;
-    text-align: center;
-    border-bottom: 2px solid #D8CFC7;
+    display: flex;
+    justify-content: center; /* fully center menu button + title */
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    background-color: #F5E8E0;
+    padding: 10px 0;
     width: 100%;
     box-sizing: border-box;
+    overflow-x: hidden; /* prevent tiny horizontal scroll */
 }
 
 header h1 {
