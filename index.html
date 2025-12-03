@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Seoul Korea Temple Art</title>
 
-<link rel="manifest" href="manifest.json">   
-    
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
-<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Icons / Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
 
 <style>
+/* ------- BASIC LAYOUT (Sticky Footer) ------- */
 html, body {
     height: 100%;
     margin: 0;
@@ -21,31 +24,18 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-}
-
-footer {
-    margin-top: auto;
-}
-
-/* ---------------- YOUR EXISTING STYLES ---------------- */
-
-body {
-    display: flex;
-    flex-direction: column;
     min-height: 100%;
-    margin: 0;
     font-family: "Helvetica Neue", Arial, sans-serif;
     background-color: #F4EFE9;
     color: #5A5352;
 }
 
+/* ------- HEADER ------- */
 header {
     background-color: #E6D7CE;
     padding: 40px 20px 20px;
     text-align: center;
     border-bottom: 2px solid #D8CFC7;
-    position: relative;
-    
     max-width: 500px;
     margin: 0 auto;
 }
@@ -53,12 +43,12 @@ header {
 header h1 {
     margin: 0;
     font-size: 2.1em;
-    color: #5A5352;
     letter-spacing: 1px;
+    color: #5A5352;
     white-space: nowrap;
 }
 
-/* MENU BUTTON */
+/* ------- MENU BUTTON ------- */
 .menu-button {
     display: inline-flex;
     align-items: center;
@@ -72,7 +62,6 @@ header h1 {
     font-size: 1.1em;
     color: #5A5352;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    user-select: none;
 }
 
 .menu-button:hover {
@@ -80,7 +69,7 @@ header h1 {
     transform: translateY(-2px);
 }
 
-/* HAMBURGER → X animation */
+/* ------- HAMBURGER ANIMATION ------- */
 .hamburger {
     width: 22px;
     height: 16px;
@@ -98,21 +87,11 @@ header h1 {
 .hamburger span:nth-child(1) { top: 0; }
 .hamburger span:nth-child(2) { top: 6px; }
 .hamburger span:nth-child(3) { top: 12px; }
+.hamburger.active span:nth-child(1) { transform: rotate(45deg); top: 6px; }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg); top: 6px; }
 
-/* Active state -> turn into X */
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg);
-    top: 6px;
-}
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg);
-    top: 6px;
-}
-
-/* DROPDOWN MENU */
+/* ------- DROPDOWN MENU ------- */
 .dropdown {
     max-height: 0;
     overflow: hidden;
@@ -128,7 +107,7 @@ header h1 {
     width: 240px;
     margin-left: auto;
     margin-right: auto;
-    padding: 0 0 10px 0;
+    padding-bottom: 10px;
 }
 
 .dropdown.show {
@@ -136,7 +115,6 @@ header h1 {
     opacity: 1;
 }
 
-/* Menu links fade-in one by one */
 .dropdown a {
     display: block;
     text-decoration: none;
@@ -153,20 +131,16 @@ header h1 {
     transform: translateY(10px);
     animation: fadeUp 0.5s forwards;
 }
-
-/* Stagger order */
 .dropdown a:nth-child(1) { animation-delay: 0.15s; }
 .dropdown a:nth-child(2) { animation-delay: 0.30s; }
 .dropdown a:nth-child(3) { animation-delay: 0.45s; }
 .dropdown a:nth-child(4) { animation-delay: 0.60s; }
 
 @keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    to { opacity: 1; transform: translateY(0); }
 }
 
+/* ------- HERO IMAGE ------- */
 .hero img {
     width: 50%;
     max-width: 400px;
@@ -178,6 +152,7 @@ header h1 {
     box-shadow: 0 0 15px rgba(235, 200, 180, 0.35);
 }
 
+/* ------- INTRO SECTION ------- */
 .intro {
     text-align: center;
     padding: 50px 20px;
@@ -192,14 +167,14 @@ header h1 {
     font-size: 1.1em;
 }
 
+/* ------- MOBILE ------- */
 @media (max-width: 400px) {
-    header h1 {
-        font-size: 1.7em;
-    }
+    header h1 { font-size: 1.7em; }
 }
 
-/* FOOTER STYLE */
+/* ------- FOOTER ------- */
 footer {
+    margin-top: auto;
     background: #E6D7CE;
     color: #5A5352;
     text-align: center;
@@ -207,20 +182,19 @@ footer {
     font-size: 0.9rem;
     border-top: 2px solid #D8CFC7;
 }
+</style>
 
-    </style>
+<script>
+function toggleMenu() {
+    const dropdown = document.getElementById("dropdown");
+    const burger = document.getElementById("burger");
 
-    <script>
-        function toggleMenu() {
-            const dropdown = document.getElementById("dropdown");
-            const burger = document.getElementById("burger");
+    dropdown.classList.toggle("show");
+    burger.classList.toggle("active");
+}
+</script>
 
-            dropdown.classList.toggle("show");
-            burger.classList.toggle("active");
-        }
-    </script>
 </head>
-
 <body>
 
 <header>
@@ -241,7 +215,7 @@ footer {
     </div>
 </header>
 
-<!-- HERO PLACEHOLDER -->
+<!-- HERO IMAGE -->
 <div class="hero">
     <img src="images/hero2.jpg" alt="Seoul Korea Temple Art">
 </div>
@@ -254,18 +228,16 @@ footer {
     </p>
 </section>
 
-    <footer>
+<footer>
     © Seoul Korea Temple Art
 </footer>
 
-<!-- Service Worker Registration -->
+<!-- SERVICE WORKER -->
 <script>
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js')
-    .then(reg => console.log('Service worker registered.', reg))
-    .catch(err => console.log('Service worker registration failed.', err));
+    navigator.serviceWorker.register('/service-worker.js');
 }
 </script>
 
-     </body>
+</body>
 </html>
