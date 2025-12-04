@@ -6,11 +6,11 @@
     <title>About / Contact – Seoul Korea Temple Art</title>
 
 <link rel="manifest" href="manifest.json">
-    
+
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
  
     <style>
         body {
@@ -150,9 +150,15 @@
             padding: 20px;
         }
 
-        h2 {
-            text-align: center;
-            font-weight: normal;
+        /* Portrait image */
+        .about-photo {
+            display: block;
+            margin: 0 auto 25px auto;
+            width: 70%;
+            max-width: 260px;
+            border-radius: 14px;
+            border: 1px solid #D8CFC7;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.12);
         }
 
         .section {
@@ -206,7 +212,9 @@
 </header>
 
 <div class="wrapper">
-    <h2>About the Artist</h2>
+
+    <!-- Added portrait image -->
+    <img src="images/Me_to_Malaysia.jpg" alt="Portrait of Irene" class="about-photo">
 
     <div class="section">
         <p>Hi! My name is Irene Yoon. In 2017, I served a mission for the Church of Jesus Christ of Latter-day Saints at the Seoul Korea Temple.</p>
@@ -225,7 +233,7 @@
         www.youtube.com/@seethetemple</p>
     </div>
 
-    <h2 style="margin-top:40px;">Contact</h2>
+    <h2 style="text-align:center; margin-top:40px;">Contact</h2>
 
     <div class="section">
         <p>Thanks for visiting my site! I hope your time here helps you feel our Savior's love.</p>
@@ -235,7 +243,7 @@
 
 <footer>© Seoul Korea Temple Art</footer>
 
-   <!-- Service Worker Registration -->
+<!-- Service Worker Registration -->
 <script>
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js')
