@@ -12,198 +12,196 @@
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: "Helvetica Neue", Arial, sans-serif;
-            background-color: #F4EFE9;
-            color: #5A5352;
-        }
-
-        header {
-            background-color: #E6D7CE;
-            padding: 40px 20px 20px;
-            text-align: center;
-            border-bottom: 2px solid #D8CFC7;
-            position: relative;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.1em;        /* MATCH MUSEINGS */
-            color: #5A5352;
-            letter-spacing: 1px;
-            text-align: center;
-        }
-
-        /* MENU BUTTON */
-        .menu-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 20px;
-            padding: 12px 22px;
-            background-color: #F4EFE9;
-            border: 1px solid #D8CFC7;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 1.1em;
-            color: #5A5352;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            user-select: none;
-        }
-
-        .menu-button:hover {
-            background-color: #E6D7CE;
-            transform: translateY(-2px);
-        }
-
-        /* HAMBURGER → X animation */
-        .hamburger {
-            width: 22px;
-            height: 16px;
-            position: relative;
-        }
-        .hamburger span {
-            position: absolute;
-            height: 3px;
-            width: 100%;
-            background-color: #5A5352;
-            left: 0;
-            transition: 0.35s ease;
-            border-radius: 3px;
-        }
-        .hamburger span:nth-child(1) { top: 0; }
-        .hamburger span:nth-child(2) { top: 6px; }
-        .hamburger span:nth-child(3) { top: 12px; }
-
-        /* Active state */
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg);
-            top: 6px;
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg);
-            top: 6px;
-        }
-
-        /* DROPDOWN MENU */
-        .dropdown {
-            max-height: 0;
-            overflow: hidden;
-            opacity: 0;
-            transition: max-height 0.5s ease, opacity 0.5s ease;
-            margin-top: 10px;
-
-            background-image: url("https://www.transparenttextures.com/patterns/paper.png");
-            background-color: #F4EFE9;
-
-            border-radius: 14px;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-            width: 240px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 0 10px 0;
-        }
-
-        .dropdown.show {
-            max-height: 400px;
-            opacity: 1;
-        }
-
-        /* Menu links with fade-up animation */
-        .dropdown a {
-            display: block;
-            text-decoration: none;
-            padding: 12px;
-            margin: 10px auto;
-            width: 180px;
-            background-color: #FFFFFFEE;
-            border: 1px solid #D8CFC7;
-            border-radius: 8px;
-            color: #5A5352;
-            text-align: center;
-
-            opacity: 0;
-            transform: translateY(10px);
-            animation: fadeUp 0.5s forwards;
-        }
-
-        .dropdown a:nth-child(1) { animation-delay: 0.15s; }
-        .dropdown a:nth-child(2) { animation-delay: 0.30s; }
-        .dropdown a:nth-child(3) { animation-delay: 0.45s; }
-        .dropdown a:nth-child(4) { animation-delay: 0.60s; }
-
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* CONTENT WRAPPER */
-        .wrapper {
-            max-width: 650px;
-            margin: 40px auto;
-            padding: 20px;
-            background: #FCF9F6;         /* MATCH MUSINGS */
-            border: 1px solid #D8CFC7;
-            border-radius: 14px;
-        }
-
-        /* Updated portrait image */
-        .about-photo {
-            display: block;
-            margin: 0 auto 25px auto;
-            width: 47%;          
-            max-width: 170px;    
-            border-radius: 50%;  
-            border: 2px solid #D8CFC7;   /* more visible */
-            box-shadow: 0 6px 14px rgba(0,0,0,0.12);
-        }
-
-        .section {
-            background-color: #FFFFFFEE;
-            border: 1px solid #D8CFC7;
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-        footer {
-            background: #E6D7CE;
-            color: #5A5352;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            font-size: 0.9rem;
-            border-top: 2px solid #D8CFC7;
-        }
-        
-     @media (max-width: 480px) {
-    .section a {
-        display: inline-block;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        white-space: normal;
-        max-width: 100%;
+<style>
+    body {
+        margin: 0;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        background-color: #F4EFE9;
+        color: #5A5352;
     }
-}
-        
-    </style>
 
-    <script>
-        function toggleMenu() {
-            const dropdown = document.getElementById("dropdown");
-            const burger = document.getElementById("burger");
+    header {
+        background-color: #E6D7CE;
+        padding: 40px 20px 20px;
+        text-align: center;
+        border-bottom: 2px solid #D8CFC7;
+        position: relative;
+    }
 
-            dropdown.classList.toggle("show");
-            burger.classList.toggle("active");
+    header h1 {
+        margin: 0;
+        font-size: 2.1em;
+        color: #5A5352;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+
+    .menu-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+        padding: 12px 22px;
+        background-color: #F4EFE9;
+        border: 1px solid #D8CFC7;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1.1em;
+        color: #5A5352;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        user-select: none;
+    }
+
+    .menu-button:hover {
+        background-color: #E6D7CE;
+        transform: translateY(-2px);
+    }
+
+    .hamburger {
+        width: 22px;
+        height: 16px;
+        position: relative;
+    }
+    .hamburger span {
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        background-color: #5A5352;
+        left: 0;
+        transition: 0.35s ease;
+        border-radius: 3px;
+    }
+    .hamburger span:nth-child(1) { top: 0; }
+    .hamburger span:nth-child(2) { top: 6px; }
+    .hamburger span:nth-child(3) { top: 12px; }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg);
+        top: 6px;
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg);
+        top: 6px;
+    }
+
+    .dropdown {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.5s ease, opacity 0.5s ease;
+        margin-top: 10px;
+
+        background-image: url("https://www.transparenttextures.com/patterns/paper.png");
+        background-color: #F4EFE9;
+
+        border-radius: 14px;
+        box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+        width: 240px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 0 10px 0;
+    }
+
+    .dropdown.show {
+        max-height: 400px;
+        opacity: 1;
+    }
+
+    .dropdown a {
+        display: block;
+        text-decoration: none;
+        padding: 12px;
+        margin: 10px auto;
+        width: 180px;
+        background-color: #FFFFFFEE;
+        border: 1px solid #D8CFC7;
+        border-radius: 8px;
+        color: #5A5352;
+        text-align: center;
+
+        opacity: 0;
+        transform: translateY(10px);
+        animation: fadeUp 0.5s forwards;
+    }
+
+    .dropdown a:nth-child(1) { animation-delay: 0.15s; }
+    .dropdown a:nth-child(2) { animation-delay: 0.30s; }
+    .dropdown a:nth-child(3) { animation-delay: 0.45s; }
+    .dropdown a:nth-child(4) { animation-delay: 0.60s; }
+
+    @keyframes fadeUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
-    </script>
+    }
+
+    .wrapper {
+        max-width: 650px;
+        margin: 40px auto;
+        padding: 20px;
+        background: #FCF9F6;
+        border: 1px solid #D8CFC7;
+        border-radius: 14px;
+    }
+
+    .about-photo {
+        display: block;
+        margin: 0 auto 25px auto;
+        width: 47%;
+        max-width: 170px;
+        border-radius: 50%;
+        border: 2px solid #D8CFC7;
+        box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    }
+
+    .section {
+        background-color: #FFFFFFEE;
+        border: 1px solid #D8CFC7;
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    .section a {
+        color: #5A5352;
+        text-decoration: underline;
+        word-break: break-word;
+    }
+
+    @media (max-width: 480px) {
+        .section a {
+            display: inline-block;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            white-space: normal;
+            max-width: 100%;
+        }
+    }
+
+    footer {
+        background: #E6D7CE;
+        color: #5A5352;
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+        font-size: 0.9rem;
+        border-top: 2px solid #D8CFC7;
+    }
+</style>
+
+<script>
+function toggleMenu() {
+    const dropdown = document.getElementById("dropdown");
+    const burger = document.getElementById("burger");
+
+    dropdown.classList.toggle("show");
+    burger.classList.toggle("active");
+}
+</script>
 </head>
 
 <body>
@@ -228,28 +226,24 @@
 
 <div class="wrapper">
 
-    <!-- Portrait image -->
     <img src="images/Me_to_Malaysia.jpg" alt="Portrait of Irene" class="about-photo">
 
     <div class="section">
-    <p>Hi! My name is Irene Yoon. In 2017, I served a mission for the Church of Jesus Christ of Latter-day Saints at the Seoul Korea Temple.</p>
+        <p>Hi! My name is Irene Yoon. In 2017, I served a mission for the Church of Jesus Christ of Latter-day Saints at the Seoul Korea Temple.</p>
 
-    <p>After my mission, I returned to Canada and continued painting. I also studied Korean folk art and enjoyed painting temple garden flowers.</p>
+        <p>After my mission, I returned to Canada and continued painting. I also studied Korean folk art and enjoyed painting temple garden flowers.</p>
 
-    <p>For the first few years, my art focused mainly on the Seoul Korea Temple and its beautiful flowers.</p>
+        <p>For the first few years, my art focused mainly on the Seoul Korea Temple and its beautiful flowers.</p>
 
-    <p>My earlier art and temple photos can be seen at:<br>
-    <a href="https://seethetemple.wordpress.com/" target="_blank">https://seethetemple.wordpress.com/</a>
-    </p>
+        <p>My earlier art and temple photos can be seen at:<br>
+        <a href="https://seethetemple.wordpress.com/" target="_blank">seethetemple.wordpress.com</a></p>
 
-    <p>More temple photography:<br>
-    <a href="https://www.instagram.com/seoulkoreatemple/" target="_blank">https://www.instagram.com/seoulkoreatemple/</a>
-    </p>
+        <p>More temple photography:<br>
+        <a href="https://www.instagram.com/seoulkoreatemple/" target="_blank">instagram.com/seoulkoreatemple</a></p>
 
-    <p>Temple videos:<br>
-    <a href="https://www.youtube.com/@seethetemple" target="_blank">https://www.youtube.com/@seethetemple</a>
-    </p>
-</div>
+        <p>Temple videos:<br>
+        <a href="https://www.youtube.com/@seethetemple" target="_blank">youtube.com/@seethetemple</a></p>
+    </div>
 
     <h2 style="text-align:center; margin-top:40px;">Contact</h2>
 
@@ -261,14 +255,7 @@
 
 <footer>© Seoul Korea Temple Art</footer>
 
-<!-- Service Worker Registration -->
 <script>
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js')
     .then(reg => console.log('Service worker registered.', reg))
-    .catch(err => console.log('Service worker registration failed.', err));
-}
-</script>
- 
-</body>
-</html>
