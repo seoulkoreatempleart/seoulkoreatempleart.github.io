@@ -1,266 +1,148 @@
+<!-- Updated illustrations.html with softer shadows and Musings parchment background -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Illustrations – Seoul Korea Temple Art</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Illustrations – Seoul Korea Temple Art</title>
 
-    <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #F5E8E0; /* Match Musings parchment */
+      color: #5A5352;
+    }
 
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+    header {
+      background: #E6D7CE;
+      color: #5A5352;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #D3C4BC;
+    }
 
-<style>
-/* ------------------ GLOBAL ------------------ */
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
+    header h1 {
+      margin: 0;
+      font-size: 2.1em;
+      letter-spacing: 1px;
+      white-space: nowrap; /* match Musings */
+    }
 
-body {
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    background-color: #F4EFE9;
-    color: #5A5352;
-}
+    /* Navigation */
+    .menu-icon {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      cursor: pointer;
+      font-size: 1.8em;
+      color: #5A5352;
+    }
 
-/* ------------------ HEADER (MATCHING MUSINGS) ------------------ */
-header {
-    background-color: #E6D7CE;
-    padding: 40px 20px 20px;
-    text-align: center;
-    border-bottom: 2px solid #D8CFC7;
-}
+    nav ul {
+      display: none;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      background: #E6D7CE;
+      top: 60px;
+      left: 20px;
+      width: 160px;
+      border: 1px solid #D3C4BC;
+      border-radius: 6px;
+    }
 
-header h1 {
-    margin: 0;
-    font-size: 2.1em;
-    color: #5A5352;
-    letter-spacing: 1px;
-    white-space: nowrap; /* match Musings */
-}
+    nav ul li {
+      padding: 12px;
+      border-bottom: 1px solid #D3C4BC;
+    }
 
-/* ------------------ MENU BUTTON ------------------ */
-.menu-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 20px;
-    padding: 12px 22px;
-    background-color: #F4EFE9;
-    border: 1px solid #D8CFC7;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 1.1em;
-    color: #5A5352;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    user-select: none;
-}
+    nav ul li:last-child {
+      border-bottom: none;
+    }
 
-.menu-button:hover {
-    background-color: #E6D7CE;
-    transform: translateY(-2px);
-}
+    nav ul li a {
+      text-decoration: none;
+      color: #5A5352;
+    }
 
-/* ------------------ HAMBURGER ANIMATION ------------------ */
-.hamburger {
-    width: 22px;
-    height: 16px;
-    position: relative;
-}
+    /* Grid container */
+    .grid-wrapper {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 16px;
+      background: #F5E8E0; /* match Musings parchment */
+      border-radius: 10px;
+    }
 
-.hamburger span {
-    position: absolute;
-    height: 3px;
-    width: 100%;
-    background-color: #5A5352;
-    left: 0;
-    transition: 0.35s ease;
-    border-radius: 3px;
-}
-
-.hamburger span:nth-child(1) { top: 0; }
-.hamburger span:nth-child(2) { top: 6px; }
-.hamburger span:nth-child(3) { top: 12px; }
-
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg);
-    top: 6px;
-}
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg);
-    top: 6px;
-}
-
-/* ------------------ DROPDOWN MENU ------------------ */
-.dropdown {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.5s ease, opacity 0.5s ease;
-    margin-top: 10px;
-
-    background-image: url("https://www.transparenttextures.com/patterns/paper.png");
-    background-color: #F4EFE9;
-
-    border-radius: 14px;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-    width: 240px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 10px;
-}
-
-.dropdown.show {
-    max-height: 400px;
-    opacity: 1;
-}
-
-.dropdown a {
-    display: block;
-    text-decoration: none;
-    padding: 12px;
-    margin: 10px auto;
-    width: 180px;
-    background-color: #FFFFFFEE;
-    border: 1px solid #D8CFC7;
-    border-radius: 8px;
-    color: #5A5352;
-    text-align: center;
-
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fadeUp 0.5s forwards;
-}
-
-.dropdown a:nth-child(1) { animation-delay: 0.15s; }
-.dropdown a:nth-child(2) { animation-delay: 0.30s; }
-.dropdown a:nth-child(3) { animation-delay: 0.45s; }
-.dropdown a:nth-child(4) { animation-delay: 0.60s; }
-.dropdown a:nth-child(5) { animation-delay: 0.75s; }
-
-@keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ------------------ CONTENT WRAPPER (MATCH MUSINGS FEEL) ------------------ */
-.wrapper {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 30px;
-    background: #FCF9F6;
-    border-radius: 14px;
-    border: 1px solid #D8CFC7;
-    box-sizing: border-box;
-}
-
-/* ------------------ GRID ------------------ */
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-    justify-items: center;
-}
-
-.thumb {
-    width: 100%;
-    max-width: 200px;
-    border-radius: 10px;
-
-    /* softer shadow to reduce brown heaviness */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    cursor: pointer;
-}
-
-.thumb:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
-}
-
-/* SMALL PHONES */
-@media (max-width: 400px) {
-    .thumb { max-width: 160px; }
-    .grid { gap: 12px; }
-}
-
-/* TABLETS → 3 columns */
-@media (min-width: 700px) {
     .grid {
-        grid-template-columns: 1fr 1fr 1fr;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
     }
-    .thumb {
-        max-width: 220px;
+
+    /* Softer shadow */
+    .grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     }
-}
 
-/* ------------------ FOOTER ------------------ */
-footer {
-    margin-top: 50px;
-    background: #E6D7CE;
-    color: #5A5352;
-    padding: 18px;
-    text-align: center;
-    border-top: 1px solid #D8CFC7; /* match Musings */
-    font-size: 0.9rem;
-}
-</style>
+    footer {
+      background: #E6D7CE;
+      color: #5A5352;
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #D3C4BC;
+      margin-top: 30px;
+    }
 
-<script>
-function toggleMenu() {
-    const dropdown = document.getElementById("dropdown");
-    const burger = document.getElementById("burger");
-    dropdown.classList.toggle("show");
-    burger.classList.toggle("active");
-}
-</script>
+    /* Tablet: 3 columns */
+    @media (min-width: 700px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
 
-<header>
-    <h1>ILLUSTRATIONS</h1>
+  <header>
+    <h1>Illustrations</h1>
+  </header>
 
-    <div class="menu-button" onclick="toggleMenu()">
-        <div id="burger" class="hamburger">
-            <span></span><span></span><span></span>
-        </div>
-        <span>MENU</span>
-    </div>
+  <nav>
+    <ul id="menuList">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="illustrations.html">Illustrations</a></li>
+      <li><a href="musings.html">Musings</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
 
-    <div id="dropdown" class="dropdown">
-        <a href="index.html">Home</a>
-        <a href="illustrations.html">Illustrations</a>
-        <a href="paintings.html">Paintings</a>
-        <a href="musings.html">Musings</a>
-        <a href="about.html">About + Contact</a>
-    </div>
-</header>
-
-<div class="wrapper">
+  <div class="grid-wrapper">
     <div class="grid">
-        <a href="illustration1.html"><img src="images/sealing_joseon_couple.jpg" class="thumb" alt="Sealing Couple"></a>
-        <a href="illustration2.html"><img src="images/waiting_joseon_family.png" class="thumb" alt="Waiting Family"></a>
-        <a href="illustration3.html"><img src="images/temple_magnolia_tree_bloom.png" class="thumb" alt="Magnolia Tree Bloom"></a>
-        <a href="illustration4.html"><img src="images/10_views_think_celestial.jpg" class="thumb" alt="10 Views Think Celestial"></a>
-        <a href="illustration5.html"><img src="images/hero2.jpg" class="thumb" alt="Hero 2"></a>
+      <!-- Insert your images here -->
+      <img src="img1.jpg" alt="Illustration 1">
+      <img src="img2.jpg" alt="Illustration 2">
+      <img src="img3.jpg" alt="Illustration 3">
+      <img src="img4.jpg" alt="Illustration 4">
     </div>
-</div>
+  </div>
 
-<footer>
-    © Seoul Korea Temple Art
-</footer>
+  <footer>
+    <p>&copy; 2025 Seoul Korea Temple Art</p>
+  </footer>
 
-<script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js');
-}
-</script>
-
+  <script>
+    function toggleMenu() {
+      const m = document.getElementById('menuList');
+      m.style.display = m.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
 </body>
 </html>
