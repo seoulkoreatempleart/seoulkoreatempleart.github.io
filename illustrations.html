@@ -1,148 +1,41 @@
-<!-- Updated illustrations.html with softer shadows and Musings parchment background -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Illustrations – Seoul Korea Temple Art</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Illustrations – Seoul Korea Temple Art</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #F5E8E0; /* Match Musings parchment */
-      color: #5A5352;
-    }
+    <link rel="manifest" href="manifest.json">
 
-    header {
-      background: #E6D7CE;
-      color: #5A5352;
-      padding: 20px;
-      text-align: center;
-      border-bottom: 1px solid #D3C4BC;
-    }
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
 
-    header h1 {
-      margin: 0;
-      font-size: 2.1em;
-      letter-spacing: 1px;
-      white-space: nowrap; /* match Musings */
-    }
+<style>
+/* ------------------ GLOBAL ------------------ */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
 
-    /* Navigation */
-    .menu-icon {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      cursor: pointer;
-      font-size: 1.8em;
-      color: #5A5352;
-    }
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background-color: #F4EFE9;
+    color: #5A5352;
+}
 
-    nav ul {
-      display: none;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      position: absolute;
-      background: #E6D7CE;
-      top: 60px;
-      left: 20px;
-      width: 160px;
-      border: 1px solid #D3C4BC;
-      border-radius: 6px;
-    }
+/* ------------------ HEADER (MATCHING MUSINGS) ------------------ */
+header {
+    background-color: #E6D7CE;
+    padding: 40px 20px 20px;
+    text-align: center;
+    border-bottom: 2px solid #D8CFC7;
+}
 
-    nav ul li {
-      padding: 12px;
-      border-bottom: 1px solid #D3C4BC;
-    }
-
-    nav ul li:last-child {
-      border-bottom: none;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #5A5352;
-    }
-
-    /* Grid container */
-    .grid-wrapper {
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 16px;
-      background: #F5E8E0; /* match Musings parchment */
-      border-radius: 10px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    /* Softer shadow */
-    .grid img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-    }
-
-    footer {
-      background: #E6D7CE;
-      color: #5A5352;
-      text-align: center;
-      padding: 20px;
-      border-top: 1px solid #D3C4BC;
-      margin-top: 30px;
-    }
-
-    /* Tablet: 3 columns */
-    @media (min-width: 700px) {
-      .grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
-
-  <header>
-    <h1>Illustrations</h1>
-  </header>
-
-  <nav>
-    <ul id="menuList">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="illustrations.html">Illustrations</a></li>
-      <li><a href="musings.html">Musings</a></li>
-      <li><a href="about.html">About</a></li>
-    </ul>
-  </nav>
-
-  <div class="grid-wrapper">
-    <div class="grid">
-      <!-- Insert your images here -->
-      <img src="img1.jpg" alt="Illustration 1">
-      <img src="img2.jpg" alt="Illustration 2">
-      <img src="img3.jpg" alt="Illustration 3">
-      <img src="img4.jpg" alt="Illustration 4">
-    </div>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Seoul Korea Temple Art</p>
-  </footer>
-
-  <script>
-    function toggleMenu() {
-      const m = document.getElementById('menuList');
-      m.style.display = m.style.display === 'block' ? 'none' : 'block';
-    }
-  </script>
-</body>
-</html>
+header h1 {
+    margin: 0;
+    font-size: 2.1em;
+    color: #5A5352;
+    le
