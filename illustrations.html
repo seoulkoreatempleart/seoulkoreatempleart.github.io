@@ -18,6 +18,7 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
+    overflow-x: hidden; /* prevent sideways scroll */
 }
 
 body {
@@ -26,16 +27,287 @@ body {
     color: #5A5352;
 }
 
-/* ------------------ HEADER (MATCHING MUSINGS) ------------------ */
+/* ------------------ HEADER ------------------ */
 header {
     background-color: #E6D7CE;
     padding: 40px 20px 20px;
     text-align: center;
     border-bottom: 2px solid #D8CFC7;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ✔ Match homepage: constrain and center header content */
+header .inner {
+    max-width: 520px;
+    margin: 0 auto;
 }
 
 header h1 {
-    margin: 0;
+    margin: 0 auto;
     font-size: 2.1em;
     color: #5A5352;
-    le
+    letter-spacing: 1px;
+    text-align: center;
+    white-space: normal;
+    width: 100%;
+}
+
+/* ------------------ MENU BUTTON ------------------ */
+.menu-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 12px 22px;
+    background-color: #F4EFE9;
+    border: 1px solid #D8CFC7;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #5A5352;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menu-button:hover {
+    background-color: #E6D7CE;
+    transform: translateY(-2px);
+}
+
+/* ------------------ HAMBURGER ANIMATION ------------------ */
+.hamburger {
+    width: 22px;
+    height: 16px;
+    position: relative;
+}
+
+.hamburger span {
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #5A5352;
+    left: 0;
+    transition: 0.35s ease;
+    border-radius: 3px;
+}
+
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 6px; }
+.hamburger span:nth-child(3) { top: 12px; }
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 6px;
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 6px;
+}
+
+/* ------------------ DROPDOWN MENU ------------------ */
+.dropdown {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    margin-top: 10px;
+
+    background-image: url("https://www.transparenttextures.com/patterns/paper.png");
+    background-color: #F4EFE9;
+
+    border-radius: 14px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    width: 240px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+}
+
+.dropdown.show {
+    max-height: 400px;
+    opacity: 1;
+}
+
+.dropdown a {
+    display: block;
+    text-decoration: none;
+    padding: 12px;
+    margin: 10px auto;
+    width: 180px;
+    background-color: #FFFFFFEE;
+    border: 1px solid #D8CFC7;
+    border-radius: 8px;
+    color: #5A5352;
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUp 0.5s forwards;
+}
+
+.dropdown a:nth-child(1) { animation-delay: 0.15s; }
+.dropdown a:nth-child(2) { animation-delay: 0.30s; }
+.dropdown a:nth-child(3) { animation-delay: 0.45s; }
+.dropdown a:nth-child(4) { animation-delay: 0.60s; }
+.dropdown a:nth-child(5) { animation-delay: 0.75s; }
+
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ------------------ CONTENT CONTAINER ------------------ */
+.content-container {
+    max-width: 900px;
+    padding: 20px;
+    margin: 40px auto;
+    text-align: center;
+    animation: fadeIn 0.8s ease-out;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ------------------ GRID ------------------ */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    justify-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.thumb {
+    width: 92%;
+    max-width: 180px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.thumb:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.22);
+}
+
+/* SMALL PHONES */
+@media (max-width: 400px) {
+    .thumb { width: 90%; }
+    .grid { gap: 10px; }
+}
+
+/* TABLETS → 3 columns + centering fixes */
+@media (min-width: 700px) {
+
+    /* Ensure all header elements are centered */
+    header,
+    header h1,
+    .menu-button {
+        text-align: center !important;
+    }
+
+    /* Keep wrapper centered */
+    header .inner {
+        margin: 0 auto !important;
+    }
+
+    /* Make sure outer elements don't exceed screen width */
+    body,
+    html,
+    .content-container,
+    .grid,
+    footer {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+
+    .grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 18px;
+    }
+
+    .thumb {
+        width: 95%;
+        max-width: 200px;
+    }
+}
+
+/* ------------------ FOOTER ------------------ */
+footer {
+    margin-top: 40px;
+    background: #E6D7CE;
+    color: #5A5352;
+    padding: 15px;
+    text-align: center;
+    border-top: 2px solid #D8CFC7;
+    width: 100%;
+    box-sizing: border-box;
+}
+</style>
+
+<script>
+function toggleMenu() {
+    const dropdown = document.getElementById("dropdown");
+    const burger = document.getElementById("burger");
+    dropdown.classList.toggle("show");
+    burger.classList.toggle("active");
+}
+</script>
+</head>
+
+<body>
+
+<header>
+    <div class="inner">
+        <h1>ILLUSTRATIONS</h1>
+
+        <div class="menu-button" onclick="toggleMenu()">
+            <div id="burger" class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+            <span>MENU</span>
+        </div>
+
+        <div id="dropdown" class="dropdown">
+            <a href="index.html">Home</a>
+            <a href="illustrations.html">Illustrations</a>
+            <a href="paintings.html">Paintings</a>
+            <a href="musings.html">Musings</a>
+            <a href="about.html">About + Contact</a>
+        </div>
+    </div>
+</header>
+
+<div class="content-container">
+    <div class="grid">
+        <a href="illustration1.html"><img src="images/sealing_joseon_couple.jpg" class="thumb" alt="Sealing Couple"></a>
+        <a href="illustration2.html"><img src="images/waiting_joseon_family.png" class="thumb" alt="Waiting Family"></a>
+        <a href="illustration3.html"><img src="images/temple_magnolia_tree_bloom.png" class="thumb" alt="Magnolia Tree Bloom"></a>
+        <a href="illustration4.html"><img src="images/10_views_think_celestial.jpg" class="thumb" alt="10 Views Think Celestial"></a>
+        <a href="illustration5.html"><img src="images/hero2.jpg" class="thumb" alt="Hero 2"></a>
+    </div>
+</div>
+
+<footer>
+    © Seoul Korea Temple Art
+</footer>
+
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js');
+}
+</script>
+
+</body>
+</html>
