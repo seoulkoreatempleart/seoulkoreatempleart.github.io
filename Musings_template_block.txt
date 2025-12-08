@@ -1,0 +1,59 @@
+<!-- =========================================================
+     TEMPLATE A — Hebrew + Scripture + Comments
+     Copy this entire block and paste ABOVE your newest entry.
+========================================================= -->
+
+<!-- NEW ENTRY (Hebrew + Scripture + Thoughts) -->
+<div class="entry">
+
+  <!-- Hebrew word + definition -->
+  <div class="reference">HEBREW_WORD  
+meaning: definition goes here</div>
+
+  <!-- Scripture 1 -->
+  <div class="scripture">"Scripture text goes here."</div>
+  <div class="reference">Reference 1:1</div>
+
+  <!-- Scripture 2 (optional — delete if not needed) -->
+  <div class="scripture">"Another scripture goes here."</div>
+  <div class="reference">Reference 2:2</div>
+
+  <!-- Thoughts -->
+  <div class="thought">
+    Your reflection goes here.  
+    You can use <span class="i">italics</span> anywhere in this block.
+  </div>
+
+</div>
+
+<!-- END TEMPLATE A -->
+<!-- ========================================================= -->
+
+
+
+<!-- =========================================================
+     TEMPLATE B — Scripture + Comments (no Hebrew)
+     Copy this entire block and paste ABOVE your newest entry.
+========================================================= -->
+
+<!-- NEW ENTRY (Scripture + Thoughts only) -->
+<div class="entry">
+
+  <!-- Scripture 1 -->
+  <div class="scripture">"Scripture text goes here."</div>
+  <div class="reference">Reference 1:1</div>
+
+  <!-- Scripture 2 (optional — delete if not needed) -->
+  <div class="scripture">"Second scripture goes here."</div>
+  <div class="reference">Reference 2:2</div>
+
+  <!-- Thoughts -->
+  <div class="thought">
+    Your reflection goes here.  
+    You can use <span class="i">italics</span> as needed.
+  </div>
+
+</div>
+
+<!-- END TEMPLATE B -->
+<!-- ========================================================= -->
