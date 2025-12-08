@@ -6,7 +6,7 @@
 <!-- NEW ENTRY (Hebrew + Scripture + Thoughts) -->
 <div class="entry">
 
-  <!-- Hebrew word + definition -->
+  <!-- Hebrew word + definition OPTION 1-->
   <div class="reference">HEBREW_WORD  
 meaning: definition goes here</div>
 
@@ -26,7 +26,7 @@ meaning: definition goes here</div>
 
 </div>
 
-
+<!-- Hebrew word + definition OPTION 2 -->
 <!-- HEBREW WORD 1 -->
 <div class="reference">HEBREW_WORD_1  
 transliteration_1: definition_1
