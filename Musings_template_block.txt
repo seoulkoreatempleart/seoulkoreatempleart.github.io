@@ -26,6 +26,35 @@ meaning: definition goes here</div>
 
 </div>
 
+
+<!-- HEBREW WORD 1 -->
+<div class="reference">HEBREW_WORD_1  
+transliteration_1: definition_1
+</div>
+
+<div class="scripture">"SCRIPTURE_1 with <strong>bold words if needed</strong>"  Reference_1</div>
+<div class="reference"></div>
+
+<div class="scripture">"SCRIPTURE_2 with <strong>bold words if needed</strong>"  Reference_2</div>
+<div class="reference"></div>
+
+<!-- HEBREW WORD 2 -->
+<div class="reference">HEBREW_WORD_2  
+transliteration_2: definition_2
+</div>
+
+<div class="scripture">"SCRIPTURE_3 with <strong>bold words if needed</strong>"  Reference_3</div>
+<div class="reference"></div>
+
+<div class="scripture">"SCRIPTURE_4 with <strong>bold words if needed</strong>"  Reference_4</div>
+<div class="reference"></div>
+
+<!-- THOUGHT SECTION -->
+<div class="thought">
+  <span class="i">Translit_1</span> is like <span class="i">Translit_2</span>. THOUGHT_GOES_HERE.
+</div>
+
+
 <!-- END TEMPLATE A -->
 <!-- ========================================================= -->
 
