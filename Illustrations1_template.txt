@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joseon Couple Sealing – Seoul Korea Temple Art</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #F5E8E0;
+      color: #4A2E2A;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .content-container {
+      max-width: 800px;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      animation: fadeIn 0.8s ease-out;
+      margin-top: 40px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .illustration-img {
+      width: 90%;
+      max-width: 700px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+      margin-bottom: 25px;
+    }
+
+    .blurb {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      margin-top: 30px;
+      display: inline-block;
+      padding: 12px 20px;
+      background: #E4D5CC;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #4A2E2A;
+      transition: background 0.3s;
+    }
+
+    .back-link:hover {
+      background: #D8C3B9;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="content-container">
+
+    <h1>Joseon Couple Sealing</h1>
+
+    <img src="images/sealing_joseon_couple.jpg"
+         alt="Joseon Couple Sealing Illustration"
+         class="illustration-img">
+
+    <p class="blurb">
+      A Joseon era couple is about to enter the temple to witness their sealing performed on their behalf.
+    </p>
+
+    <a class="back-link" href="illustrations.html">← Back to Illustrations</a>
+
+  </div>
+
+</body>
+</html>
