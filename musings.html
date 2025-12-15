@@ -5,83 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Musings – Seoul Korea Temple Art</title>
 
-<link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="manifest.json">
   
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
-<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
 
   <style>
-    /* =========================
-       Musing Graphic Styling
-    ========================= */
-    .musing-graphic {
-      display: block;
-      width: 90%;          /* scales with the container */
-      max-width: 600px;    /* caps size on large screens */
-      height: auto;        /* preserves 3:4 aspect ratio for 900x1200px */
-      margin: 1.5rem auto; /* vertical spacing and centering */
-      border-radius: 6px;
-    }
-
-    /* Tablets */
-    @media (min-width: 481px) and (max-width: 1024px) {
-      .musing-graphic {
-        width: 75%;
-        max-width: 500px;
-        height: auto;
-        margin: 1.2rem auto;
-      }
-    }
-
-    /* Mobile phones */
-    @media (max-width: 480px) {
-      .musing-graphic {
-        width: 95%;
-        max-width: none;
-        height: auto;
-        margin: 0.8rem auto;
-      }
-    }
-
-    /* =========================
-       Print-friendly CSS
-    ========================= */
-    @media print {
-      body {
-        background: #FAF7F2; /* off-white for printing */
-        color: #5A5352;      /* sepia/brown text remains readable */
-      }
-
-      .wrapper {
-        border: none;
-        padding: 20px;
-        max-width: 100%;
-        background: none;
-      }
-
-      .musing-graphic {
-        width: 80%;
-        height: auto;
-        margin: 1rem auto;
-        border-radius: 0;
-      }
-
-      header, footer, .menu-button, .dropdown {
-        display: none;
-      }
-
-      .entry {
-        border: none;
-        background: none;
-        margin: 1rem 0;
-      }
-    }
-
-    /* =========================
-       Existing Styles
-    ========================= */
+    /* GENERAL STYLES */
     body {
       margin: 0;
       font-family: "Helvetica Neue", Arial, sans-serif;
@@ -105,8 +37,15 @@
       white-space: nowrap;
     }
 
-    .definition { font-weight: normal; margin-bottom: 1rem; }
-    .checklist { list-style: none; padding-left: 0; }
+    .definition {
+      font-weight: normal;
+      margin-bottom: 1rem;
+    }
+
+    .checklist {
+      list-style: none;
+      padding-left: 0;
+    }
 
     /* MENU BUTTON */
     .menu-button {
@@ -136,7 +75,6 @@
       height: 16px;
       position: relative;
     }
-
     .hamburger span {
       position: absolute;
       height: 3px;
@@ -146,7 +84,6 @@
       transition: 0.35s ease;
       border-radius: 3px;
     }
-
     .hamburger span:nth-child(1) { top: 0; }
     .hamburger span:nth-child(2) { top: 6px; }
     .hamburger span:nth-child(3) { top: 12px; }
@@ -155,7 +92,9 @@
       transform: rotate(45deg);
       top: 6px;
     }
-    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
     .hamburger.active span:nth-child(3) {
       transform: rotate(-45deg);
       top: 6px;
@@ -168,10 +107,8 @@
       opacity: 0;
       transition: max-height 0.5s ease, opacity 0.5s ease;
       margin-top: 10px;
-
       background-image: url("https://www.transparenttextures.com/patterns/paper.png");
       background-color: #F4EFE9;
-
       border-radius: 14px;
       box-shadow: 0 8px 18px rgba(0,0,0,0.15);
       width: 240px;
@@ -197,7 +134,6 @@
       border-radius: 8px;
       color: #5A5352;
       text-align: center;
-
       opacity: 0;
       transform: translateY(10px);
       animation: fadeUp 0.5s forwards;
@@ -210,7 +146,10 @@
     .dropdown a:nth-child(5) { animation-delay: 0.75s; }
 
     @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* PAGE CONTENT */
@@ -258,7 +197,10 @@
       margin-bottom: 15px;
     }
 
-    .thought { line-height: 1.55; color: #5a5352; }
+    .thought {
+      line-height: 1.55;
+      color: #5a5352;
+    }
 
     footer {
       background: #E6D7CE;
@@ -270,19 +212,41 @@
       border-top: 1px solid #D8CFC7;
     }
 
-    .i { font-style: italic; }
-
-  </style>
-
-  <script>
-    function toggleMenu() {
-      const dropdown = document.getElementById("dropdown");
-      const burger = document.getElementById("burger");
-      dropdown.classList.toggle("show");
-      burger.classList.toggle("active");
+    .i {
+      font-style: italic;
     }
-  </script>
 
+    /* GRAPHICS */
+    .musing-graphic {
+      display: block;
+      max-width: 90%;
+      height: auto;
+      margin: 1.5rem auto;
+      border-radius: 6px;
+    }
+
+    /* PRINT STYLES */
+    @media print {
+      body { background-color: #FAF7F2 !important; color: #000; }
+      .wrapper { background: #FAF7F2 !important; border: none; max-width: 100%; padding: 20px; margin: 0 auto; }
+      .entry { background: #FAF7F2 !important; border: none; page-break-inside: avoid; }
+      .musing-graphic { max-width: 100%; height: auto; margin: 1rem auto; }
+    }
+
+    /* MOBILE & TABLET */
+    @media (max-width: 768px) {
+      .wrapper { margin: 20px auto; padding: 20px; }
+      header h1 { font-size: 1.8em; }
+      .scripture, .thought, .definition { font-size: 1rem; }
+      .dropdown a { width: 90%; padding: 10px; }
+    }
+
+    @media (max-width: 480px) {
+      header h1 { font-size: 1.5em; }
+      .wrapper { padding: 15px; margin: 15px auto; }
+      .scripture, .thought, .definition { font-size: 0.95rem; }
+    }
+  </style>
 </head>
 
 <body>
@@ -308,34 +272,63 @@
 
 <div class="wrapper">
   <h2>Scripture Study Reflections</h2>
-  <p class="sub">Thoughts on Chistian discipleship as a covenant daughter of God.</p>
+  <p class="sub">Thoughts on Christian discipleship as a covenant daughter of God.</p>
 
   <!-- ENTRY 3 -->
   <div class="entry">
-    <!-- ... all your text content ... -->
+    <div class="scripture">
+      "But the fruit of the Spirit is...temperance..."  Galatians 5:22-23
+    </div>
 
-    <img 
-      src="images/musings/PFC_graphic3.jpg"  
-      alt="Visual helper for 2 stage prefrontal cortex boost"
-      class="musing-graphic"
-    >
+    <div class="scripture">
+      "I would that ye should be humble, and be submissive and gentle; easy to be entreated; full of patience and long-suffering; being temperate in all things."  Alma 7:23
+    </div>
+
+    <div class="thought">
+      <p>From Kent D. Watson: [T]emperance is a divine attribute of Jesus Christ...<strong>Learning to be temperate in all things is a spiritual gift available through the Holy Ghost.</strong></p>
+      <p>Tempered glass, like tempered steel, undergoes a well-controlled heating process which increases strength...</p>
+      <p>Likewise, <strong>a temperate soul-one who is humble and full of love-is also a person of increased spiritual strength</strong>...</p>
+      <p>Security for our families comes from learning self-control, avoiding the excesses of this world, and being temperate in all things...</p>
+      <p>What better example do we have of temperance than our Savior, Jesus Christ?</p>
+      <img src="images/musings/PFC_graphic2.jpg" alt="Visual helper for 2 stage prefrontal cortex boost" class="musing-graphic">
+    </div>
+  </div>
+
+  <!-- ENTRY 1 -->
+  <div class="entry">
+    <div class="definition">
+      <strong><em>אָמַץ</em></strong> <em>amets</em>: To be strong, to be courageous, to be firm, to strengthen
+    </div>
+    <div class="scripture">"[Ruth] was <strong>steadfastly</strong> minded to go with [Naomi]" Ruth 1:18</div>
+    <div class="scripture">"Be...<strong>of a good courage</strong>, fear not." Deut 31:6</div>
+    <div class="definition"><strong><em>חיל</em></strong> <em>chayil</em>: strength, valour, army, wealth, capability</div>
+    <div class="scripture">"thou art a <strong>virtuous</strong> woman." Ruth 3:11</div>
+    <div class="scripture">"The Lord is with thee, thou mighty man of <strong>valour</strong>." Judges 6:12</div>
+    <div class="thought"><em>Amets</em> is like <em>chayil</em>. It's power for men and women through their different vehicles.</div>
+  </div>
+
+  <!-- ENTRY 2 -->
+  <div class="entry">
+    <div class="scripture">"The wicked flee when no man pursueth: but the righteous are <strong>bold</strong> as a lion." Proverbs 28:1</div>
+    <div class="scripture">"<strong>Trust</strong> in the Lord with all thine heart; and lean not unto thine own understanding." Proverbs 3:5</div>
+    <div class="thought">
+      I came across a commentary on Bible Hub that listed traits of righteousness: faith, integrity, generosity, truthful speech, and courage...
+    </div>
   </div>
 
 </div>
 
-<!-- Other entries and footer remain unchanged -->
-
 <footer>© Seoul Korea Temple Art</footer>
 
-<!--
 <script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('service-worker.js')
-    .then(reg => console.log('Service worker registered.', reg))
-    .catch(err => console.log('Service worker registration failed.', err));
-}
+  function toggleMenu() {
+    const dropdown = document.getElementById("dropdown");
+    const burger = document.getElementById("burger");
+
+    dropdown.classList.toggle("show");
+    burger.classList.toggle("active");
+  }
 </script>
--->
 
 </body>
 </html>
