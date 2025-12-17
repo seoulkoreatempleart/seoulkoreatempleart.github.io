@@ -292,6 +292,13 @@
   }
 }
 
+    .PFC-graphic img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 24px auto;
+}
+
   </style>
 
   <script>
@@ -443,11 +450,24 @@ I can literally “reboot” or jumpstart the brain circuits that resist temptat
     The PFC engages best when I recognize a situation as requiring self-control. If I don't perceive something as a temptation or a potential risk, my PFC may not jump into action. Awareness is critical.
   </li>
 </ol>
-<img 
-  src="images/musings/PFC_graphic3.jpg"  
-  alt="Visual helper for 2 stage prefrontal cortex boost"
-  class="musing-graphic"
->
+    
+<picture class="PFC-graphic">
+  <!-- Desktop -->
+  <source 
+    media="(min-width: 1024px)" 
+    srcset="images/musings/PFC_graphic_desktop.jpg">
+
+  <!-- Tablet -->
+  <source 
+    media="(min-width: 600px)" 
+    srcset="images/musings/PFC_graphic_tablet.jpg">
+
+  <!-- Mobile fallback -->
+  <img 
+    src="images/musings/PFC_graphic_mobile.jpg" 
+    alt="Prefrontal cortex illustration"
+    loading="lazy">
+</picture>
 
   </div>
 
