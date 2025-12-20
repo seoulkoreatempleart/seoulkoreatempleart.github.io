@@ -362,6 +362,36 @@ p.scripture-verse {
 .PFC-graphic img {
   cursor: zoom-in;
 }
+.pfc-figure {
+  text-align: center;
+}
+
+.pfc-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 4px; /* very tight spacing */
+}
+
+.pfc-actions a,
+.pfc-actions button {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #6d5f5c;
+}
+
+.pfc-actions svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+
+.pfc-actions a:hover,
+.pfc-actions button:hover {
+  color: #3f3a38;
+}
     
   </style>
 
@@ -517,25 +547,36 @@ I can literally “reboot” or jumpstart the brain circuits that resist temptat
   </li>
 </ol>
     
- <a href="pfc-figure">
-<picture class="PFC-graphic">
-  <!-- Desktop -->
-  <source 
-    media="(min-width: 1024px)" 
-    srcset="images/musings/PFC_graphic_tablet3.jpg">
 
-  <!-- Tablet -->
-  <source 
-    media="(min-width: 600px)" 
-    srcset="images/musings/PFC_graphic_tablet4.jpg">
+<div class="pfc-figure">
 
-  <!-- Mobile fallback -->
-  <img 
-    src="images/musings/PFC_graphic_mobile3.jpg" 
-    alt="Prefrontal cortex illustration"
-    loading="lazy">
-</picture>
- </a>
+  <picture class="PFC-graphic">
+    <source media="(min-width: 1024px)" srcset="images/musings/PFC_graphic_tablet3.jpg">
+    <source media="(min-width: 600px)" srcset="images/musings/PFC_graphic_tablet4.jpg">
+    <img src="images/musings/PFC_graphic_mobile3.jpg" alt="Prefrontal cortex illustration">
+  </picture>
+
+  <!-- ICON ACTIONS GO HERE -->
+<div class="pfc-actions">
+
+  <!-- Enlarge -->
+  <a href="images/musings/PFC_Formula.jpg" target="_blank" aria-label="Enlarge image">
+    <!-- expand SVG -->
+  </a>
+
+  <!-- Download -->
+  <a href="images/musings/PFC_Formula.jpg" download aria-label="Download image">
+    <!-- download SVG -->
+  </a>
+
+  <!-- Share -->
+  <button class="share-btn" aria-label="Share image">
+    <!-- share SVG -->
+  </button>
+
+</div>
+
+</div>
   
     
 <section class="endnotes">
@@ -629,6 +670,21 @@ I can literally “reboot” or jumpstart the brain circuits that resist temptat
 
 <footer>© Seoul Korea Temple Art</footer>
 
+<script>
+document.querySelector('.share-btn')?.addEventListener('click', async () => {
+  const data = {
+    title: 'Prefrontal Cortex Illustration',
+    url: window.location.href
+  };
+
+  if (navigator.share) {
+    navigator.share(data);
+  } else {
+    navigator.clipboard.writeText(data.url);
+    alert('Link copied');
+  }
+});
+</script>
 
 
   
