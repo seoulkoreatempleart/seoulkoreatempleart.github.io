@@ -292,6 +292,13 @@
   }
 }
 
+/* Mobile-specific fix for the image hint */
+@media (max-width: 480px) {
+  .image-hint {
+    font-size: 0.8rem;
+    margin-top: 0.75rem;
+  }
+}
     .PFC-graphic img {
   width: 100%;
   height: auto;
@@ -359,12 +366,17 @@ p.scripture-verse {
 /* Optional polish */
 .image-hint {
   display: block;
-  width: 100%;
   text-align: center;
-  margin: 0.6rem auto 0;
-  font-size: 0.85rem;
-  color: #666;
+  margin-top: 0.65rem;
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  color: #8a817c;
 }
+
 
 .PFC-graphic img {
   cursor: zoom-in;
