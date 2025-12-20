@@ -336,6 +336,36 @@ sup {
 p.scripture-verse {
     margin: 0.5em 0; /* adjust as needed */
 }
+    /* Default: mobile & tablet */
+.hint-click {
+  display: none;
+}
+
+.hint-touch {
+  display: inline;
+}
+
+/* Desktop only */
+@media (min-width: 1024px) {
+  .hint-touch {
+    display: none;
+  }
+
+  .hint-click {
+    display: inline;
+  }
+}
+
+/* Optional polish */
+.image-hint {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.PFC-graphic img {
+  cursor: zoom-in;
+}
     
   </style>
 
@@ -510,6 +540,11 @@ I can literally “reboot” or jumpstart the brain circuits that resist temptat
     loading="lazy">
 </picture>
  </a>
+    
+    <p class="image-hint">
+  <span class="hint-touch">Tap image to enlarge</span>
+  <span class="hint-click">Click image to enlarge</span>
+    </p>
     
 <section class="endnotes">
   <h4>Scripture References</h4>
