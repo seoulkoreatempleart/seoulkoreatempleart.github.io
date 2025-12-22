@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,6 @@
 <title>Illustrations – Seoul Korea Temple Art</title>
 
 <link rel="manifest" href="manifest.json">
-
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
@@ -19,11 +19,8 @@ html, body {
     padding: 0;
     width: 100%;
     overflow-x: hidden;
-}
-
-body {
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    background-color: #F4EFE9;
+    font-family: Arial, sans-serif;
+    background: #F4EFE9;
     color: #5A5352;
 }
 
@@ -52,207 +49,130 @@ header h1 {
     width: 100%;
 }
 
-/* ------------------ MENU BUTTON ------------------ */
-.menu-button {
-  display: inline-flex;
+/* ------------------ MOBILE MENU ------------------ */
+.mobile-menu-button {
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin: 20px auto 0 auto;
-  padding: 12px 22px;
-  background-color: #F6EEE6;
-  border: 1px solid #D8CFC7;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  color: #5A5352;
-  font-weight: 600;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.menu-button:hover {
-  background-color: #E6D7CE;
-  transform: translateY(-2px);
-}
-
-/* ------------------ HAMBURGER ANIMATION ------------------ */
-.hamburger {
-  width: 22px;
-  height: 16px;
-  position: relative;
-}
-
-.hamburger span {
-  position: absolute;
-  height: 3px;
-  width: 100%;
-  background-color: #5A5352;
-  left: 0;
-  transition: 0.35s ease;
-  border-radius: 3px;
-}
-
-.hamburger span:nth-child(1) { top: 0; }
-.hamburger span:nth-child(2) { top: 6px; }
-.hamburger span:nth-child(3) { top: 12px; }
-
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg);
-  top: 6px;
-}
-.hamburger.active span:nth-child(2) { opacity: 0; }
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg);
-  top: 6px;
-}
-
-/* ------------------ DROPDOWN MENU ------------------ */
-.dropdown {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.5s ease, opacity 0.5s ease;
-  margin: 10px auto 20px auto;
-  background-color: #FBF7F4;
-  background-image: url("https://www.transparenttextures.com/patterns/paper.png");
-  border-radius: 12px;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-  width: 240px;
-  padding-bottom: 10px;
-}
-
-.dropdown.show {
-  max-height: 500px;
-  opacity: 1;
-}
-
-.dropdown a {
-  display: block;
-  text-decoration: none;
+  font-size: 1.4rem;
   padding: 12px;
-  margin: 10px auto;
-  width: 180px;
-  background-color: #FFFFFFEE;
-  border: 1px solid #D8CFC7;
-  border-radius: 8px;
-  color: #5A5352;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(10px);
+  cursor: pointer;
+  background-color: #f6eee6;
+  border-radius: 10px;
+  width: fit-content;
+  margin: 15px auto;
+  font-weight: 600;
+  transition: transform 0.3s ease;
 }
 
-/* ------------------ CONTENT CONTAINER ------------------ */
+.mobile-menu-button .hamburger {
+  transition: transform 0.4s ease;
+  display: inline-block;
+}
+
+.mobile-dropdown {
+  display: none;
+  flex-direction: column;
+  background-color: #fbf7f4;
+  border: 1px solid #d6c9c0;
+  border-radius: 12px;
+  margin: 10px auto 20px auto;
+  width: 90%;
+  overflow: hidden;
+  transform-origin: top;
+  animation: slideDown 0.4s ease forwards;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: scaleY(0); }
+  to { opacity: 1; transform: scaleY(1); }
+}
+
+.mobile-dropdown a {
+  padding: 14px 18px;
+  border-bottom: 1px solid #e4dcd5;
+  text-decoration: none;
+  color: #5A5352;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.mobile-dropdown a:last-child {
+  border-bottom: none;
+}
+
+/* ------------------ CONTENT CONTAINER & GRID ------------------ */
 .content-container {
   max-width: 900px;
   padding: 20px;
   margin: 40px auto;
   text-align: center;
-  animation: fadeIn 0.8s ease-out;
   width: 100%;
   box-sizing: border-box;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ------------------ GRID ------------------ */
 .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    justify-items: center;
-    width: 100%;
-    box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  justify-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .thumb {
-    width: 92%;
-    max-width: 180px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    cursor: pointer;
+  width: 92%;
+  max-width: 180px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
 }
 
 .thumb:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.22);
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.22);
 }
 
-/* SMALL PHONES */
 @media (max-width: 400px) {
-    .thumb { width: 90%; }
-    .grid { gap: 10px; }
+  .thumb { width: 90%; }
+  .grid { gap: 10px; }
 }
 
-/* TABLETS → 3 columns + centering fixes */
 @media (min-width: 700px) {
-    header,
-    header h1,
-    .menu-button {
-        text-align: center !important;
-    }
-    header .inner {
-        margin: 0 auto !important;
-    }
-    body,
-    html,
-    .content-container,
-    .grid,
-    footer {
-        max-width: 100vw;
-        overflow-x: hidden;
-    }
-    .grid {
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 18px;
-    }
-    .thumb {
-        width: 95%;
-        max-width: 200px;
-    }
+  .grid { grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+  .thumb { width: 95%; max-width: 200px; }
 }
 
 /* ------------------ FOOTER ------------------ */
 footer {
-    margin-top: 40px;
-    background: #E6D7CE;
-    color: #5A5352;
-    padding: 15px;
-    text-align: center;
-    border-top: 2px solid #D8CFC7;
-    width: 100%;
-    box-sizing: border-box;
+  margin-top: 40px;
+  background: #E6D7CE;
+  color: #5A5352;
+  padding: 15px;
+  text-align: center;
+  border-top: 2px solid #D8CFC7;
+  width: 100%;
+  box-sizing: border-box;
 }
-
-/* ------------------ MEDIA QUERIES FOR MENU ------------------ */
-@media (min-width: 768px) { .menu-button { font-size: 1.2rem; } .dropdown { width: 300px; } }
-@media (min-width: 1024px) { .menu-button { font-size: 1.3rem; } .dropdown { width: 350px; } }
 </style>
 </head>
 
 <body>
 
 <header>
-    <div class="inner">
-        <h1>ILLUSTRATIONS</h1>
-    </div>
+  <div class="inner">
+    <h1>ILLUSTRATIONS</h1>
+  </div>
 </header>
 
-<!-- MENU BUTTON -->
-<div class="menu-button" id="menuButton">
-  <div class="hamburger" id="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  Menu
+<!-- MOBILE MENU BUTTON (hamburger only) -->
+<div class="mobile-menu-button" id="menuButton">
+  <span class="hamburger" id="hamburger">☰</span>
 </div>
 
-<!-- DROPDOWN MENU -->
-<div class="dropdown" id="dropdownMenu">
+<!-- MOBILE DROPDOWN MENU -->
+<div class="mobile-dropdown" id="dropdownMenu">
   <a href="index.html">Home</a>
   <a href="illustrations.html">Illustrations</a>
   <a href="paintings.html">Paintings</a>
@@ -261,41 +181,40 @@ footer {
 </div>
 
 <div class="content-container">
-    <div class="grid">
-        <a href="illustration1.html"><img src="images/sealing_joseon_couple.jpg" class="thumb" alt="Sealing Couple"></a>
-        <a href="illustration2.html"><img src="images/waiting_joseon_family.png" class="thumb" alt="Waiting Family"></a>
-        <a href="illustration3.html"><img src="images/temple_magnolia_tree_bloom.png" class="thumb" alt="Magnolia Tree Bloom"></a>
-        <a href="illustration4.html"><img src="images/10_views_think_celestial.jpg" class="thumb" alt="10 Views Think Celestial"></a>
-        <a href="illustration5.html"><img src="images/hero2.jpg" class="thumb" alt="Hero 2"></a>
-        <a href="illustration6.html"><img src="images/Praise_temple.jpg" class="thumb" alt="Eternal Praise"></a>
-    </div>
+  <div class="grid">
+    <a href="illustration1.html"><img src="images/sealing_joseon_couple.jpg" class="thumb" alt="Sealing Couple"></a>
+    <a href="illustration2.html"><img src="images/waiting_joseon_family.png" class="thumb" alt="Waiting Family"></a>
+    <a href="illustration3.html"><img src="images/temple_magnolia_tree_bloom.png" class="thumb" alt="Magnolia Tree Bloom"></a>
+    <a href="illustration4.html"><img src="images/10_views_think_celestial.jpg" class="thumb" alt="10 Views Think Celestial"></a>
+    <a href="illustration5.html"><img src="images/hero2.jpg" class="thumb" alt="Hero 2"></a>
+    <a href="illustration6.html"><img src="images/Praise_temple.jpg" class="thumb" alt="Eternal Praise"></a>
+  </div>
 </div>
 
-<footer>
-    © Seoul Korea Temple Art
-</footer>
+<footer>© Seoul Korea Temple Art</footer>
 
 <script>
-// Menu toggle with staggered animation
-const menuButton = document.getElementById("menuButton");
-const dropdownMenu = document.getElementById("dropdownMenu");
-const hamburger = document.getElementById("hamburger");
-const links = dropdownMenu.querySelectorAll("a");
+const button = document.getElementById("menuButton");
+const dropdown = document.getElementById("dropdownMenu");
+const ham = document.getElementById("hamburger");
 
-menuButton.addEventListener("click", () => {
-  const isOpen = dropdownMenu.classList.toggle("show");
-  hamburger.classList.toggle("active");
+let open = false;
 
-  // Animate links with staggered fade
-  links.forEach((link, index) => {
-    link.style.animation = "";
-    if(isOpen){
-      link.style.animation = `fadeUp 0.4s ease forwards ${index * 0.1 + 0.1}s`;
-    }
-  });
+button.addEventListener("click", () => {
+  open = !open;
+
+  if (open) {
+    dropdown.style.display = "flex";
+    ham.style.transform = "rotate(90deg)";
+    ham.textContent = "✕";
+  } else {
+    dropdown.style.display = "none";
+    ham.style.transform = "rotate(0deg)";
+    ham.textContent = "☰";
+  }
 });
 
-// Service Worker registration
+// Optional: Service worker registration
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('service-worker.js');
 }
@@ -303,4 +222,3 @@ if ('serviceWorker' in navigator) {
 
 </body>
 </html>
-
