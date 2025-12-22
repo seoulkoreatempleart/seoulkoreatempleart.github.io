@@ -292,119 +292,11 @@
   }
 }
 
-/* Mobile-specific fix for the image hint */
-@media (max-width: 480px) {
-  .image-hint {
-    font-size: 0.8rem;
-    margin-top: 0.75rem;
-  }
-}
     .PFC-graphic img {
   width: 100%;
   height: auto;
   display: block;
   margin: 24px auto;
-}
-
-    .endnotes {
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid #e0d8d2;
-  font-size: 0.95rem;
-  color: #6d5f5c;
-}
-
-.endnotes h4 {
-  margin-bottom: 0.5rem;
-  font-weight: normal;
-}
-
-.endnotes ol {
-  padding-left: 1.2rem;
-}
-
-.endnotes li {
-  margin-bottom: 0.35rem;
-}
-
-sup {
-  font-size: 0.75em;
-  vertical-align: super;
-}
-
-    .scripture-cite {
-  display: block;        /* puts it on the next line */
-  font-size: 0.95em;      /* ~80% of verse size */
-  font-weight: normal;  /* avoids emphasis confusion */
-  font-style: normal;   /* prevents inheriting italics */
-  color: #666;           /* visually secondary */
-  margin-top: 0.1rem;   /* tight attachment to verse */
-}
-p.scripture-verse {
-    margin: 0.5em 0; /* adjust as needed */
-}
-    /* Default: mobile & tablet */
-.hint-click {
-  display: none;
-}
-
-.hint-touch {
-  display: inline;
-}
-.pfc-actions {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  margin-top: 6px;
-}
-.pfc-actions {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  margin-top: 6px;
-}
-
-/* Desktop only */
-@media (min-width: 1024px) {
-
-.PFC-graphic img {
-  cursor: zoom-in;
-}
-.pfc-figure {
-  text-align: center;
-}
-
-.pfc-actions {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  margin-top: 4px; /* very tight spacing */
-}
-
-.pfc-actions a,
-.pfc-actions button {
-  background: none;
-  border: none;
-  padding: 4px;
-  cursor: pointer;
-  color: #6d5f5c;
-}
-
-.pfc-actions svg {
-  width: 20px;
-  height: 20px;
-  stroke: currentColor;
-}
-
-.pfc-actions a:hover,
-.pfc-actions button:hover {
-  color: #3f3a38;
-}
-}   
-    .pfc-actions svg {
-  width: 24px;
-  height: 24px;
-  stroke: currentColor;
 }
 
   </style>
@@ -450,16 +342,15 @@ p.scripture-verse {
   <!-- ENTRY 3 -->
 <div class="entry">
 
-<p class="scripture-verse">
-  <em>But the fruit of the Spirit is...temperance... </em>
-  <span class="scripture-cite">—Galatians 5:22-23</span>
-</p>
+  <!-- Scripture 1 -->
+  <div class="scripture">
+  "But the fruit of the Spirit is...temperance..."  Galatians 5:22-23</div>
 
-  <p class="scripture-verse">
-  <em>I would that ye should be humble, and be submissive and gentle; easy to be entreated; full of patience and long-suffering; being temperate in all things.</em>
-  <span class="scripture-cite">—Alma 7:23</span>
-</p> 
-  
+  <!-- Scripture 2 (optional — delete if not needed) -->
+  <div class="scripture">
+  "I would that ye should be humble, and be submissive and gentle; easy to be entreated; full of patience and long-suffering; being temperate in all things."  Alma 7:23
+</div>
+
   <!-- Thoughts -->
   <div class="thought">
 <p>From Kent D. Watson's talk, <em>Being Temperate in All Things,</em> Oct 2009 General Conference: [T]emperance is a divine attribute of Jesus Christ...<strong>Learning to be temperate in all things is a spiritual gift available through the Holy Ghost.</strong></p>
@@ -471,12 +362,10 @@ p.scripture-verse {
 <p>Security for our families comes from learning self-control, avoiding the excesses of this world, and being temperate in all things...</p>
 
 <p>What better example do we have of temperance than our Savior, Jesus Christ?</p>
-<p>When others are unkind, Jesus taught that <em>my kindness shall not depart from thee</em>.<sup>1</sup>
-</p>
-<p>When we are confronted with affliction, He said: <em> Be patient in afflictions, revile not against those that revile. Govern your house in meekness, and be steadfast </em>.<sup>2</sup></p>
-<p>When we are oppressed, we can be comforted in knowing <em>he was oppressed, and he was afflicted, yet he opened not his mouth</em>.<sup>3</sup>  <em>Surely he has borne our griefs, and carried our sorrows</em>.<sup>4</sup></p>
-<p>When Jesus Christ, the greatest of all, suffered for us to the extent that He bled from every pore, He did not express anger or revile in suffering. With unsurpassed self-restraint, or temperance, His thoughts were not of Himself but of you and of me. And then, in humility and full of love, He said, <em> Nevertheless, glory be to the Father, and I partook and finished my preparations unto the children of men</em>.<sup>5</sup>
-</p>
+<p>When others are unkind, Jesus taught that <em>my kindness shall not depart from thee</em>.</p>
+<p>When we are confronted with affliction, He said: <em>Be patient in afflictions, revile not against those that revile. Govern your house in meekness, and be steadfast.</em></p>
+<p>When we are oppressed, we can be comforted in knowing <em>he was oppressed, and he was afflicted, yet he opened not his mouth.</em>[and] <em>Surely he has borne our griefs, and carried our sorrows.</em></p>
+<p>When Jesus Christ, the greatest of all, suffered for us to the extent that He bled from every pore, He did not express anger or revile in suffering. With unsurpassed self-restraint, or temperance, His thoughts were not of Himself but of you and of me. And then, in humility and full of love, He said, <em>Nevertheless, glory be to the Father, and I partook and finished my preparations unto the children of men.</em></p>
 <p>How can I receive the gift of temperance that is extended to me? Understanding the body that the Lord has given me provides me a key.</p>
 
 <p>In neurological terms, <strong>a calm and strong prefrontal cortex (PFC) is essential for exercising temperance</strong>, or, in other words, resisting temptation. This is one of the clearest findings in modern neuroscience.</p>
@@ -561,60 +450,23 @@ I can literally “reboot” or jumpstart the brain circuits that resist temptat
   </li>
 </ol>
     
+<picture class="PFC-graphic">
+  <!-- Desktop -->
+  <source 
+    media="(min-width: 1024px)" 
+    srcset="images/musings/PFC_graphic_desktop.jpg">
 
-<div class="pfc-figure">
+  <!-- Tablet -->
+  <source 
+    media="(min-width: 600px)" 
+    srcset="images/musings/PFC_graphic_tablet.jpg">
 
-  <picture class="PFC-graphic">
-    <source media="(min-width: 1024px)" srcset="images/musings/PFC_graphic_tablet3.jpg">
-    <source media="(min-width: 600px)" srcset="images/musings/PFC_graphic_tablet4.jpg">
-    <img src="images/musings/PFC_graphic_mobile3.jpg" alt="Prefrontal cortex illustration">
-  </picture>
-
-  <!-- ICON ACTIONS GO HERE -->
-<div class="pfc-actions">
-
-  <!-- Enlarge -->
-  <a href="images/musings/PFC_Formula.jpg" target="_blank" aria-label="Enlarge image">
-    <!-- expand SVG -->
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
-</svg>
-
-  </a>
-
-  <!-- Download -->
-  <a href="images/musings/PFC_Formula.jpg" download aria-label="Download image">
-    <!-- download SVG -->
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-</svg>
-
-  </a>
-
-  <!-- Share -->
-  <button class="share-btn" aria-label="Share image">
-    <!-- share SVG -->
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z" />
-</svg>
-
-  </button>
-
-</div>
-
-</div>
-  
-    
-<section class="endnotes">
-  <h4>Scripture References</h4>
-  <ol>
-    <li>3 Nephi 22:10</li>
-    <li>Doctrine & Covenants 31:9</li>
-    <li>Mosiah 14:7</li>
-    <li>Mosiah 14:4</li>
-    <li>Doctrine & Covenants 19:19</li>
-  </ol>
-</section>
+  <!-- Mobile fallback -->
+  <img 
+    src="images/musings/PFC_graphic_mobile.jpg" 
+    alt="Prefrontal cortex illustration"
+    loading="lazy">
+</picture>
 
   </div>
 
@@ -627,27 +479,29 @@ I can literally “reboot” or jumpstart the brain circuits that resist temptat
     <strong><em>אָמַץ</em></strong> <em>amets</em>: To be strong, to be courageous, to be firm, to strengthen
   </div>
 
-   <p class="scripture-verse">
-  <em>[Ruth] was <strong>steadfastly</strong> minded to go with [Naomi]... </em>
-  <span class="scripture-cite">—Ruth 1:18</span>
-</p>  
+  <div class="scripture">
+    "[Ruth] was <strong>steadfastly</strong> minded to go with [Naomi]" Ruth 1:18
+  </div>
+  <div class="reference"></div>
 
-<p class="scripture-verse"><em>Be...<strong>of a good courage</strong>, fear not.</em>
-  <span class="scripture-cite">—Deut 31:6</span>
-</p> 
+  <div class="scripture">
+    "Be...<strong>of a good courage</strong>, fear not." Deut 31:6
+  </div>
+  <div class="reference"></div>
 
   <div class="definition">
     <strong><em>חיל</em></strong> <em>chayil</em>: strength, valour, army, wealth, capability
   </div>
 
-  <p class="scripture-verse">
-  <em>[T]hou art a <strong>virtuous</strong> woman.</em>
-  <span class="scripture-cite">—Ruth 3:11</span>
-</p>
-  <p class="scripture-verse">
-  <em>The Lord is with thee, thou mighty man of <strong>valour</strong>.</em>
-  <span class="scripture-cite">—Judges 6:12</span>
-</p> 
+  <div class="scripture">
+    "thou art a <strong>virtuous</strong> woman." Ruth 3:11
+  </div>
+  <div class="reference"></div>
+
+  <div class="scripture">
+    "The Lord is with thee, thou mighty man of <strong>valour</strong>." Judges 6:12
+  </div>
+  <div class="reference"></div>
 
   <div class="thought">
     <em>Amets</em> is like <em>chayil</em>. It's power for men and women through their different vehicles.
@@ -660,13 +514,15 @@ I can literally “reboot” or jumpstart the brain circuits that resist temptat
 <!-- ENTRY 2 -->
 <div class="entry">
 
- <p class="scripture-verse"><em>The wicked flee when no man pursueth: but the righteous are <strong>bold</strong> as a lion.</em>
-  <span class="scripture-cite">—Proverbs 28:1</span>
-</p>
+  <div class="scripture">
+    "The wicked flee when no man pursueth: but the righteous are <strong>bold</strong> as a lion." Proverbs 28:1
+  </div>
+  <div class="reference"></div>
 
-  <p class="scripture-verse"><em><strong>Trust</strong> in the Lord with all thine heart; and lean not unto thine own understanding.</em>
-  <span class="scripture-cite">—Proverbs 3:5</span>
-</p> 
+  <div class="scripture">
+    "<strong>Trust</strong> in the Lord with all thine heart; and lean not unto thine own understanding." Proverbs 3:5
+  </div>
+  <div class="reference"></div>
 
   <div class="thought">
     I came across a commentary on Bible Hub that listed traits of righteousness: faith, integrity, generosity, truthful speech, and courage. I was really intrigued by the inclusion of 'courage.' I looked up the scripture referenced for 'courage,' which was Proverbs 28:1, "the righteous are bold as a lion." The word translated as 'bold,' or <em>batach</em> in Hebrew, is translated as 'trust' elsewhere. For example, Proverbs 3:5, Trust in the Lord with all thine heart.
@@ -696,21 +552,6 @@ I can literally “reboot” or jumpstart the brain circuits that resist temptat
 
 <footer>© Seoul Korea Temple Art</footer>
 
-<script>
-document.querySelector('.share-btn')?.addEventListener('click', async () => {
-  const data = {
-    title: 'Prefrontal Cortex Illustration',
-    url: window.location.href
-  };
-
-  if (navigator.share) {
-    navigator.share(data);
-  } else {
-    navigator.clipboard.writeText(data.url);
-    alert('Link copied');
-  }
-});
-</script>
 
 
   
