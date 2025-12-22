@@ -53,14 +53,14 @@ header h1 {
 .mobile-menu-button {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* hamburger on left */;
   font-size: 1.4rem;
   padding: 12px;
   cursor: pointer;
   background-color: #f6eee6;
   border-radius: 10px;
   width: fit-content;
-  margin: 15px auto;
+  margin: 15px 20px; /* top/bottom 15px, left 20px */
   font-weight: 600;
   transition: transform 0.3s ease;
 }
@@ -76,8 +76,8 @@ header h1 {
   background-color: #fbf7f4;
   border: 1px solid #d6c9c0;
   border-radius: 12px;
-  margin: 10px auto 20px auto;
-  width: 90%;
+  margin: 5px 0 20px 20px; /* left aligned with hamburger */
+  width: calc(90% - 20px); /* slightly smaller than page width to align */
   overflow: hidden;
   transform-origin: top;
   animation: slideDown 0.4s ease forwards;
@@ -166,16 +166,16 @@ footer {
   </div>
 </header>
 
-<!-- MOBILE MENU BUTTON (hamburger only) -->
+<!-- MOBILE MENU BUTTON (hamburger only, left-aligned) -->
 <div class="mobile-menu-button" id="menuButton">
   <span class="hamburger" id="hamburger">☰</span>
 </div>
 
-<!-- MOBILE DROPDOWN MENU -->
+<!-- MOBILE DROPDOWN MENU (left-aligned with button) -->
 <div class="mobile-dropdown" id="dropdownMenu">
   <a href="index.html">Home</a>
-  <a href="illustrations.html">Illustrations</a>
-  <a href="paintings.html">Paintings</a>
+  <a href="illustrations.html">Temple and Family History</a>
+  <a href="paintings.html">The Family: A Proclamation to the World</a>
   <a href="musings.html">Musings</a>
   <a href="about.html">About / Contact</a>
 </div>
