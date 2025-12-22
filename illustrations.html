@@ -53,45 +53,45 @@ header h1 {
     width: 100%;
 }
 
+
 /* ------------------ MENU BUTTON ------------------ */
 .menu-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-    padding: 12px 22px;
-    background-color: #F4EFE9;
-    border: 1px solid #D8CFC7;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 1.1em;
-    color: #5A5352;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-left: auto;
-    margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px auto 0 auto;
+  padding: 12px 22px;
+  background-color: #F6EEE6; /* from first menu */
+  border: 1px solid #D8CFC7;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #5A5352; /* first menu font color */
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .menu-button:hover {
-    background-color: #E6D7CE;
-    transform: translateY(-2px);
+  background-color: #E6D7CE;
+  transform: translateY(-2px);
 }
 
 /* ------------------ HAMBURGER ANIMATION ------------------ */
 .hamburger {
-    width: 22px;
-    height: 16px;
-    position: relative;
+  width: 22px;
+  height: 16px;
+  position: relative;
 }
 
 .hamburger span {
-    position: absolute;
-    height: 3px;
-    width: 100%;
-    background-color: #5A5352;
-    left: 0;
-    transition: 0.35s ease;
-    border-radius: 3px;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: #5A5352;
+  left: 0;
+  transition: 0.35s ease;
+  border-radius: 3px;
 }
 
 .hamburger span:nth-child(1) { top: 0; }
@@ -99,56 +99,51 @@ header h1 {
 .hamburger span:nth-child(3) { top: 12px; }
 
 .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg);
-    top: 6px;
+  transform: rotate(45deg);
+  top: 6px;
 }
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
+.hamburger.active span:nth-child(2) { opacity: 0; }
 .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg);
-    top: 6px;
+  transform: rotate(-45deg);
+  top: 6px;
 }
 
 /* ------------------ DROPDOWN MENU ------------------ */
 .dropdown {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.5s ease, opacity 0.5s ease;
-    margin-top: 10px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  margin: 10px auto 20px auto;
 
-    background-image: url("https://www.transparenttextures.com/patterns/paper.png");
-    background-color: #F4EFE9;
-
-    border-radius: 14px;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-    width: 240px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 10px;
+  background-color: #FBF7F4; /* from first menu */
+  background-image: url("https://www.transparenttextures.com/patterns/paper.png");
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+  width: 240px;
+  padding-bottom: 10px;
 }
 
 .dropdown.show {
-    max-height: 400px;
-    opacity: 1;
+  max-height: 500px; /* adjust for number of links */
+  opacity: 1;
 }
 
 .dropdown a {
-    display: block;
-    text-decoration: none;
-    padding: 12px;
-    margin: 10px auto;
-    width: 180px;
-    background-color: #FFFFFFEE;
-    border: 1px solid #D8CFC7;
-    border-radius: 8px;
-    color: #5A5352;
-    text-align: center;
+  display: block;
+  text-decoration: none;
+  padding: 12px;
+  margin: 10px auto;
+  width: 180px;
+  background-color: #FFFFFFEE;
+  border: 1px solid #D8CFC7;
+  border-radius: 8px;
+  color: #5A5352;
+  text-align: center;
 
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fadeUp 0.5s forwards;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp 0.5s forwards;
 }
 
 .dropdown a:nth-child(1) { animation-delay: 0.15s; }
@@ -158,8 +153,39 @@ header h1 {
 .dropdown a:nth-child(5) { animation-delay: 0.75s; }
 
 @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(0); }
 }
+
+/* ------------------ CONTENT CONTAINER ------------------ */
+.content-container {
+  max-width: 900px;
+  padding: 20px;
+  margin: 40px auto;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ------------------ MEDIA QUERIES ------------------ */
+@media (min-width: 768px) {
+  .menu-button { font-size: 1.2rem; }
+  .dropdown { width: 300px; }
+}
+
+@media (min-width: 1024px) {
+  .menu-button { font-size: 1.3rem; }
+  .dropdown { width: 350px; }
+}
+
+
+
+
 
 /* ------------------ CONTENT CONTAINER ------------------ */
 .content-container {
@@ -271,24 +297,29 @@ function toggleMenu() {
 <header>
     <div class="inner">
         <h1>ILLUSTRATIONS</h1>
-
-        <div class="menu-button" onclick="toggleMenu()">
-            <div id="burger" class="hamburger">
-                <span></span><span></span><span></span>
-            </div>
-            <span>MENU</span>
-        </div>
-
-        <div id="dropdown" class="dropdown">
-            <a href="index.html">Home</a>
-            <a href="illustrations.html">Illustrations</a>
-            <a href="paintings.html">Paintings</a>
-            <a href="musings.html">Musings</a>
-            <a href="about.html">About + Contact</a>
-        </div>
-    </div>
 </header>
 
+
+
+<!-- MENU BUTTON -->
+<div class="menu-button" id="menuButton">
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  Menu
+</div>
+
+<!-- DROPDOWN MENU -->
+<div class="dropdown" id="dropdownMenu">
+  <a href="index.html">Home</a>
+  <a href="illustrations.html">Illustrations</a>
+  <a href="paintings.html">Paintings</a>
+  <a href="musings.html">Musings</a>
+  <a href="about.html">About / Contact</a>
+</div>
+    
 <div class="content-container">
     <div class="grid">
         <a href="illustration1.html"><img src="images/sealing_joseon_couple.jpg" class="thumb" alt="Sealing Couple"></a>
@@ -309,6 +340,14 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('service-worker.js');
 }
 </script>
+const menuButton = document.getElementById("menuButton");
+const dropdownMenu = document.getElementById("dropdownMenu");
+const hamburger = document.getElementById("hamburger");
 
+menuButton.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  dropdownMenu.classList.toggle("show");
+});
+    
 </body>
 </html>
