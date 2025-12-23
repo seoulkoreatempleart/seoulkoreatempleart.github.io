@@ -25,29 +25,39 @@ html, body {
 }
 
 /* ------------------ HEADER ------------------ */
-header {
-    background-color: #E6D7CE;
-    padding: 40px 20px 20px;
-    text-align: center;
-    border-bottom: 2px solid #D8CFC7;
-    width: 100%;
-    box-sizing: border-box;
+/* ================== GLOBAL PAGE BANNER ================== */
+.page-banner {
+  background-color: #E6D7CE;
+  padding: 40px 20px 22px;
+  border-bottom: 2px solid #D8CFC7;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-header .inner {
-    max-width: 520px;
-    margin: 0 auto;
+.page-banner .inner {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-header h1 {
-    margin: 0 auto;
-    font-size: 2.1em;
-    color: #6A605D;
-    letter-spacing: 0.6px;
-    text-align: center;
-    white-space: normal;
-    width: 100%;
+.page-banner h1 {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 2.05em;
+  font-weight: 500;
+  color: #6A605D;
+  letter-spacing: 0.6px;
+  line-height: 1.25;
+  white-space: normal;
+  text-transform: none;
 }
+
+@media (max-width: 480px) {
+  .page-banner h1 {
+    font-size: 1.8em;
+  }
+}
+
 
 
 /* ------------------ MOBILE MENU ------------------ */
@@ -167,7 +177,7 @@ footer {
 
 <body>
 
-<header>
+<header class="page-banner">
   <div class="inner">
     <h1>Temple and Family History</h1>
   </div>
