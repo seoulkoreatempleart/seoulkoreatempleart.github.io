@@ -20,21 +20,21 @@
         color: #8F7A68;
     }
 
-    header {
-        background-color: #E6D7CE;
-        padding: 40px 20px 20px;
-        text-align: center;
-        border-bottom: 2px solid #D8CFC7;
-        position: relative;
-    }
+    .simple-header {
+  background-color: #E6D7CE;
+  padding: 40px 20px 20px;
+  text-align: center;
+  border-bottom: 2px solid #D8CFC7;
+  width: 100%;
+  box-sizing: border-box;
 
-    header h1 {
-        margin: 0;
-        font-size: 2.1em;
-        color: #5A5352;
-        letter-spacing: 1px;
-        text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  color: #5A5352;
+  letter-spacing: 1px;
+  line-height: 1.3;
     }
+    
 
     .menu-button {
         display: inline-flex;
@@ -206,23 +206,24 @@ function toggleMenu() {
 
 <body>
 
-<header>
-    <h1>ABOUT / CONTACT</h1>
-
-    <div class="menu-button" onclick="toggleMenu()">
-        <div id="burger" class="hamburger">
-            <span></span><span></span><span></span>
-        </div>
-        <span>MENU</span>
-    </div>
-
-    <div id="dropdown" class="dropdown">
-        <a href="index.html">Home</a>
-        <a href="illustrations.html">Temple and Family History</a>
-        <a href="paintings.html">The Family: A Proclamation to the World</a>
-        <a href="musings.html">Musings</a>
-    </div>
+<header class="simple-header">
+  Musings
 </header>
+
+<div class="menu-button" onclick="toggleMenu()">
+  <div id="burger" class="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+  <span>MENU</span>
+</div>
+
+<div id="dropdown" class="dropdown">
+  <a href="index.html">Home</a>
+  <a href="illustrations.html">Temple and Family History</a>
+  <a href="paintings.html">The Family: A Proclamation to the World</a>
+  <a href="musings.html">Musings</a>
+  <a href="about.html">About + Contact</a>
+</div>
 
 <div class="wrapper">
 
