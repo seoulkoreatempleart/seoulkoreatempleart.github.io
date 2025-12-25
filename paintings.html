@@ -87,28 +87,16 @@ header {
     /* MOBILE DROPDOWN */
     /* MOBILE DROPDOWN */
 .mobile-dropdown {
-  display: flex;
-  flex-direction: column;
-
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-
-  transition: max-height 0.4s ease, opacity 0.4s ease;
-
-  margin: 10px auto 20px;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  margin: 10px auto 20px auto;
   width: 90%;
-
   background-color: #fbf7f4;
   border: 1px solid #d6c9c0;
   border-radius: 12px;
 }
-
-.mobile-dropdown.show {
-  max-height: 500px; /* large enough for all links */
-  opacity: 1;
-}
-
 
     .mobile-dropdown a {
       padding: 14px 18px;
