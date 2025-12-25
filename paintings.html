@@ -35,6 +35,13 @@ header .inner {
     margin: 0 auto;
 }
 
+  <!-- MOBILE MENU BUTTON (with animated hamburger → X) -->
+<div class="mobile-menu-button" onclick="toggleMenu()" aria-label="Open menu">
+  <div class="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</div>
+    
 header h1 {
     margin: 0 auto;
     font-size: 2.1em;
@@ -49,10 +56,10 @@ header {
 }
 
 .mobile-menu-button {
-  position: absolute;
-  left: 20px;          /* aligns with header padding */
-  top: 20px;
+  margin: 12px 0 0 20px;
+  width: fit-content;
 }
+
     
     /* MOBILE MENU BUTTON */
     .mobile-menu-button {
