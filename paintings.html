@@ -215,25 +215,16 @@ header {
   <footer>© Seoul Korea Temple Art</footer>
 
   <script>
-    const button = document.getElementById("menuButton");
+  function toggleMenu() {
     const dropdown = document.getElementById("dropdownMenu");
-    const ham = document.getElementById("hamburger");
+    const hamburger = document.querySelector(".hamburger");
 
-    let open = false;
+    const isOpen = dropdown.style.display === "flex";
 
-    button.addEventListener("click", () => {
-      open = !open;
+    dropdown.style.display = isOpen ? "none" : "flex";
+    hamburger.classList.toggle("open", !isOpen);
+  }
+</script>
 
-      if (open) {
-        dropdown.style.display = "flex";
-        ham.style.transform = "rotate(90deg)";
-        ham.textContent = "✕";
-      } else {
-        dropdown.style.display = "none";
-        ham.style.transform = "rotate(0deg)";
-        ham.textContent = "☰";
-      }
-    });
-  </script>
 </body>
 </html>
