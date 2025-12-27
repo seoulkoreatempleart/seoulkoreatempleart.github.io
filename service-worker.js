@@ -1,79 +1,77 @@
-const CACHE_NAME = 'temple-art-cache-v2';
+const PAGE_CACHE = 'temple-art-pages-v1';
+const MEDIA_CACHE = 'temple-art-media-v1';
 
-// Files to pre-cache (static pages & icons)
-const PRECACHE_URLS = [
-  '/',
+const PRECACHE_PAGES = [
   '/index.html',
   '/illustrations.html',
   '/paintings.html',
   '/musings.html',
   '/about.html',
 
-  // Your individual illustration pages
-  '/illustration1.html',
-  '/illustration2.html',
-  '/illustration3.html',
-  '/illustration4.html',
-  '/illustration5.html',
-
-  // Icons
   '/favicon-32.png',
   '/favicon-180.png',
   '/favicon-192.png',
-  '/favicon-512.png',
-
-  // Offline fallback page
-  '/offline.html'
+  '/favicon-512.png'
 ];
 
-// Install: cache core pages & icons
+const MAX_MEDIA_ITEMS = 120; // images + PDFs
+
+// INSTALL — core pages
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(PRECACHE_URLS))
+    caches.open(PAGE_CACHE).then(cache => cache.addAll(PRECACHE_PAGES))
   );
 });
 
-// Fetch: cache-first for all images + pages
+// FETCH
 self.addEventListener('fetch', event => {
   const request = event.request;
 
-  // If it's an image → use cache-first and auto-cache future images
-  if (request.destination === 'image') {
-    event.respondWith(
-      caches.match(request).then(cachedResponse => {
-        return (
-          cachedResponse ||
-          fetch(request).then(networkResponse => {
-            return caches.open(CACHE_NAME).then(cache => {
-              cache.put(request, networkResponse.clone());
-              return networkResponse;
-            });
-          })
-        );
-      })
-    );
+  // 🖼️ Images & PDFs — cache-first
+  if (
+    request.destination === 'image' ||
+    request.destination === 'document' && request.url.endsWith('.pdf')
+  ) {
+    event.respondWith(cacheMedia(request));
     return;
   }
 
-  // For pages & other files → network first, fallback to offline page
+  // 📄 Pages & others — network first
   event.respondWith(
-    fetch(request).catch(() => {
-      return caches.match(request).then(response => {
-        return response || caches.match('/offline.html');
-      });
-    })
+    fetch(request).catch(() => caches.match(request))
   );
 });
 
-// Activate: clean old caches
+// Cache media with limit
+async function cacheMedia(request) {
+  const cache = await caches.open(MEDIA_CACHE);
+  const cached = await cache.match(request);
+  if (cached) return cached;
+
+  const response = await fetch(request);
+  await cache.put(request, response.clone());
+  await trimCache(cache, MAX_MEDIA_ITEMS);
+
+  return response;
+}
+
+// Trim oldest cache entries
+async function trimCache(cache, maxItems) {
+  const keys = await cache.keys();
+  if (keys.length > maxItems) {
+    await cache.delete(keys[0]);
+  }
+}
+
+// ACTIVATE — cleanup
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames
-          .filter(name => name !== CACHE_NAME)
-          .map(name => caches.delete(name))
-      );
-    })
+    caches.keys().then(keys =>
+      Promise.all(
+        keys
+          .filter(k => ![PAGE_CACHE, MEDIA_CACHE].includes(k))
+          .map(k => caches.delete(k))
+      )
+    )
   );
 });
