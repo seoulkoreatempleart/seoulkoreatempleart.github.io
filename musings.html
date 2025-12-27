@@ -139,7 +139,38 @@ p.sub {
   font-style: italic;
   margin-left: 18px;
 }
+.scripture,
+.thought,
+.definition {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+  @media (max-width: 768px) {
+  .wrapper {
+    margin: 20px auto;
+    padding: 20px;
+  }
 
+  .scripture,
+  .thought,
+  .definition {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 15px;
+    margin: 15px auto;
+  }
+
+  .scripture,
+  .thought,
+  .definition {
+    font-size: 0.95rem;
+  }
+}
+  
 footer {
   background: #E6D7CE;
   color: #5A5352;
