@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,57 +6,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Family: A Proclamation to the World – Seoul Korea Temple Art</title>
 
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
-<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
 
 <style>
+/* ---------- PAGE SLIDE DOWN ---------- */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #F5E8E0;
-  color: #8F7A68;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #F5E8E0;
+  color: #5A5352;
+  animation: pageDrop 0.6s ease;
 }
 
-/* ------------------ HEADER ------------------ */
-header {
+@keyframes pageDrop {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- HEADER (ABOUT STYLE) ---------- */
+.simple-header {
+  position: relative;
   background-color: #E6D7CE;
   padding: 40px 20px 20px;
   text-align: center;
   border-bottom: 2px solid #D8CFC7;
-  width: 100%;
-  box-sizing: border-box;
-  color: #5A5352;
-  position: relative;
-}
-
-/* Center header content */
-header .inner {
-  max-width: 520px;
-  margin: 0 auto;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 2.1em;
   color: #5A5352;
   letter-spacing: 1px;
 }
 
-/* ------------------ MOBILE MENU BUTTON ------------------ */
+/* ---------- MOBILE MENU BUTTON ---------- */
 .mobile-menu-button {
   position: absolute;
-  top: 20px;
   left: 20px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 8px;
+  top: 20px;
   cursor: pointer;
-  background-color: transparent;
 }
 
 .hamburger span {
@@ -68,7 +56,7 @@ header h1 {
   transition: transform 0.3s ease, opacity 0.2s ease;
 }
 
-/* Hamburger open animation */
+/* Hamburger animation */
 .hamburger.open span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
@@ -79,32 +67,24 @@ header h1 {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ------------------ MOBILE DROPDOWN ------------------ */
+/* ---------- DROPDOWN (PUSHES PAGE DOWN) ---------- */
 .mobile-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%) scaleY(0);
-  transform-origin: top;
-  opacity: 0;
-
   display: flex;
   flex-direction: column;
-
-  width: 90%;
-  max-width: 520px;
-
   background-color: #fbf7f4;
   border: 1px solid #d6c9c0;
   border-radius: 12px;
+  margin: 10px auto 20px auto;
+  width: 90%;
   overflow: hidden;
 
-  transition: transform 0.35s ease, opacity 0.25s ease;
-  z-index: 1000;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.35s ease;
 }
 
 .mobile-dropdown.open {
-  transform: translateX(-50%) scaleY(1);
+  max-height: 360px;
   opacity: 1;
 }
 
@@ -114,14 +94,13 @@ header h1 {
   text-decoration: none;
   color: #6d5a4a;
   font-size: 1.05rem;
-  font-weight: 500;
 }
 
 .mobile-dropdown a:last-child {
   border-bottom: none;
 }
 
-/* ------------------ CONTENT ------------------ */
+/* ---------- CONTENT ---------- */
 .wrapper {
   max-width: 900px;
   margin: 40px auto;
@@ -151,38 +130,40 @@ h2 {
   height: 200px;
 }
 
+/* ---------- FOOTER ---------- */
 footer {
-  background: #F5E8E0;
-  color: #8F7A68;
+  background: #E6D7CE;
+  color: #5A5352;
   text-align: center;
   padding: 18px;
   margin-top: 40px;
   font-size: 0.9rem;
+  border-top: 2px solid #D8CFC7;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="inner">
-    <h1>The Family: A Proclamation to the World</h1>
-  </div>
+<header class="simple-header">
+  The Family: A Proclamation to the World
 
+  <!-- MENU BUTTON -->
   <div class="mobile-menu-button" onclick="toggleMenu()" aria-label="Open menu">
     <div class="hamburger">
       <span></span><span></span><span></span>
     </div>
   </div>
-
-  <div class="mobile-dropdown" id="dropdownMenu">
-    <a href="index.html">Home</a>
-    <a href="illustrations.html">Illustrations</a>
-    <a href="paintings.html">The Family: A Proclamation to the World</a>
-    <a href="musings.html">Musings</a>
-    <a href="about.html">About / Contact</a>
-  </div>
 </header>
+
+<!-- DROPDOWN MENU -->
+<div class="mobile-dropdown" id="dropdownMenu">
+  <a href="index.html">Home</a>
+  <a href="illustrations.html">Illustrations</a>
+  <a href="paintings.html">The Family: A Proclamation to the World</a>
+  <a href="musings.html">Musings</a>
+  <a href="about.html">About / Contact</a>
+</div>
 
 <div class="wrapper">
   <h2>My Painting Collection</h2>
@@ -199,11 +180,13 @@ footer {
 
 <script>
 function toggleMenu() {
-  document.getElementById("dropdownMenu").classList.toggle("open");
-  document.querySelector(".hamburger").classList.toggle("open");
+  const dropdown = document.getElementById("dropdownMenu");
+  const hamburger = document.querySelector(".hamburger");
+
+  dropdown.classList.toggle("open");
+  hamburger.classList.toggle("open");
 }
 </script>
 
 </body>
 </html>
-
