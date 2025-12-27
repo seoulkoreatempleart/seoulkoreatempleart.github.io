@@ -1,310 +1,173 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Seoul Korea Temple Art</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seoul Korea Temple Art</title>
 
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="manifest.json">
 
-    <!-- Favicons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
 
 <style>
-/* -------------------------------------
-   LAYOUT + GLOBAL
-------------------------------------- */
-html, body {
-    height: 100%;
-    margin: 0;
-}
-
 body {
-    display: flex;
-    flex-direction: column;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    background-color: #F4EFE9;
-    color: #5A5352;
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #F4EFE9;
+  color: #5A5352;
 }
 
-/* -------------------------------------
-   HEADER
-------------------------------------- */
-header {
-    background-color: #E6D7CE;
-    padding: 35px 20px 20px; /* slightly reduced top padding */
-    border-bottom: 2px solid #D8CFC7;
-    box-sizing: border-box;
-    width: 100%;
-    text-align: center;
+/* ---------- HEADER ---------- */
+.simple-header {
+  position: relative;
+  background-color: #E6D7CE;
+  padding: 40px 20px 20px;
+  text-align: center;
+  border-bottom: 2px solid #D8CFC7;
+  color: #5A5352;
+  letter-spacing: 1px;
 }
 
-header .inner {
-    max-width: 520px; /* slight increase for better balance */
-    margin: 0 auto;
-}
-
-/* ✔ Updated optimized header text */
-header h1 {
-    margin: 0;
-    font-size: 2.1em;
-    letter-spacing: 1px;
-    text-align: center;
-    white-space: normal;  
-    overflow-wrap: break-word; /* smoother, more natural wrapping */
-    line-height: 1.2;
-    padding: 0 10px; /* prevents edge collision on tiny screens */
-}
-
-/* -------------------------------------
-   MENU BUTTON
-------------------------------------- */
-.menu-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 18px; /* slightly tighter for better vertical balance */
-    padding: 12px 22px;
-    background-color: #F4EFE9;
-    border: 1px solid #D8CFC7;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 1.1em;
-    color: #5A5352;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.menu-button:hover {
-    background-color: #E6D7CE;
-    transform: translateY(-2px);
-}
-
-/* -------------------------------------
-   HAMBURGER
-------------------------------------- */
-.hamburger {
-    width: 22px;
-    height: 16px;
-    position: relative;
+/* ---------- MOBILE MENU ---------- */
+.mobile-menu-button {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  cursor: pointer;
 }
 
 .hamburger span {
-    position: absolute;
-    height: 3px;
-    width: 100%;
-    background-color: #5A5352;
-    left: 0;
-    transition: 0.35s ease;
-    border-radius: 3px;
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: #8F7A68;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.2s ease;
 }
 
-.hamburger span:nth-child(1) { top: 0; }
-.hamburger span:nth-child(2) { top: 6px; }
-.hamburger span:nth-child(3) { top: 12px; }
-
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg);
-    top: 6px;
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
 }
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
 }
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg);
-    top: 6px;
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
-/* -------------------------------------
-   DROPDOWN MENU
-------------------------------------- */
-.dropdown {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.5s ease, opacity 0.5s ease;
-    margin: 10px auto 0;
-
-    background-image: url("https://www.transparenttextures.com/patterns/paper.png");
-    background-color: #F4EFE9;
-
-    border-radius: 14px;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-    width: 240px;
-    padding-bottom: 10px;
+/* ---------- DROPDOWN ---------- */
+.mobile-dropdown {
+  display: flex;
+  flex-direction: column;
+  background-color: #fbf7f4;
+  border: 1px solid #d6c9c0;
+  border-radius: 12px;
+  margin: 10px auto 20px auto;
+  width: 90%;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.35s ease;
 }
 
-.dropdown.show {
-    max-height: 400px;
-    opacity: 1;
+.mobile-dropdown.open {
+  max-height: 360px;
+  opacity: 1;
 }
 
-.dropdown a {
-    display: block;
-    text-decoration: none;
-    padding: 12px;
-    margin: 10px auto;
-    width: 180px;
-    background-color: #FFFFFFEE;
-    border: 1px solid #D8CFC7;
-    border-radius: 8px;
-    color: #5A5352;
-    text-align: center;
-
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fadeUp 0.5s forwards;
+.mobile-dropdown a {
+  padding: 14px 18px;
+  border-bottom: 1px solid #e4dcd5;
+  text-decoration: none;
+  color: #6d5a4a;
+  font-size: 1.05rem;
 }
 
-.dropdown a:nth-child(1) { animation-delay: 0.15s; }
-.dropdown a:nth-child(2) { animation-delay: 0.30s; }
-.dropdown a:nth-child(3) { animation-delay: 0.45s; }
-.dropdown a:nth-child(4) { animation-delay: 0.60s; }
-
-@keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
+.mobile-dropdown a:last-child {
+  border-bottom: none;
 }
 
-/* -------------------------------------
-   HERO IMAGE
-------------------------------------- */
-
+/* ---------- HERO ---------- */
 .hero img {
-    width: 50%;
-    max-width: 400px;
-    display: block;
-    margin: 50px auto 0 auto;
-    border-radius: 12px;
-    border: 6px solid;
-    border-image: linear-gradient(135deg, #eac8b8, #f7dcdc, #d6b495) 1;
-    box-shadow: 0 0 15px rgba(235, 200, 180, 0.35);
+  width: 50%;
+  max-width: 400px;
+  display: block;
+  margin: 50px auto 0 auto;
+  border-radius: 12px;
+  border: 6px solid;
+  border-image: linear-gradient(135deg, #eac8b8, #f7dcdc, #d6b495) 1;
+  box-shadow: 0 0 15px rgba(235, 200, 180, 0.35);
 }
 
-/* -------------------------------------
-   INTRO
-------------------------------------- */
+/* ---------- INTRO ---------- */
 .intro {
-    text-align: center;
-    padding: 50px 20px;
+  text-align: center;
+  padding: 50px 20px;
 }
 
-.intro h2 {
-    font-weight: normal;
-    margin-bottom: 20px;
-}
-
-.intro p {
-    max-width: 600px;
-    margin: 0 auto;
-    font-size: 1.1em;
-}
-
-/* -------------------------------------
-   RESPONSIVE IMPROVEMENTS
-------------------------------------- */
-
-/* Slight tune for phones around 360px */
-@media (max-width: 380px) {
-    header {
-        padding-top: 28px;
-    }
-    header h1 {
-        font-size: 1.75em;
-        padding: 0 12px;
-    }
-    .menu-button {
-        margin-top: 16px;
-    }
-
-    /* Hero spacing for small phones */
-    .hero img {
-        margin-top: 40px;   /* adjust as you like: 35–45px works well */
-    }
-}
-
-/* Tiny phones (iPhone SE, older Android) */
-@media (max-width: 330px) {
-    header h1 {
-        font-size: 1.55em;
-    }
-
-    /* Hero spacing for tiny phones */
-    .hero img {
-        margin-top: 30px;   /* tighter spacing for very small screens */
-    }
-}
-
-
-/* -------------------------------------
-   FOOTER
-------------------------------------- */
 footer {
-    margin-top: auto;
-    background: #E6D7CE;
-    color: #5A5352;
-    text-align: center;
-    padding: 20px;
-    font-size: 0.9rem;
-    border-top: 2px solid #D8CFC7;
+  background: #E6D7CE;
+  color: #5A5352;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  border-top: 2px solid #D8CFC7;
 }
 </style>
-
-<script>
-function toggleMenu() {
-    const dropdown = document.getElementById("dropdown");
-    const burger = document.getElementById("burger");
-
-    dropdown.classList.toggle("show");
-    burger.classList.toggle("active");
-}
-</script>
-
 </head>
+
 <body>
 
-<header>
-    <div class="inner">
-        <h1>SEOUL KOREA TEMPLE ART</h1>
+<header class="simple-header">
+  SEOUL KOREA TEMPLE ART
 
-        <div class="menu-button" onclick="toggleMenu()">
-            <div id="burger" class="hamburger">
-                <span></span><span></span><span></span>
-            </div>
-            <span>MENU</span>
-        </div>
-
-        <div id="dropdown" class="dropdown">
-            <a href="illustrations.html">Temple and Family History</a>
-            <a href="paintings.html">The Family: A Proclamation to the World</a>
-            <a href="musings.html">Musings</a>
-            <a href="about.html">About + Contact</a>
-        </div>
+  <div class="mobile-menu-button" onclick="toggleMenu()" aria-label="Open menu">
+    <div class="hamburger">
+      <span></span><span></span><span></span>
     </div>
+  </div>
 </header>
 
+<div class="mobile-dropdown" id="dropdownMenu">
+  <a href="index.html">Home</a>
+  <a href="illustrations.html">Illustrations</a>
+  <a href="paintings.html">The Family: A Proclamation to the World</a>
+  <a href="musings.html">Musings</a>
+  <a href="about.html">About / Contact</a>
+</div>
+
 <div class="hero">
-    <img src="images/hero2.jpg" alt="Seoul Korea Temple Art">
+  <img src="images/hero2.jpg" alt="Seoul Korea Temple Art">
 </div>
 
 <section class="intro">
-    <h2>Welcome</h2>
-    <p>
-        Explore my illustrations and thoughts inspired by the Seoul Korea Temple and the doctrine of Christ.
-        Tap the menu above to begin.
-    </p>
+  <h2>Welcome</h2>
+  <p>
+    Explore my illustrations and thoughts inspired by the Seoul Korea Temple and the doctrine of Christ.
+    Tap the menu above to begin.
+  </p>
 </section>
 
-<footer>
-    © Seoul Korea Temple Art
-</footer>
+<footer>© Seoul Korea Temple Art</footer>
 
-<!-- Service Worker -->
+<script>
+function toggleMenu() {
+  const dropdown = document.getElementById("dropdownMenu");
+  const hamburger = document.querySelector(".hamburger");
+  dropdown.classList.toggle("open");
+  hamburger.classList.toggle("open");
+}
+</script>
+
 <script>
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+  navigator.serviceWorker.register('service-worker.js');
 }
 </script>
 
