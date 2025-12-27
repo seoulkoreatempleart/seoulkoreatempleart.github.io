@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,228 +13,182 @@
 <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
 
 <style>
-/* -------------------------------------
-   GLOBAL + PAGE SLIDE DOWN
-------------------------------------- */
-html, body {
-    margin: 0;
-    padding: 0;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    background-color: #F4EFE9;
-    color: #5A5352;
-}
-
+/* ---------- PAGE SLIDE DOWN ---------- */
 body {
-    animation: pageDrop 0.6s ease;
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #F5E8E0;
+  color: #5A5352;
+  animation: pageDrop 0.6s ease;
 }
 
 @keyframes pageDrop {
-    from { opacity: 0; transform: translateY(-12px); }
-    to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* -------------------------------------
-   HEADER (MATCHES ABOUT.HTML)
-------------------------------------- */
-header {
-    background-color: #E6D7CE;
-    padding: 35px 20px 20px;
-    border-bottom: 2px solid #D8CFC7;
-    text-align: center;
+/* ---------- HEADER (FROM ABOUT.HTML) ---------- */
+.simple-header {
+  position: relative;
+  background-color: #E6D7CE;
+  padding: 40px 20px 20px;
+  text-align: center;
+  border-bottom: 2px solid #D8CFC7;
+  color: #5A5352;
+  letter-spacing: 1px;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 1.8em;
-    letter-spacing: 1px;
-}
-
-/* -------------------------------------
-   MENU BUTTON
-------------------------------------- */
-.menu-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 18px;
-    padding: 12px 22px;
-    background-color: #F4EFE9;
-    border: 1px solid #D8CFC7;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 1.05em;
-    color: #5A5352;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.menu-button:hover {
-    background-color: #E6D7CE;
-    transform: translateY(-2px);
-}
-
-/* -------------------------------------
-   HAMBURGER (LEFT + LIGHTER)
-------------------------------------- */
-.hamburger {
-    width: 22px;
-    height: 16px;
-    position: relative;
+/* ---------- MOBILE MENU BUTTON ---------- */
+.mobile-menu-button {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  cursor: pointer;
 }
 
 .hamburger span {
-    position: absolute;
-    height: 3px;
-    width: 100%;
-    background-color: #8B807D;
-    left: 0;
-    transition: 0.35s ease;
-    border-radius: 3px;
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: #8F7A68; /* lighter color */
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.2s ease;
 }
 
-.hamburger span:nth-child(1) { top: 0; }
-.hamburger span:nth-child(2) { top: 6px; }
-.hamburger span:nth-child(3) { top: 12px; }
-
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg);
-    top: 6px;
+/* Hamburger animation */
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
 }
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
 }
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg);
-    top: 6px;
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
-/* -------------------------------------
-   DROPDOWN MENU (ABOUT.HTML STYLE)
-------------------------------------- */
-.dropdown {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.5s ease, opacity 0.5s ease;
-    margin: 10px auto 0;
-    background-color: #F4EFE9;
-    border-radius: 14px;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-    width: 240px;
-    padding-bottom: 10px;
+/* ---------- DROPDOWN (PUSHES PAGE DOWN) ---------- */
+.mobile-dropdown {
+  display: flex;
+  flex-direction: column;
+  background-color: #fbf7f4;
+  border: 1px solid #d6c9c0;
+  border-radius: 12px;
+  margin: 10px auto 20px auto;
+  width: 90%;
+  overflow: hidden;
+
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.35s ease;
 }
 
-.dropdown.show {
-    max-height: 400px;
-    opacity: 1;
+.mobile-dropdown.open {
+  max-height: 360px;
+  opacity: 1;
 }
 
-.dropdown a {
-    display: block;
-    text-decoration: none;
-    padding: 12px;
-    margin: 10px auto;
-    width: 180px;
-    background-color: #FFFFFFEE;
-    border: 1px solid #D8CFC7;
-    border-radius: 8px;
-    color: #5A5352;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fadeUp 0.5s forwards;
+.mobile-dropdown a {
+  padding: 14px 18px;
+  border-bottom: 1px solid #e4dcd5;
+  text-decoration: none;
+  color: #6d5a4a;
+  font-size: 1.05rem;
 }
 
-.dropdown a:nth-child(1) { animation-delay: 0.15s; }
-.dropdown a:nth-child(2) { animation-delay: 0.30s; }
-.dropdown a:nth-child(3) { animation-delay: 0.45s; }
-.dropdown a:nth-child(4) { animation-delay: 0.60s; }
-
-@keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
+.mobile-dropdown a:last-child {
+  border-bottom: none;
 }
 
-/* -------------------------------------
-   CONTENT GRID (UNCHANGED)
-------------------------------------- */
+/* ---------- CONTENT ---------- */
 .content-container {
-    max-width: 900px;
-    padding: 20px;
-    margin: 40px auto;
-    text-align: center;
+  max-width: 900px;
+  padding: 20px;
+  margin: 40px auto;
+  text-align: center;
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+  }
 }
 
 .thumb {
-    width: 92%;
-    max-width: 180px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 92%;
+  max-width: 180px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .thumb:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.22);
 }
 
-/* -------------------------------------
-   FOOTER
-------------------------------------- */
+/* ---------- FOOTER ---------- */
 footer {
-    background: #E6D7CE;
-    padding: 15px;
-    text-align: center;
-    border-top: 2px solid #D8CFC7;
+  background: #E6D7CE;
+  color: #5A5352;
+  padding: 15px;
+  text-align: center;
+  border-top: 2px solid #D8CFC7;
 }
 </style>
-
-<script>
-function toggleMenu() {
-    const dropdown = document.getElementById("dropdown");
-    const burger = document.getElementById("burger");
-    dropdown.classList.toggle("show");
-    burger.classList.toggle("active");
-}
-</script>
 </head>
 
 <body>
 
-<header>
-    <h1>Temple and Family History</h1>
+<header class="simple-header">
+  Temple and Family History
 
-    <div class="menu-button" onclick="toggleMenu()">
-        <div id="burger" class="hamburger">
-            <span></span><span></span><span></span>
-        </div>
-        <span>MENU</span>
+  <!-- MENU BUTTON -->
+  <div class="mobile-menu-button" onclick="toggleMenu()" aria-label="Open menu">
+    <div class="hamburger">
+      <span></span><span></span><span></span>
     </div>
-
-    <div id="dropdown" class="dropdown">
-        <a href="index.html">Home</a>
-        <a href="illustrations.html">Temple and Family History</a>
-        <a href="paintings.html">The Family: A Proclamation</a>
-        <a href="about.html">About + Contact</a>
-    </div>
+  </div>
 </header>
 
+<!-- DROPDOWN MENU -->
+<div class="mobile-dropdown" id="dropdownMenu">
+  <a href="index.html">Home</a>
+  <a href="illustrations.html">Temple and Family History</a>
+  <a href="paintings.html">The Family: A Proclamation to the World</a>
+  <a href="musings.html">Musings</a>
+  <a href="about.html">About / Contact</a>
+</div>
+
 <div class="content-container">
-    <div class="grid">
-        <a href="illustration1.html"><img src="images/sealing_joseon_couple.jpg" class="thumb"></a>
-        <a href="illustration2.html"><img src="images/waiting_joseon_family.png" class="thumb"></a>
-        <a href="illustration3.html"><img src="images/temple_magnolia_tree_bloom.png" class="thumb"></a>
-        <a href="illustration4.html"><img src="images/10_views_think_celestial.jpg" class="thumb"></a>
-        <a href="illustration5.html"><img src="images/hero2.jpg" class="thumb"></a>
-        <a href="illustration6.html"><img src="images/Praise_temple.jpg" class="thumb"></a>
-    </div>
+  <div class="grid">
+    <a href="illustration1.html"><img src="images/sealing_joseon_couple.jpg" class="thumb"></a>
+    <a href="illustration2.html"><img src="images/waiting_joseon_family.png" class="thumb"></a>
+    <a href="illustration3.html"><img src="images/temple_magnolia_tree_bloom.png" class="thumb"></a>
+    <a href="illustration4.html"><img src="images/10_views_think_celestial.jpg" class="thumb"></a>
+    <a href="illustration5.html"><img src="images/hero2.jpg" class="thumb"></a>
+    <a href="illustration6.html"><img src="images/Praise_temple.jpg" class="thumb"></a>
+  </div>
 </div>
 
 <footer>© Seoul Korea Temple Art</footer>
 
+<script>
+function toggleMenu() {
+  const dropdown = document.getElementById("dropdownMenu");
+  const hamburger = document.querySelector(".hamburger");
+
+  dropdown.classList.toggle("open");
+  hamburger.classList.toggle("open");
+}
+</script>
+
 </body>
 </html>
-
