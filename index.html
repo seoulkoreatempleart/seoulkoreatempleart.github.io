@@ -14,12 +14,27 @@
   <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
 
 <style>
+body html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: #F4EFE9;
   color: #5A5352;
 }
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
 
 /* ---------- HEADER ---------- */
 .simple-header {
