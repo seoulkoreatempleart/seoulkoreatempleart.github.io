@@ -1,5 +1,5 @@
-const PAGE_CACHE = 'temple-art-pages-v1';
-const MEDIA_CACHE = 'temple-art-media-v1';
+const PAGE_CACHE = 'temple-art-pages-v2';
+const MEDIA_CACHE = 'temple-art-media-v2';
 
 const PRECACHE_PAGES = [
   '/',
