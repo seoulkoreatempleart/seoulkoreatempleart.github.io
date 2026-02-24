@@ -42,43 +42,23 @@ self.addEventListener('activate', event => {
 
 // FETCH
 self.addEventListener('fetch', event => {
-  // App shell for offline
-  // FETCH
-self.addEventListener('fetch', event => {
 
-  // HTML pages (multi-page site)
+  // HTML pages (network first)
   if (event.request.mode === 'navigate') {
     event.respondWith(
       fetch(event.request)
         .then(response => {
-          // Save fresh page to cache
           return caches.open(PAGE_CACHE).then(cache => {
             cache.put(event.request, response.clone());
             return response;
           });
         })
-        .catch(() => caches.match(event.request)) // offline fallback to same page
+        .catch(() => caches.match(event.request))
     );
     return;
   }
 
-  // Images & PDFs
-  if (
-    event.request.destination === 'image' ||
-    event.request.url.endsWith('.pdf')
-  ) {
-    event.respondWith(cacheMedia(event.request));
-    return;
-  }
-
-  // Everything else
-  event.respondWith(
-    caches.match(event.request).then(res => res || fetch(event.request))
-  );
-});
-
-
-  // Images & PDFs
+  // Images & PDFs (cache first)
   if (
     event.request.destination === 'image' ||
     event.request.url.endsWith('.pdf')
