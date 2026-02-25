@@ -149,6 +149,26 @@ footer {
 .tall {
   max-width: 600px;
 }
+  /* Default: stacked (mobile first) */
+.illustration-grid {
+  display: block;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .illustration-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    align-items: start;
+  }
+
+  .illustration {
+    width: 100%;
+    max-width: none;   /* remove max width restriction on tablet */
+    margin: 0;
+  }
+}
 </style>
 </head>
 
