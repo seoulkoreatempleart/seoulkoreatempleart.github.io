@@ -151,7 +151,27 @@ footer {
 .grid a {
   display: block;
 }
-  
+
+  .illustration {
+  width: 100%;
+  max-width: 680px;          /* keeps tablet refined */
+  height: auto;
+  display: block;
+  margin: 0 auto 4rem auto;  /* generous vertical space */
+}
+
+/* Phone refinement */
+@media (max-width: 600px) {
+  .illustration {
+    width: 78%;              /* breathing room */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05); /* very soft lift */
+  }
+}
+
+/* Optional: soften tallest image slightly */
+.tall {
+  max-width: 600px;
+}
 </style>
 </head>
 
