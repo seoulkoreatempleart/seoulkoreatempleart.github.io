@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acquire Art – Seoul Korea Temple Art</title>
+
+  <style>
+    /* ---------- SHARED SITE STYLES ---------- */
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background-color: #F5E8E0;
+      color: #5A5352;
+      animation: pageDrop 0.6s ease;
+    }
+
+    @keyframes pageDrop {
+      from { opacity: 0; transform: translateY(-12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .simple-header {
+      position: relative;
+      background-color: #E6D7CE;
+      padding: 40px 20px 20px;
+      text-align: center;
+      border-bottom: 2px solid #D8CFC7;
+      color: #5A5352;
+      letter-spacing: 1px;
+      font-weight: bold;
+    }
+
+    /* ---------- MENU STYLES ---------- */
+    .mobile-menu-button { position: absolute; left: 20px; top: 20px; cursor: pointer; }
+    .hamburger span {
+      display: block; width: 24px; height: 3px; background-color: #8F7A68;
+      margin: 4px 0; border-radius: 2px; transition: 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-dropdown {
+      display: flex; flex-direction: column; background-color: #fbf7f4;
+      border: 1px solid #d6c9c0; border-radius: 12px; margin: 10px auto 20px;
+      width: 90%; overflow: hidden; max-height: 0; opacity: 0; transition: 0.5s ease;
+    }
+    .mobile-dropdown.open { max-height: 360px; opacity: 1; }
+    .mobile-dropdown a { padding: 14px 18px; border-bottom: 1px solid #e4dcd5; text-decoration: none; color: #6d5a4a; }
+
+    /* ---------- ARTWORK SPECIFIC STYLES ---------- */
+    .wrapper {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .artwork-card {
+      background: #F5EDE7;
+      border-radius: 14px;
+      border: 1px solid #DDD0C3;
+      padding: 30px;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+    .artwork-image {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .artwork-title {
+      font-size: 1.6rem;
+      margin: 15px 0 10px;
+      color: #5A5352;
+    }
+
+    .artwork-description {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      color: #6d5a4a;
+    }
+
+    .artwork-details {
+      font-size: 0.9rem;
+      color: #8F7A68;
+      margin-bottom: 25px;
+      font-style: italic;
+    }
+
+    /* ---------- STRIPE BUTTON STYLE ---------- */
+    .buy-button {
+      display: inline-block;
+      background-color: #8F7A68;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.2s ease;
+      letter-spacing: 0.5px;
+    }
+
+    .buy-button:hover {
+      background-color: #7A6656;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background: #E6D7CE;
+      color: #5A5352;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      border-top: 2px solid #D8CFC7;
+    }
+
+    .page-wrapper { min-height: 100vh; display: flex; flex-direction: column; }
+    main { flex: 1; }
+  </style>
+      
+      <script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
+      
+      </head>
+
+<body>
+  <div class="page-wrapper">
+    <header class="simple-header">
+      Acquire Artwork
+      <div class="mobile-menu-button" onclick="toggleMenu()">
+        <div class="hamburger"><span></span><span></span><span></span></div>
+      </div>
+    </header>
+
+    <div class="mobile-dropdown" id="dropdownMenu">
+      <a href="index.html">Home</a>
+      <a href="illustrations.html">Temple and Family History</a>
+      <a href="paintings.html">The Family Proclamation</a>
+      <a href="musings.html">Musings</a>
+      <a href="about.html">About & Contact</a>
+    </div>
+
+    <main>
+      <div class="wrapper">
+        
+        <section class="artwork-card">
+          <img src="images/sealing_joseon_couple.jpg" alt="Joseon Couple Sealing" class="artwork-image">
+          <h2 class="artwork-title">Joseon Couple Sealing</h2>
+          <p class="artwork-description">After centuries of waiting, a couple from the Joseon dynasty enter the temple to witness their sealing.</p>
+          <p class="artwork-details">Resolution: 300 DPI | Format: Digital Print (JPG/PDF) | Size: 5x7in</p>
+          
+          <a href="https://buy.stripe.com/your_link_here_1" class="buy-button">Acquire this piece</a>
+        </section>
+
+        <section class="artwork-card">
+          <img src="images/waiting_joseon_family.png" alt="Joseon Family Waits" class="artwork-image">
+          <h2 class="artwork-title">Joseon Family Waits</h2>
+          <p class="artwork-description">I imagine my ancestors waiting patiently for me to arrive at the temple to do their ordinance work.</p>
+          <p class="artwork-details">Resolution: 300 DPI | Format: Digital Print (JPG/PDF) | Size: 5x7in</p>
+          
+      <a href="https://yourstore.lemonsqueezy.com/checkout/buy/your-art-id?embed=1" 
+   class="buy-button lemonsqueezy-button">
+   Acquire this piece
+</a>
+        </section>
+
+      </div>
+    </main>
+
+    <footer>© Seoul Korea Temple Art</footer>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const dropdown = document.getElementById("dropdownMenu");
+      const hamburger = document.querySelector(".hamburger");
+      dropdown.classList.toggle("open");
+      hamburger.classList.toggle("open");
+    }
+
+window.createLemonSqueezy = function() {
+    window.LemonSqueezy.setup();
+  };
+  </script>
+</body>
+</html>
