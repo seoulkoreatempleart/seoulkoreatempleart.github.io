@@ -188,6 +188,7 @@
 window.createLemonSqueezy = function() {
     window.LemonSqueezy.setup();
   };
+
   </script>
 </body>
 </html>
