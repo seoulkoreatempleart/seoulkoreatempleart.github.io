@@ -51,45 +51,58 @@
 
     /* ---------- ARTWORK SPECIFIC STYLES ---------- */
     .wrapper {
-      max-width: 800px;
+      max-width: 1000px; /* Widened slightly to fit side-by-side better */
       margin: 40px auto;
-      padding: 0 20px;
+      padding: 0 10px;
+      /* Forces cards to stay side-by-side on ALL screens */
+      display: flex;
+      flex-direction: row; 
+      gap: 15px;
+      justify-content: center;
+      align-items: stretch;
     }
 
     .artwork-card {
       background: #F5EDE7;
       border-radius: 14px;
       border: 1px solid #DDD0C3;
-      padding: 30px;
-      margin-bottom: 50px;
+      padding: 20px;
+      margin-bottom: 20px;
       text-align: center;
+      flex: 1; /* Makes cards equal width */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .artwork-image {
-      width: 100%;
+      width: auto;      /* Allows width to scale proportionally */
+      max-width: 100%;  /* Prevents spilling out of the card */
+      max-height: 4in;  /* Strict height limit */
       height: auto;
       border-radius: 8px;
-      margin-bottom: 20px;
+      margin: 0 auto 15px auto;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      display: block;
     }
 
     .artwork-title {
-      font-size: 1.6rem;
-      margin: 15px 0 10px;
+      font-size: 1.2rem; /* Reduced size to fit side-by-side better */
+      margin: 10px 0;
       color: #5A5352;
     }
 
     .artwork-description {
-      font-size: 1.05rem;
-      line-height: 1.6;
-      margin-bottom: 15px;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      margin-bottom: 10px;
       color: #6d5a4a;
     }
 
     .artwork-details {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       color: #8F7A68;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       font-style: italic;
     }
 
@@ -99,11 +112,12 @@
       background-color: #8F7A68;
       color: #ffffff;
       text-decoration: none;
-      padding: 14px 32px;
+      padding: 12px 20px;
       border-radius: 30px;
       font-weight: bold;
       transition: background 0.3s ease, transform 0.2s ease;
       letter-spacing: 0.5px;
+      font-size: 0.9rem;
     }
 
     .buy-button:hover {
@@ -123,11 +137,17 @@
 
     .page-wrapper { min-height: 100vh; display: flex; flex-direction: column; }
     main { flex: 1; }
+
+    /* Adjustments for very small phones so content doesn't get too squished */
+    @media (max-width: 400px) {
+      .artwork-title { font-size: 1rem; }
+      .artwork-description { font-size: 0.85rem; }
+      .buy-button { padding: 10px 15px; font-size: 0.8rem; }
+    }
   </style>
       
-      <script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
-      
-      </head>
+  <script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
+</head>
 
 <body>
   <div class="page-wrapper">
@@ -152,26 +172,22 @@
         
         <section class="artwork-card">
           <img src="images/sealing_joseon_couple.jpg" alt="Joseon Couple Sealing" class="artwork-image">
-          <h2 class="artwork-title">Joseon Couple Sealing</h2>
-          <p class="artwork-description">After centuries of waiting, a couple from the Joseon dynasty enter the temple to witness their sealing.</p>
-          <p class="artwork-details">Resolution: 300 DPI | Format: Digital Print (JPG/PDF) | Size: 5x7in</p>
-          
-          <a href="https://yourstore.lemonsqueezy.com/checkout/buy/YOUR_ID_HERE?embed=1" 
-   class="buy-button lemonsqueezy-button">
-   Acquire this piece
-</a>
+          <div>
+            <h2 class="artwork-title">Joseon Couple Sealing</h2>
+            <p class="artwork-description">After centuries of waiting, a couple from the Joseon dynasty enter the temple.</p>
+            <p class="artwork-details">Digital Print | 5x7in</p>
+          </div>
+          <a href="https://yourstore.lemonsqueezy.com/checkout/buy/YOUR_ID_HERE?embed=1" class="buy-button lemonsqueezy-button">Acquire</a>
         </section>
 
         <section class="artwork-card">
           <img src="images/waiting_joseon_family.png" alt="Joseon Family Waits" class="artwork-image">
-          <h2 class="artwork-title">Joseon Family Waits</h2>
-          <p class="artwork-description">I imagine my ancestors waiting patiently for me to arrive at the temple to do their ordinance work.</p>
-          <p class="artwork-details">Resolution: 300 DPI | Format: Digital Print (JPG/PDF) | Size: 5x7in</p>
-          
-      <a href="https://yourstore.lemonsqueezy.com/checkout/buy/your-art-id?embed=1" 
-   class="buy-button lemonsqueezy-button">
-   Acquire this piece
-</a>
+          <div>
+            <h2 class="artwork-title">Joseon Family Waits</h2>
+            <p class="artwork-description">I imagine my ancestors waiting patiently for me to arrive at the temple.</p>
+            <p class="artwork-details">Digital Print | 5x7in</p>
+          </div>
+          <a href="https://yourstore.lemonsqueezy.com/checkout/buy/your-art-id?embed=1" class="buy-button lemonsqueezy-button">Acquire</a>
         </section>
 
       </div>
@@ -188,10 +204,9 @@
       hamburger.classList.toggle("open");
     }
 
-window.createLemonSqueezy = function() {
-    window.LemonSqueezy.setup();
-  };
-
+    window.createLemonSqueezy = function() {
+      window.LemonSqueezy.setup();
+    };
   </script>
 </body>
 </html>
