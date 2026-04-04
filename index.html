@@ -108,6 +108,42 @@ main {
 .mobile-dropdown a:last-child {
   border-bottom: none;
 }
+  .dropdown-parent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid #e4dcd5;
+  cursor: pointer;
+  color: #5A5352;
+  font-size: 0.9rem;
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+  font-size: 1.1rem;
+  color: #8F7A68;
+}
+
+.dropdown-parent.open .chevron {
+  transform: rotate(90deg);
+}
+
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  background-color: rgba(0,0,0,0.03);
+}
+
+.submenu.open {
+  max-height: 200px;
+}
+
+.submenu a {
+  padding-left: 30px;
+  font-size: 0.85rem;
+}
 
 /* ---------- HERO ---------- */
 .hero img {
@@ -164,12 +200,20 @@ footer {
 
 <div class="mobile-dropdown" id="dropdownMenu">
   <a href="index.html">Home</a>
-  <a href="templeandfamilyhistory.html">Temple and Family History</a>
-  <a href="familyproclamation.html">The Family Proclamation</a>
+
+  <div class="dropdown-parent" onclick="toggleSubmenu(this)">
+    <span>Art &amp; Doctrine</span>
+    <span class="chevron">›</span>
+  </div>
+  <div class="submenu">
+    <a href="templeandfamilyhistory.html">Temple and Family History</a>
+    <a href="familyproclamation.html">The Family Proclamation</a>
+  </div>
+
   <a href="musings.html">Musings</a>
-  <a href="acquireart.html">Acquire Art</a>
-  <a href="about.html">About & Contact</a>
+  <a href="about.html">About &amp; Contact</a>
 </div>
+
 
 <main>
 <div class="hero">
@@ -190,6 +234,12 @@ function toggleMenu() {
   const hamburger = document.querySelector(".hamburger");
   dropdown.classList.toggle("open");
   hamburger.classList.toggle("open");
+
+  function toggleSubmenu(el) {
+  el.classList.toggle("open");
+  const submenu = el.nextElementSibling;
+  submenu.classList.toggle("open");
+}
 }
 </script>
 
