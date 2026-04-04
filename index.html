@@ -29,6 +29,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative
 }
 
 main {
@@ -83,6 +84,10 @@ main {
   border: none;
   border-radius: 0 0 4px 4px;  /* flat top, barely-there bottom curve */
     max-width: 220px;
+  position: absolute;   /* add this */
+  top: 100%;            /* add this */
+  left: 12px;           /* add this */
+
   margin: 10px 0 20px 12px;  /* top right bottom left — anchors it left */
   overflow: hidden;
   max-height: 0;
@@ -196,9 +201,7 @@ footer {
       <span></span><span></span><span></span>
     </div>
   </div>
-</header>
-
-<div class="mobile-dropdown" id="dropdownMenu">
+  <div class="mobile-dropdown" id="dropdownMenu">
   <a href="index.html">Home</a>
 
   <div class="dropdown-parent" onclick="toggleSubmenu(this)">
@@ -209,11 +212,10 @@ footer {
     <a href="templeandfamilyhistory.html">Temple and Family History</a>
     <a href="familyproclamation.html">The Family Proclamation</a>
   </div>
-
   <a href="musings.html">Musings</a>
   <a href="about.html">About &amp; Contact</a>
 </div>
-
+</header>
 
 <main>
 <div class="hero">
