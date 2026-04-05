@@ -213,11 +213,16 @@ main {
   <!-- DROPDOWN MENU -->
 <div class="mobile-dropdown" id="dropdownMenu">
   <a href="index.html">Home</a>
-  <a href="templeandfamilyhistory.html">Temple and Family History</a>
-  <a href="familyproclamation.html">The Family Proclamation</a>
-   <a href="musings.html">Musings</a>
-   <a href="acquireart.html">Acquire Art</a>
-  <a href="about.html">About & Contact</a>
+  <div class="dropdown-parent" onclick="toggleSubmenu(this)">
+    <span>Art &amp; Doctrine</span>
+    <span class="chevron">›</span>
+  </div>
+  <div class="submenu">
+    <a href="templeandfamilyhistory.html">Temple and Family History</a>
+    <a href="familyproclamation.html">The Family Proclamation</a>
+  </div>
+  <a href="musings.html">Musings</a>
+  <a href="about.html">About &amp; Contact</a>
 </div>
 </header>
 
@@ -246,12 +251,13 @@ function toggleMenu() {
 
   dropdown.classList.toggle("open");
   hamburger.classList.toggle("open");
-  function toggleSubmenu(el) {
+  }
+function toggleSubmenu(el) {
   el.classList.toggle("open");
   const submenu = el.nextElementSibling;
   submenu.classList.toggle("open");
 }
-}
+
 </script>
 <script>
 if ('serviceWorker' in navigator) {
