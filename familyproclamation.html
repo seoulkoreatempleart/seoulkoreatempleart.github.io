@@ -66,14 +66,18 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #fbf7f4;
-  border: 1px solid #d6c9c0;
-  border-radius: 12px;
-  margin: 10px auto 20px auto;
-  width: 90%;
+  border: none;
+  border-radius: 0 0 4px 4px;
+  max-width: 220px;
+  position: absolute;
+  top: 100%;
+  left: 12px;
+  margin: 10px 0 20px 12px;
   overflow: hidden;
   max-height: 0;
   opacity: 0;
   transition: max-height 0.5s ease, opacity 0.35s ease;
+  box-shadow: none;
 }
 
 .mobile-dropdown.open {
@@ -86,13 +90,56 @@ body {
   border-bottom: 1px solid #e4dcd5;
   text-decoration: none;
   color: #6d5a4a;
-  font-size: 1.05rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-align: left;  /* ← add this */
+
 }
 
 .mobile-dropdown a:last-child {
   border-bottom: none;
 }
 
+  .dropdown-parent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid #e4dcd5;
+  cursor: pointer;
+  color: #6d5a4a;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+  font-size: 1.1rem;
+  color: #8F7A68;
+}
+
+.dropdown-parent.open .chevron {
+  transform: rotate(90deg);
+}
+
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  background-color: #faf5f1;
+}
+
+.submenu.open {
+  max-height: 200px;
+}
+
+.submenu a {
+  padding-left: 30px;
+  font-size: 0.85rem;
+  text-align: left;
+  display: block;
+}
+  
 .content-container {
   max-width: 900px;
   padding: 20px;
@@ -158,16 +205,21 @@ main {
           <span></span><span></span><span></span>
         </div>
       </div>
-    </header>
 
-    <div class="mobile-dropdown" id="dropdownMenu">
-      <a href="index.html">Home</a>
-      <a href="templeandfamilyhistory.html">Temple and Family History</a>
-      <a href="familyproclamation.html">The Family Proclamation</a>
-      <a href="musings.html">Musings</a>
-      <a href="acquireart.html">Acquire Art</a>
-      <a href="about.html">About & Contact</a>
-    </div>
+      <div class="mobile-dropdown" id="dropdownMenu">
+  <a href="index.html">Home</a>
+  <div class="dropdown-parent" onclick="toggleSubmenu(this)">
+    <span>Art &amp; Doctrine</span>
+    <span class="chevron">›</span>
+  </div>
+  <div class="submenu">
+    <a href="templeandfamilyhistory.html">Temple and Family History</a>
+    <a href="familyproclamation.html">The Family Proclamation</a>
+  </div>
+  <a href="musings.html">Musings</a>
+  <a href="about.html">About &amp; Contact</a>
+</div>
+    </header>
 
     <main>
       <div class="content-container">
@@ -189,6 +241,11 @@ main {
       dropdown.classList.toggle("open");
       hamburger.classList.toggle("open");
     }
+    function toggleSubmenu(el) {
+  el.classList.toggle("open");
+  const submenu = el.nextElementSibling;
+  submenu.classList.toggle("open");
+}
   </script>
   <script>
     if ('serviceWorker' in navigator) {
