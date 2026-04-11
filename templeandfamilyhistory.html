@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +14,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Temple and Family History – Seoul Korea Temple Art</title>
+<title>LDS Temple and Family History Art | Seoul Korea Temple Illustrations</title>
+<meta name="description" content="Browse LDS temple and family history art inspired by the Seoul Korea Temple, including illustrations of sealing, eternal families, and gospel teachings.">
 
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -38,7 +38,7 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ---------- HEADER (FROM ABOUT.HTML) ---------- */
+/* ---------- HEADER ---------- */
 .simple-header {
   position: relative;
   background-color: #E6D7CE;
@@ -47,6 +47,12 @@ body {
   border-bottom: 2px solid #D8CFC7;
   color: #5A5352;
   letter-spacing: 1px;
+}
+
+.simple-header h1 {
+  font-size: 1.4rem;
+  margin: 0;
+  letter-spacing: 2px;
 }
 
 /* ---------- MOBILE MENU BUTTON ---------- */
@@ -61,13 +67,12 @@ body {
   display: block;
   width: 24px;
   height: 3px;
-  background-color: #8F7A68; /* lighter color */
+  background-color: #8F7A68;
   margin: 4px 0;
   border-radius: 2px;
   transition: transform 0.3s ease, opacity 0.2s ease;
 }
 
-/* Hamburger animation */
 .hamburger.open span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
@@ -78,7 +83,7 @@ body {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ---------- DROPDOWN (PUSHES PAGE DOWN) ---------- */
+/* ---------- DROPDOWN ---------- */
 .mobile-dropdown {
   display: flex;
   flex-direction: column;
@@ -107,16 +112,16 @@ body {
   border-bottom: 1px solid #e4dcd5;
   text-decoration: none;
   color: #6d5a4a;
-  font-size:  0.9rem;
+  font-size: 0.9rem;
   font-weight: 400;
-  text-align: left;  /* ← add this */
+  text-align: left;
 }
 
 .mobile-dropdown a:last-child {
   border-bottom: none;
 }
-  
-  .dropdown-parent {
+
+.dropdown-parent {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -164,6 +169,15 @@ body {
   text-align: center;
 }
 
+.content-container h2 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #5A5352;
+  max-width: 680px;
+  margin: 0 auto 30px auto;
+  line-height: 1.6;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -200,7 +214,8 @@ footer {
   font-size: 0.9rem;
   border-top: 2px solid #D8CFC7;
 }
-  .page-wrapper {
+
+.page-wrapper {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -215,42 +230,43 @@ main {
 <body>
  <div class="page-wrapper">
 <header class="simple-header">
-  Temple and Family History
+  <h1>Temple and Family History Art</h1>
 
-  <!-- MENU BUTTON -->
   <div class="mobile-menu-button" onclick="toggleMenu()" aria-label="Open menu">
     <div class="hamburger">
       <span></span><span></span><span></span>
     </div>
   </div>
-  <!-- DROPDOWN MENU -->
-<div class="mobile-dropdown" id="dropdownMenu">
-  <a href="index.html">Home</a>
-  <div class="dropdown-parent" onclick="toggleSubmenu(this)">
-    <span>Art &amp; Doctrine</span>
-    <span class="chevron">›</span>
+
+  <div class="mobile-dropdown" id="dropdownMenu">
+    <a href="index.html">Home</a>
+    <div class="dropdown-parent" onclick="toggleSubmenu(this)">
+      <span>Art &amp; Doctrine</span>
+      <span class="chevron">›</span>
+    </div>
+    <div class="submenu">
+      <a href="templeandfamilyhistory.html">Temple and Family History</a>
+      <a href="familyproclamation.html">The Family Proclamation</a>
+    </div>
+    <a href="musings.html">Musings</a>
+    <a href="about.html">About &amp; Contact</a>
   </div>
-  <div class="submenu">
-    <a href="templeandfamilyhistory.html">Temple and Family History</a>
-    <a href="familyproclamation.html">The Family Proclamation</a>
-  </div>
-  <a href="musings.html">Musings</a>
-  <a href="about.html">About &amp; Contact</a>
-</div>
 </header>
 
-
-   
 <main>
 <div class="content-container">
+  <h2>These illustrations explore the doctrine of eternal families, temple ordinances, and family history work within The Church of Jesus Christ of Latter-day Saints, inspired by the Seoul Korea Temple.</h2>
+
   <div class="grid">
-    <a href="illustration1.html"><img src="images/sealing_joseon_couple.jpg" class="thumb"></a>
-    <a href="illustration2.html"><img src="images/joseon family waits.jpg" class="thumb"></a>
-    <a href="illustration3.html"><img src="images/temple_magnolia_tree_bloom.png" class="thumb"></a>
-    <a href="illustration4.html"><img src="images/10_views_think_celestial.jpg" class="thumb"></a>
-    <a href="illustration5.html"><img src="images/hero2.jpg" class="thumb"></a>
+    <a href="illustration1.html"><img src="images/sealing_joseon_couple.jpg" class="thumb" alt="Illustration of a Korean Joseon era couple about to enter the temple for their proxy sealing"></a>
+    <a href="illustration2.html"><img src="images/joseon family waits.jpg" class="thumb" alt="Korean Joseon ancestors waiting at the temple for their proxy ordinances, family history illustration"></a>
+    <a href="illustration3.html"><img src="images/temple_magnolia_tree_bloom.png" class="thumb" alt="Seoul Korea Temple magnolia trees bloom in spring, symbolizing purity and nobility in Korean culture, reflecting the nature of the temple, LDS artwork"></a>
+    <a href="illustration4.html"><img src="images/10_views_think_celestial.jpg" class="thumb" alt="Various views of the Seoul Korea Temple surrounding the Think Celestial quote by President Russell M. Nelson"></a>
+    <a href="illustration5.html"><img src="images/hero2.jpg" class="thumb" alt="Three Joseon era families on the driveway of the Seoul Korea Temple, waiting, running to the temple, or celebrating according to the status of their proxy ordinances"></a>
     <a href="illustration6.html"><img src="images/Praise_temple.jpg" class="thumb"></a>
     <a href="illustration7.html"><img src="images/Come_unto_me.jpg" class="thumb"></a>
+   <a href="illustration6.html"><img src="images/Praise_temple.jpg" class="thumb" alt="A Joseon era couple perform a hymn of gratitude in praise of God on traditional Korean instruments, the haegeum and daegum"></a>
+    <a href="illustration7.html"><img src="images/Come_unto_me.jpg" class="thumb" alt="A Joseon era couple who want to be sealed run to Jesus Christ at the Seoul Korea Temple"></a>
   </div>
 </div>
 </main>
@@ -261,16 +277,14 @@ main {
 function toggleMenu() {
   const dropdown = document.getElementById("dropdownMenu");
   const hamburger = document.querySelector(".hamburger");
-
   dropdown.classList.toggle("open");
   hamburger.classList.toggle("open");
-  }
+}
 function toggleSubmenu(el) {
   el.classList.toggle("open");
   const submenu = el.nextElementSibling;
   submenu.classList.toggle("open");
 }
-
 </script>
 <script>
 if ('serviceWorker' in navigator) {
