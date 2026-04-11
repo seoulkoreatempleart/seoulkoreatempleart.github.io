@@ -13,8 +13,9 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- 
-  <title>The Family Proclamation – Seoul Korea Temple Art</title>
+
+  <title>The Family Proclamation LDS Art | Illustrations & Artwork</title>
+  <meta name="description" content="View original LDS artwork inspired by The Family: A Proclamation to the World, featuring illustrations of families, joy, and gospel-centered living.">
 
   <link rel="manifest" href="manifest.json">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -44,6 +45,12 @@ body {
   border-bottom: 2px solid #D8CFC7;
   color: #5A5352;
   letter-spacing: 1px;
+}
+
+.simple-header h1 {
+  font-size: 1.4rem;
+  margin: 0;
+  letter-spacing: 2px;
 }
 
 .mobile-menu-button {
@@ -103,15 +110,14 @@ body {
   color: #6d5a4a;
   font-size: 0.9rem;
   font-weight: 400;
-  text-align: left;  /* ← add this */
-
+  text-align: left;
 }
 
 .mobile-dropdown a:last-child {
   border-bottom: none;
 }
 
-  .dropdown-parent {
+.dropdown-parent {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -150,11 +156,29 @@ body {
   text-align: left;
   display: block;
 }
-  
+
 .content-container {
   max-width: 900px;
   padding: 20px;
   margin: 40px auto;
+  text-align: center;
+}
+
+.content-container h2 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #5A5352;
+  max-width: 680px;
+  margin: 0 auto 16px auto;
+  line-height: 1.6;
+}
+
+.content-container p {
+  font-size: 0.92rem;
+  color: #5A5352;
+  max-width: 680px;
+  margin: 0 auto 30px auto;
+  line-height: 1.7;
   text-align: center;
 }
 
@@ -209,7 +233,7 @@ main {
 <body>
   <div class="page-wrapper">
     <header class="simple-header">
-      The Family Proclamation
+      <h1>The Family Proclamation LDS Art</h1>
 
       <div class="mobile-menu-button" onclick="toggleMenu()" aria-label="Open menu">
         <div class="hamburger">
@@ -218,26 +242,29 @@ main {
       </div>
 
       <div class="mobile-dropdown" id="dropdownMenu">
-  <a href="index.html">Home</a>
-  <div class="dropdown-parent" onclick="toggleSubmenu(this)">
-    <span>Art &amp; Doctrine</span>
-    <span class="chevron">›</span>
-  </div>
-  <div class="submenu">
-    <a href="templeandfamilyhistory.html">Temple and Family History</a>
-    <a href="familyproclamation.html">The Family Proclamation</a>
-  </div>
-  <a href="musings.html">Musings</a>
-  <a href="about.html">About &amp; Contact</a>
-</div>
+        <a href="index.html">Home</a>
+        <div class="dropdown-parent" onclick="toggleSubmenu(this)">
+          <span>Art &amp; Doctrine</span>
+          <span class="chevron">›</span>
+        </div>
+        <div class="submenu">
+          <a href="templeandfamilyhistory.html">Temple and Family History</a>
+          <a href="familyproclamation.html">The Family Proclamation</a>
+        </div>
+        <a href="musings.html">Musings</a>
+        <a href="about.html">About &amp; Contact</a>
+      </div>
     </header>
 
     <main>
       <div class="content-container">
+        <h2>Illustrations Inspired by "The Family: A Proclamation to the World"</h2>
+        <p>This collection of artwork is inspired by The Family: A Proclamation to the World, a landmark document presented by President Gordon B. Hinckley at the General Relief Society Meeting held September 23, 1995. The Family Proclamation is considered as doctrine in the Church of Jesus Christ of Latter-day Saints. These illustrations reflect themes of love, joy, divine roles, and the eternal nature of families.</p>
+
         <div class="grid">
-          <a href="illustration_a.html"><img src="images/families.jpg" class="thumb"></a>
-          <a href="illustration_b.html"><img src="images/daughter.jpg" class="thumb"></a>
-          <a href="illustration_c.html"><img src="images/happiness.jpg" class="thumb"></a>
+          <a href="illustration_a.html"><img src="images/families.jpg" class="thumb" alt="Family proclamation illustration of Joseon era families living according to the doctrine on the family taught in the Church of Jesus Christ of Latter-day Saints (LDS)"></a>
+          <a href="illustration_b.html"><img src="images/daughter.jpg" class="thumb" alt="A Joseon era young woman sitting on the ground with her knees drawn towards her and her head and arms on her knees as she cries in deep sorrow, a depiction in front of the Seoul Korea Temple of the Church of Jesus Christ of Latter-day Saints (LDS)"></a>
+          <a href="illustration_c.html"><img src="images/happiness.jpg" class="thumb" alt="An illustration of Jesus Christ with His arms extended and His palms facing up with the print marks of the nails visible as He stands in front of the Seoul Korea Temple of the Church of Jesus Christ of Latter-day Saints (LDS)"></a>
         </div>
       </div>
     </main>
@@ -253,10 +280,10 @@ main {
       hamburger.classList.toggle("open");
     }
     function toggleSubmenu(el) {
-  el.classList.toggle("open");
-  const submenu = el.nextElementSibling;
-  submenu.classList.toggle("open");
-}
+      el.classList.toggle("open");
+      const submenu = el.nextElementSibling;
+      submenu.classList.toggle("open");
+    }
   </script>
   <script>
     if ('serviceWorker' in navigator) {
