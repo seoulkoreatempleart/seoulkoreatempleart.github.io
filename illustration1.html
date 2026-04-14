@@ -64,6 +64,122 @@
   margin-block-end: 0;
  }
     
+h2 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #5A5352;
+  max-width: 680px;
+  margin: 0 auto 16px auto;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* ---------- MOBILE MENU BUTTON ---------- */
+.mobile-menu-button {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background-color: #8F7A68;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+/* ---------- DROPDOWN ---------- */
+.mobile-dropdown {
+  display: flex;
+  flex-direction: column;
+  background-color: #fbf7f4;
+  border: none;
+  border-radius: 0 0 4px 4px;
+  max-width: 220px;
+  position: absolute;
+  top: 100%;
+  left: 12px;
+  margin: 10px 0 20px 12px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.35s ease;
+  box-shadow: none;
+}
+
+.mobile-dropdown.open {
+  max-height: 360px;
+  opacity: 1;
+}
+
+.mobile-dropdown a {
+  padding: 14px 18px;
+  border-bottom: 1px solid #e4dcd5;
+  text-decoration: none;
+  color: #6d5a4a;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-align: left;
+}
+
+.mobile-dropdown a:last-child {
+  border-bottom: none;
+}
+
+.dropdown-parent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid #e4dcd5;
+  cursor: pointer;
+  color: #6d5a4a;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+  font-size: 1.1rem;
+  color: #8F7A68;
+}
+
+.dropdown-parent.open .chevron {
+  transform: rotate(90deg);
+}
+
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  background-color: #faf5f1;
+}
+
+.submenu.open {
+  max-height: 200px;
+}
+
+.submenu a {
+  padding-left: 30px;
+  font-size: 0.85rem;
+  text-align: left;
+  display: block;
+}
+    
     .illustration-img {
       width: 90%;
       max-width: 700px;
@@ -114,8 +230,30 @@
 <body>
 
   <div class="content-container">
+<header class="simple-header">
+  <h1>Temple and Family History Art</h1>
 
-    <h1>Joseon Couple Sealing</h1>
+  <div class="mobile-menu-button" onclick="toggleMenu()" aria-label="Open menu">
+    <div class="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <div class="mobile-dropdown" id="dropdownMenu">
+    <a href="index.html">Home</a>
+    <div class="dropdown-parent" onclick="toggleSubmenu(this)">
+      <span>Art &amp; Doctrine</span>
+      <span class="chevron">›</span>
+    </div>
+    <div class="submenu">
+      <a href="templeandfamilyhistory.html">Temple and Family History</a>
+      <a href="familyproclamation.html">The Family Proclamation</a>
+    </div>
+    <a href="christianreflections.html">Christian Reflections</a>
+    <a href="about.html">About &amp; Contact</a>
+  </div>
+</header>
+    <h2>Joseon Couple Sealing</h2>
 
     <img src="images/sealing_joseon_couple.jpg"
          alt="Joseon Couple Sealing Illustration"
@@ -129,6 +267,20 @@
     <a class="back-link" href="templeandfamilyhistory.html">← Back to Temple and Family History</a>
 
   </div>
-
+  
+<script>
+function toggleMenu() {
+  const dropdown = document.getElementById("dropdownMenu");
+  const hamburger = document.querySelector(".hamburger");
+  dropdown.classList.toggle("open");
+  hamburger.classList.toggle("open");
+}
+function toggleSubmenu(el) {
+  el.classList.toggle("open");
+  const submenu = el.nextElementSibling;
+  submenu.classList.toggle("open");
+}
+</script>
+  
 </body>
 </html>
