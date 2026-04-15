@@ -1,130 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- 
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XWDW740XQY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-XWDW740XQY');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XWDW740XQY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XWDW740XQY');
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Daughter of God – Seoul Korea Temple Art</title>
+  <title>A Daughter of God – Seoul Korea Temple Art</title>
+  <meta name="description" content="Discover an original illustration of a young Joseon woman in sorrow and earnest prayer outside the Seoul Temple. Christian art.">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
 
   <style>
+    /* ---------- BASE ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #F5E8E0;
-      color: #4A2E2A;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background-color: #F5E8E0;
+      color: #5A5352;
+      animation: pageDrop 0.6s ease;
     }
 
+    @keyframes pageDrop {
+      from { opacity: 0; transform: translateY(-12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .page-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    /* ---------- HEADER ---------- */
+    .simple-header {
+      position: relative;
+      background-color: #E6D7CE;
+      padding: 20px 20px 7px;
+      text-align: center;
+      border-bottom: 2px solid #D8CFC7;
+      color: #5A5352;
+      letter-spacing: 1px;
+      width: 100%;
+    }
+
+    .simple-header h1 {
+      font-family: Georgia, serif;
+      font-size: 1.1rem;
+      font-weight: normal;
+      margin: 0 0 10px 0;
+      letter-spacing: 0.5px;
+      /* Keep text away from hamburger on left */
+      padding: 0 0 0 15px;
+    }
+
+    /* ---------- MOBILE MENU BUTTON ---------- */
+    .mobile-menu-button {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 18px;
+      height: 1.5px;
+      background-color: #8F7A68;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.2s ease;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+    /* ---------- DROPDOWN ---------- */
+    .mobile-dropdown {
+      display: flex;
+      flex-direction: column;
+      background-color: #fbf7f4;
+      border: none;
+      border-radius: 0 0 4px 4px;
+      max-width: 220px;
+      position: absolute;
+      top: 100%;
+      left: 12px;
+      margin: 10px 0 20px 12px;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.35s ease;
+      box-shadow: none;
+      z-index: 100;
+    }
+
+    .mobile-dropdown.open { max-height: 360px; opacity: 1; }
+
+    .mobile-dropdown a {
+      padding: 14px 18px;
+      border-bottom: 1px solid #e4dcd5;
+      text-decoration: none;
+      color: #6d5a4a;
+      font-size: 0.9rem;
+      font-weight: 400;
+      text-align: left;
+    }
+
+    .mobile-dropdown a:last-child { border-bottom: none; }
+
+    .dropdown-parent {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 18px;
+      border-bottom: 1px solid #e4dcd5;
+      cursor: pointer;
+      color: #6d5a4a;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    .chevron {
+      transition: transform 0.3s ease;
+      font-size: 1.1rem;
+      color: #8F7A68;
+    }
+
+    .dropdown-parent.open .chevron { transform: rotate(90deg); }
+
+    .submenu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+      background-color: #faf5f1;
+    }
+
+    .submenu.open { max-height: 200px; }
+
+    .submenu a {
+      padding-left: 30px;
+      font-size: 0.85rem;
+      text-align: left;
+      display: block;
+    }
+
+    /* ---------- CONTENT ---------- */
     .content-container {
       max-width: 800px;
       width: 100%;
-      padding: 20px;
+      padding: 28px 20px 40px;
+      margin: 0 auto;
       text-align: center;
       animation: fadeIn 0.8s ease-out;
-      margin-top: 40px;
     }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
+    h2 {
+      font-family: Georgia, serif;
+      font-size: 1.1rem;
+      font-weight: normal;
+      color: #5A5352;
+      max-width: 680px;
+      margin: 0 auto 20px auto;
+      line-height: 1.6;
+      text-align: center;
     }
-
-@media (min-width: 768px) {
-  h1 {
-    font-size: 1.6rem;  /* tablet */
-  }
-}
-
-@media (min-width: 1024px) {
-  h1 {
-    font-size: 1.4rem;  /* desktop */
-  }
-}
 
     .illustration-img {
       width: 90%;
       max-width: 700px;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.18);
-      margin-bottom: 25px;
+      margin-bottom: 22px;
     }
 
     @media (min-width: 768px) {
-  .illustration-img {
-    width: 45%;
-    max-width: 420px;
-  }
-}
-
-    .blurb {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  max-width: 700px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  width: 100%;
-  padding: 0 30px;
-}
-
-    @media (min-width: 1024px) {
-  .blurb {
-    font-size: 0.95rem;
-  }
-}
-
-    .back-link {
-      margin-top: 30px;
-      display: inline-block;
-      padding: 12px 20px;
-      background: #E4D5CC;
-      border-radius: 8px;
-      text-decoration: none;
-      color: #4A2E2A;
-      transition: background 0.3s;
+      .illustration-img {
+        width: 45%;
+        max-width: 420px;
+      }
     }
 
-    .back-link:hover {
-      background: #D8C3B9;
+    .blurb {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      max-width: 680px;
+      margin: 0 auto 32px auto;
+      color: #5A5352;
+    }
+
+    .blurb p {
+      margin: 0 0 10px 0;
+    }
+
+    /* ---------- PREV / NEXT NAV ---------- */
+.illustration-nav {
+  gap: 50px;          /* was 12px — more space between buttons */
+  max-width: 600px;
+  margin: 0 auto 32px auto;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.nav-btn {
+  flex: 1;
+  max-width: 220px;   /* caps button width on tablet/desktop */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 3.5px;  /* was 12px 16px — less chunky */
+  background: #faf5f1;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #4A2E2A;
+  transition: background 0.25s;
+  gap: 4px;
+  min-width: 0;
+}
+
+    .nav-btn:hover { background: #D8C3B9; }
+
+    .nav-arrow {
+      font-size: 1.1rem;
+      color: #8F7A68;
+      line-height: 1;
+    }
+
+    .nav-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8F7A68;
+    }
+
+    .nav-title {
+      font-size: 0.8rem;
+      color: #7f7062;
+      line-height: 1.3;
+      text-align: center;
+    }
+
+    /* ---------- BACK LINK ---------- */
+    .back-link {
+      display: inline-block;
+      text-decoration: none;
+      color: #8F7A68;
+      font-size: 0.82rem;
+      margin-bottom: 40px;
+    }
+    
+    .back-link:hover { background: #D8C3B9; }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: #E6D7CE;
+      color: #5A5352;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      border-top: 2px solid #D8CFC7;
+      width: 100%;
     }
   </style>
 </head>
 
 <body>
+<div class="page-wrapper">
 
-  <div class="content-container">
+  <header class="simple-header">
+    <h1>The Family Proclamation Art</h1>
 
-    <h1>Daughter of God</h1>
-
-    <img src="images/daughter.jpg"
-         alt="Joseon Young Woman in Sorrow Outside the Seoul Korea Temple Illustration"
-         class="illustration-img">
-
-    <div class="blurb">
-  <p>
-      A Joseon era woman in deep sorrow outside the Seoul Korea Temple.
-    </p>
-<p>"[C]reated in the image of God...a beloved spirit...daughter of heavenly parents, and...has a divine nature and destiny. ...[S]he knew and worshipped God as [her] Eternal Father and accepted His plan by which [she] could obtain a physical body and gain earthly experience to progress toward perfection and ultimately realize [her] divine destiny as [an] heir[] of eternal life."</p> 
+    <div class="mobile-menu-button" onclick="toggleMenu()" aria-label="Open menu">
+      <div class="hamburger">
+        <span></span><span></span><span></span>
+      </div>
     </div>
-    <a class="back-link" href="familyproclamation.html">← Back to The Family Proclamation</a>
 
-  </div>
+    <div class="mobile-dropdown" id="dropdownMenu">
+      <a href="index.html">Home</a>
+      <div class="dropdown-parent" onclick="toggleSubmenu(this)">
+        <span>Art &amp; Doctrine</span>
+        <span class="chevron">›</span>
+      </div>
+      <div class="submenu">
+        <a href="templeandfamilyhistory.html">Temple and Family History</a>
+        <a href="familyproclamation.html">The Family Proclamation</a>
+      </div>
+      <a href="christianreflections.html">Christian Reflections</a>
+      <a href="about.html">About &amp; Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="content-container">
+
+      <h2>A Daughter of God</h2>
+
+      <img src="images/daughter.jpg"
+         alt="A young Joseon era woman sits on the grass in front of the temple with her knees up to her chest and arms folded on top and head down crying her heart out. Jesus stands nearby with arms outstretched."
+         class="illustration-img">
+       
+      <div class="blurb">
+ <p>In times of deep distress, our divine identity can be a source of strength. Difficult times refine us to make us spiritually strong like our Heavenly Parents.</p>
+ <p>"All human beings—male and female—are created in the image of God. Each is a beloved spirit son or daughter of heavenly parents, and, as such, each has a divine nature and destiny.”<em> The Family Proclamation</em>
+</p>
+ </div>
+
+      <!-- Previous / Next navigation -->
+      <nav class="illustration-nav" aria-label="Illustration navigation">
+        <!-- No previous for illustration 1; hide or link back to gallery -->
+        <a class="nav-btn" href="illustration_a.html" aria-label="Joseon Families Live the Proclamation">
+          <span class="nav-label">← Previous</span>
+          <span class="nav-title">Joseon Familes Live the Proclamation</span>
+        </a>
+        <a class="nav-btn" href="illustration_c.html" aria-label="Next illustration: Happinessnin Christ">
+          <span class="nav-label">Next →</span>
+          <span class="nav-title">Happiness in Christ</span>
+        </a>
+      </nav>
+
+      <a class="back-link" href="templeandfamilyhistory.html">← Back to The Family Proclamation Gallery</a>
+
+    </div>
+  </main>
+
+  <footer>© Seoul Korea Temple Art</footer>
+
+</div>
+
+<script>
+  function toggleMenu() {
+    const dropdown = document.getElementById("dropdownMenu");
+    const hamburger = document.querySelector(".hamburger");
+    dropdown.classList.toggle("open");
+    hamburger.classList.toggle("open");
+  }
+  function toggleSubmenu(el) {
+    el.classList.toggle("open");
+    el.nextElementSibling.classList.toggle("open");
+  }
+</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js');
+  }
+</script>
 
 </body>
-</html>
+ </html>
