@@ -1,5 +1,5 @@
-const PAGE_CACHE = 'temple-art-pages-v2';
-const MEDIA_CACHE = 'temple-art-media-v2';
+const PAGE_CACHE = 'temple-art-pages-v3';
+const MEDIA_CACHE = 'temple-art-media-v3';
 
 const PRECACHE_PAGES = [
   '/',
@@ -20,7 +20,13 @@ const MAX_MEDIA_ITEMS = 120;
 self.addEventListener('install', event => {
   self.skipWaiting();
   event.waitUntil(
-    caches.open(PAGE_CACHE).then(cache => cache.addAll(PRECACHE_PAGES))
+    caches.open(PAGE_CACHE).then(cache =>
+      Promise.allSettled(
+        PRECACHE_PAGES.map(url =>
+          cache.add(url).catch(err => console.warn('Precache failed for:', url, err))
+        )
+      )
+    )
   );
 });
 
