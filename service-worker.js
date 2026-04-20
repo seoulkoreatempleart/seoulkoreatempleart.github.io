@@ -4,9 +4,9 @@ const MEDIA_CACHE = 'temple-art-media-v2';
 const PRECACHE_PAGES = [
   '/',
   '/index.html',
-  '/illustrations.html',
-  '/paintings.html',
-  '/musings.html',
+  '/templeandfamilyhistory.html',
+  '/familyproclamation.html',
+  '/christianreflections.html',
   '/about.html',
   '/favicon-32.png',
   '/favicon-180.png',
