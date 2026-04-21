@@ -37,9 +37,8 @@ body {
 
 /* ---------- HEADER ---------- */
 .simple-header {
-  position: relative;
   background-color: #E6D7CE;
-  padding: 20px 20px 7px;
+  padding: 18px 20px 0px;
   text-align: center;
   border-bottom: 2px solid #D8CFC7;
   color: #5A5352;
@@ -78,6 +77,89 @@ h2 {
   margin-top: 35px;
   margin-bottom: 0px;
   letter-spacing: 0.5px;
+}
+
+/* ---------- VISIBLE NAV BAR (replaces hamburger) ---------- */
+.site-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  background-color: #E6D7CE;
+  border-top: 1px solid #D8CFC7;
+}
+
+.site-nav a,
+.site-nav .nav-dropdown-btn {
+  display: inline-block;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  color: #6d5a4a;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.2s, background-color 0.2s;
+  cursor: pointer;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  white-space: nowrap;
+}
+
+.site-nav a:hover,
+.site-nav .nav-dropdown-btn:hover {
+  background-color: #ddd0c6;
+  border-bottom-color: #8F7A68;
+}
+
+.site-nav a.active {
+  border-bottom-color: #8F7A68;
+  font-weight: 600;
+  color: #5A5352;
+}
+
+/* Dropdown for "Art & Doctrine" */
+.nav-dropdown-wrap {
+  position: relative;
+}
+
+.nav-dropdown-panel {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fbf7f4;
+  border: 1px solid #D8CFC7;
+  border-radius: 0 0 8px 8px;
+  min-width: 210px;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.nav-dropdown-wrap:hover .nav-dropdown-panel,
+.nav-dropdown-wrap:focus-within .nav-dropdown-panel {
+  display: block;
+}
+
+.nav-dropdown-panel a {
+  display: block;
+  padding: 11px 18px;
+  font-size: 0.85rem;
+  color: #6d5a4a;
+  text-decoration: none;
+  border-bottom: 1px solid #e4dcd5;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+.nav-dropdown-panel a:last-child {
+  border-bottom: none;
+}
+
+.nav-dropdown-panel a:hover {
+  background-color: #f0e8e2;
 }
 
 /* ---------- CONTENT ---------- */
@@ -134,71 +216,6 @@ main {
   flex: 1;
 }
 
-/* ---------- LIGHTBOX ---------- */
-.lightbox-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.78);
-  z-index: 1000;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.lightbox-overlay.active {
-  display: flex;
-}
-
-.lightbox-box {
-  position: relative;
-  max-width: 90vw;
-  max-height: 90vh;
-  text-align: center;
-}
-
-.lightbox-box img {
-  max-width: 100%;
-  max-height: 80vh;
-  border-radius: 10px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-  display: block;
-  margin: 0 auto;
-}
-
-.lightbox-caption {
-  color: #f0e8e2;
-  font-size: 0.9rem;
-  margin-top: 12px;
-  font-family: Georgia, serif;
-  letter-spacing: 0.3px;
-}
-
-.lightbox-close {
-  position: absolute;
-  top: -16px;
-  right: -16px;
-  width: 36px;
-  height: 36px;
-  background: #E6D7CE;
-  border: none;
-  border-radius: 50%;
-  font-size: 1.2rem;
-  color: #5A5352;
-  cursor: pointer;
-  line-height: 36px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-}
-
-.lightbox-close:hover {
-  background: #D8CFC7;
-}
-
-.lb-thumb {
-  cursor: zoom-in;
-}
-
 </style>
 </head>
 
@@ -208,27 +225,24 @@ main {
 <header class="simple-header">
   <h1>Seoul Korea Temple Art</h1>
 
-  <!-- HAMBURGER MENU — kept as-is, but with "Menu" label for clarity -->
-  <div class="mobile-menu-button" onclick="toggleMenu()" aria-label="Open menu">
-    <div class="hamburger" id="hamburgerIcon">
-      <span></span><span></span><span></span>
-    </div>
-    <div style="font-size:0.65rem; color:#8F7A68; margin-top:2px; letter-spacing:0.5px;">Menu</div>
-  </div>
-
-  <div class="mobile-dropdown" id="dropdownMenu">
+  <!-- VISIBLE NAVIGATION BAR — replaces hamburger -->
+  <nav class="site-nav" aria-label="Main navigation">
     <a href="index.html">Home</a>
-    <div class="dropdown-parent" onclick="toggleSubmenu(this)">
-      <span>Art &amp; Doctrine</span>
-      <span class="chevron">›</span>
+
+    <!-- Dropdown for Art & Doctrine -->
+    <div class="nav-dropdown-wrap">
+      <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleArtDropdown(this)">
+        Art &amp; Doctrine ▾
+      </button>
+      <div class="nav-dropdown-panel" id="artDropdown">
+        <a href="templeandfamilyhistory.html">Temple and Family History</a>
+        <a href="familyproclamation.html">The Family Proclamation</a>
+      </div>
     </div>
-    <div class="submenu">
-      <a href="templeandfamilyhistory.html">Temple and Family History</a>
-      <a href="familyproclamation.html">The Family Proclamation</a>
-    </div>
+
     <a href="christianreflections.html">Christian Reflections</a>
-    <a href="about.html">About &amp; Contact</a>
-  </div>
+    <a href="about.html" class="active">About &amp; Contact</a>
+  </nav>
 </header>
 
 <main>
@@ -258,30 +272,26 @@ main {
 <!-- PAIR 1 -->
 <div class="section" style="display:flex; gap:16px; flex-wrap:wrap; justify-content:center; margin-top:8px;">
   <div style="flex:1; min-width:45%; max-width:260px; text-align:center;">
-    <img src="images/joseon-couple-sealing.webp" alt="Joseon Couple Sealing"
-         class="lb-thumb"
-         onclick="openLightbox('images/joseon-couple-sealing.webp','Joseon Couple Sealing')"
+    <a href="joseon-couple-sealing.html"><img src="images/joseon-couple-sealing.webp" alt="Joseon Couple Sealing"
          style="width:100%; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.12); margin-bottom:10px;">
+    </a>
     <p style="margin:6px 0; font-size:0.9rem; color:#5A5352;">Joseon Couple Sealing</p>
-    <p style="margin:0 0 6px; font-size:0.8rem; color:#8F7A68; font-style:italic;">Digital Print | 5×7in</p>
-    <p style="margin:0 0 10px;"><a href="joseon-couple-sealing.html" style="font-size:0.8rem; color:#8F7A68;">Read the story →</a></p>
+    <p style="margin:0 0 10px; font-size:0.8rem; color:#8F7A68; font-style:italic;">Digital Print | 5×7in</p>
     <a href="https://seoulkoreatempleart.gumroad.com/l/nrzjec?wanted=true"
-       target="_blank" rel="noopener noreferrer"
+   target="_blank" rel="noopener noreferrer"
        style="display:inline-block; background:#8F7A68; color:#fff; padding:8px 16px;
-              border-radius:20px; text-decoration:none; font-size:0.85rem;">Buy</a>
+              border-radius:20px; text-decoration:none; font-size:0.85rem;">Acquire</a>
   </div>
   <div style="flex:1; min-width:45%; max-width:260px; text-align:center;">
-    <img src="images/joseon-family-waits.webp" alt="Joseon Family Waits"
-         class="lb-thumb"
-         onclick="openLightbox('images/joseon-family-waits.webp','Joseon Family Waits')"
+    <a href="joseon-family-waits.html"><img src="images/joseon-family-waits.webp" alt="Joseon Family Waits"
          style="width:100%; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.12); margin-bottom:10px;">
+    </a>
     <p style="margin:6px 0; font-size:0.9rem; color:#5A5352;">Joseon Family Waits</p>
-    <p style="margin:0 0 6px; font-size:0.8rem; color:#8F7A68; font-style:italic;">Digital Print | 5×7in</p>
-    <p style="margin:0 0 10px;"><a href="joseon-family-waits.html" style="font-size:0.8rem; color:#8F7A68;">Read the story →</a></p>
+    <p style="margin:0 0 10px; font-size:0.8rem; color:#8F7A68; font-style:italic;">Digital Print | 5×7in</p>
     <a href="https://seoulkoreatempleart.gumroad.com/l/xaejt?wanted=true"
-       target="_blank" rel="noopener noreferrer"
+   target="_blank" rel="noopener noreferrer"
        style="display:inline-block; background:#8F7A68; color:#fff; padding:8px 16px;
-              border-radius:20px; text-decoration:none; font-size:0.85rem;">Buy</a>
+              border-radius:20px; text-decoration:none; font-size:0.85rem;">Acquire</a>
   </div>
 </div>
 
@@ -290,37 +300,33 @@ main {
   <p style="font-size:0.9rem; color:#5A5352; margin: 0 0 10px 0;">🎁 2 for 1 Bundle</p>
   <a href="https://seoulkoreatempleart.gumroad.com/l/lxtcef?wanted=true" target="_blank" rel="noopener noreferrer"
     style="display:inline-block; background:#8F7A68; color:#fff; padding:8px 16px;
-       border-radius:20px; text-decoration:none; font-size:0.85rem;">Buy</a>
+       border-radius:20px; text-decoration:none; font-size:0.85rem;">Acquire</a>
 
 </div>
 
 <!-- PAIR 2 -->
 <div class="section" style="display:flex; gap:16px; flex-wrap:wrap; justify-content:center; margin-top:20px;">
   <div style="flex:1; min-width:45%; max-width:260px; text-align:center;">
-    <img src="images/joseon-families-rejoice.webp" alt="Three Joseon era families celebrate their temple ordinances."
-         class="lb-thumb"
-         onclick="openLightbox('images/joseon-families-rejoice.webp','Joseon Families Rejoice')"
+    <a href="joseon-families-rejoice.html"><img src="images/joseon-families-rejoice.webp" alt="Three Joseon era families celebrate their temple ordinances."
          style="width:100%; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.12); margin-bottom:10px;">
+    </a>
     <p style="margin:6px 0; font-size:0.9rem; color:#5A5352;">Joseon Families Rejoice</p>
-    <p style="margin:0 0 6px; font-size:0.8rem; color:#8F7A68; font-style:italic;">Digital Print | 8×10in</p>
-    <p style="margin:0 0 10px;"><a href="joseon-families-rejoice.html" style="font-size:0.8rem; color:#8F7A68;">Read the story →</a></p>
+    <p style="margin:0 0 10px; font-size:0.8rem; color:#8F7A68; font-style:italic;">Digital Print | 8×10in</p>
     <a href="https://seoulkoreatempleart.gumroad.com/l/plofu?wanted=true"
-       target="_blank" rel="noopener noreferrer"
+   target="_blank" rel="noopener noreferrer"
        style="display:inline-block; background:#8F7A68; color:#fff; padding:8px 16px;
-              border-radius:20px; text-decoration:none; font-size:0.85rem;">Buy</a>
+              border-radius:20px; text-decoration:none; font-size:0.85rem;">Acquire</a>
   </div>
   <div style="flex:1; min-width:45%; max-width:260px; text-align:center;">
-    <img src="images/joseon-couple-music.webp" alt="A Joseon era couple playing traditional Korean instruments."
-         class="lb-thumb"
-         onclick="openLightbox('images/joseon-couple-music.webp','Joseon Praise &amp; Gratitude')"
+    <a href="joseon-couple-music.html"><img src="images/joseon-couple-music.webp" alt="A Joseon era couple playing traditional Korean instruments."
          style="width:100%; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.12); margin-bottom:10px;">
+    </a>
     <p style="margin:6px 0; font-size:0.9rem; color:#5A5352;">Joseon Praise & Gratitude</p>
-    <p style="margin:0 0 6px; font-size:0.8rem; color:#8F7A68; font-style:italic;">Digital Print | 6.5x5.5in</p>
-    <p style="margin:0 0 10px;"><a href="joseon-couple-music.html" style="font-size:0.8rem; color:#8F7A68;">Read the story →</a></p>
+    <p style="margin:0 0 10px; font-size:0.8rem; color:#8F7A68; font-style:italic;">Digital Print | 6.5x5.5in</p>
     <a href="https://seoulkoreatempleart.gumroad.com/l/lwmwn?wanted=true"
-       target="_blank" rel="noopener noreferrer"
+   target="_blank" rel="noopener noreferrer"
        style="display:inline-block; background:#8F7A68; color:#fff; padding:8px 16px;
-              border-radius:20px; text-decoration:none; font-size:0.85rem;">Buy</a>
+              border-radius:20px; text-decoration:none; font-size:0.85rem;">Acquire</a>
   </div>
 </div>
 
@@ -329,37 +335,33 @@ main {
   <p style="font-size:0.9rem; color:#5A5352; margin:0 0 10px 0;">🎁 2 for 1 Bundle</p>
   <a href="https://seoulkoreatempleart.gumroad.com/l/ujcesb?wanted=true" target="_blank" rel="noopener noreferrer"
      style="display:inline-block; background:#8F7A68; color:#fff; padding:8px 16px;
-       border-radius:20px; text-decoration:none; font-size:0.85rem;">Buy</a>
+       border-radius:20px; text-decoration:none; font-size:0.85rem;">Acquire</a>
 
 </div>
 
 <!-- PAIR 3 -->
 <div class="section" style="display:flex; gap:16px; flex-wrap:wrap; justify-content:center; margin-top:20px;">
   <div style="flex:1; min-width:45%; max-width:260px; text-align:center;">
-    <img src="images/joseon-divine-daughter.webp" alt="A young woman from the Joseon dynasty weeps deeply while sitting on the lawn of the Seoul Korea Temple."
-         class="lb-thumb"
-         onclick="openLightbox('images/joseon-divine-daughter.webp','A Daughter of God')"
+    <a href="joseon-divine-daughter.html"><img src="images/joseon-divine-daughter.webp" alt="A young woman from the Joseon dynasty weeps deeply while sitting on the lawn of the Seoul Korea Temple."
          style="width:100%; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.12); margin-bottom:10px;">
+    </a>
     <p style="margin:6px 0; font-size:0.9rem; color:#5A5352;">A Daughter of God</p>
-    <p style="margin:0 0 6px; font-size:0.8rem; color:#8F7A68; font-style:italic;">Digital Print | 5×7in</p>
-    <p style="margin:0 0 10px;"><a href="joseon-divine-daughter.html" style="font-size:0.8rem; color:#8F7A68;">Read the story →</a></p>
+    <p style="margin:0 0 10px; font-size:0.8rem; color:#8F7A68; font-style:italic;">Digital Print | 5×7in</p>
     <a href="https://seoulkoreatempleart.gumroad.com/l/hjsiat?wanted=true"
-       target="_blank" rel="noopener noreferrer"
+   target="_blank" rel="noopener noreferrer"
        style="display:inline-block; background:#8F7A68; color:#fff; padding:8px 16px;
-              border-radius:20px; text-decoration:none; font-size:0.85rem;">Buy</a>
+              border-radius:20px; text-decoration:none; font-size:0.85rem;">Acquire</a>
   </div>
   <div style="flex:1; min-width:45%; max-width:260px; text-align:center;">
-    <img src="images/happiness-jesus-temple.webp" alt="The Resurrected Jesus Christ stands in front of the Seoul Korea Temple."
-         class="lb-thumb"
-         onclick="openLightbox('images/happiness-jesus-temple.webp','Happiness in Jesus Christ')"
+    <a href="happiness-jesus-temple.html"><img src="images/happiness-jesus-temple.webp" alt="The Resurrected Jesus Christ stands in front of the Seoul Korea Temple."
          style="width:100%; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.12); margin-bottom:10px;">
+    </a>
     <p style="margin:6px 0; font-size:0.9rem; color:#5A5352;">Happiness in Jesus Christ</p>
-    <p style="margin:0 0 6px; font-size:0.8rem; color:#8F7A68; font-style:italic;">Digital Print | 6x9in</p>
-    <p style="margin:0 0 10px;"><a href="happiness-jesus-temple.html" style="font-size:0.8rem; color:#8F7A68;">Read the story →</a></p>
+    <p style="margin:0 0 10px; font-size:0.8rem; color:#8F7A68; font-style:italic;">Digital Print | 6x9in</p>
     <a href="https://seoulkoreatempleart.gumroad.com/l/rycbl?wanted=true"
-       target="_blank" rel="noopener noreferrer"
+   target="_blank" rel="noopener noreferrer"
        style="display:inline-block; background:#8F7A68; color:#fff; padding:8px 16px;
-              border-radius:20px; text-decoration:none; font-size:0.85rem;">Buy</a>
+              border-radius:20px; text-decoration:none; font-size:0.85rem;">Acquire</a>
   </div>
 </div>
 
@@ -369,7 +371,7 @@ main {
   <a href="https://seoulkoreatempleart.gumroad.com/l/flnsvx?wanted=true" 
     target="_blank" rel="noopener noreferrer"
      style="display:inline-block; background:#8F7A68; color:#fff; padding:8px 16px;
-       border-radius:20px; text-decoration:none; font-size:0.85rem;">Buy</a>
+       border-radius:20px; text-decoration:none; font-size:0.85rem;">Acquire</a>
 
 </div>
 
@@ -384,51 +386,21 @@ main {
 
 <footer>© Seoul Korea Temple Art</footer>
 
-<!-- LIGHTBOX OVERLAY -->
-<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
-  <div class="lightbox-box">
-    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
-    <img id="lightbox-img" src="" alt="">
-    <div class="lightbox-caption" id="lightbox-caption"></div>
-  </div>
-</div>
-
 <script>
-function openLightbox(src, alt) {
-  document.getElementById("lightbox-img").src = src;
-  document.getElementById("lightbox-img").alt = alt;
-  document.getElementById("lightbox-caption").textContent = alt;
-  document.getElementById("lightbox").classList.add("active");
-  document.body.style.overflow = "hidden";
+function toggleArtDropdown(btn) {
+  const panel = document.getElementById("artDropdown");
+  const isOpen = panel.style.display === "block";
+  panel.style.display = isOpen ? "none" : "block";
+  btn.setAttribute("aria-expanded", !isOpen);
 }
 
-function closeLightbox(e) {
-  // Close if clicking the dark backdrop, the X button, or called directly
-  if (!e || e.target === document.getElementById("lightbox") || e.currentTarget.classList.contains("lightbox-close")) {
-    document.getElementById("lightbox").classList.remove("active");
-    document.body.style.overflow = "";
+// Close dropdown if clicking outside
+document.addEventListener("click", function(e) {
+  const wrap = document.querySelector(".nav-dropdown-wrap");
+  if (!wrap.contains(e.target)) {
+    document.getElementById("artDropdown").style.display = "none";
   }
-}
-
-// Also close on Escape key
-document.addEventListener("keydown", function(e) {
-  if (e.key === "Escape") closeLightbox();
 });
-</script>
-
-<script>
-function toggleMenu() {
-  const dropdown = document.getElementById("dropdownMenu");
-  const hamburger = document.querySelector(".hamburger");
-
-  dropdown.classList.toggle("open");
-  hamburger.classList.toggle("open");
-}
-  function toggleSubmenu(el) {
-  el.classList.toggle("open");
-  const submenu = el.nextElementSibling;
-  submenu.classList.toggle("open");
-}
 </script>
    
 <script>
@@ -439,4 +411,3 @@ if ('serviceWorker' in navigator) {
 
 </body>
 </html>
-
